@@ -6,7 +6,7 @@ This repository contains all of the libraries and scripts used at the JQI to tur
 
 Clone the repository somewhere on your machine. Then, open Eagle, and from the Eagle Control Panel, select `Options -> Directories`. Add the apropriate paths to your environemnt variables, eg, 
 
-    $EAGLEDIR/libr:/path/to/lbr-jqi
+    $EAGLEDIR/lbr:/path/to/lbr-jqi
 
 Repeat for the design rules, scripts, ULPs, etc.
 
