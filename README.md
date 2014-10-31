@@ -1,4 +1,4 @@
-# JQI Eagle Repository
+# JQI Eagle Configuration Repository
 
 This repository contains all of the libraries and scripts used at the JQI to turbo-charge your Eagle!
 
