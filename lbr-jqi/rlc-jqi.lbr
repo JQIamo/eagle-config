@@ -258,6 +258,8 @@
 <wire x1="1.27" y1="0" x2="2.54" y2="0" width="0.1524" layer="94" curve="-270"/>
 <pin name="P$1" x="-3.81" y="0" visible="off" length="point" direction="pas"/>
 <pin name="P$2" x="3.81" y="0" visible="off" length="point" direction="pas"/>
+<text x="-2.54" y="2.54" size="1.27" layer="95">&gt;NAME</text>
+<text x="-2.54" y="-2.54" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
