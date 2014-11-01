@@ -1,0 +1,23 @@
+# Command Menu Setup
+#
+# This is an example that shows how to set up a complex command menu,
+# including submenus and command aliases. To display the command menu in
+# the editor windows you have to activate the option 'Command texts'
+# in the 'Options/User Interface' menu.
+
+MENU 'junctions : run addjunctions; script ./dontexecute.scr'\
+	'Add attribute:run attrib-add;'\
+	'Show Group:run showgroup_v1.0;'\
+	'Dangerous {\
+		Renumber:run renumber-sch;|\
+		Duplicate:script duplicate.scr;\
+		}'\ 	
+	'Find:run find'\
+	'BOM:run bom_w_attr_v1.03'\
+	'Add {\
+		C:add C_MLCC_SMD*@qkdlab_Josh_passives|\
+		R:add R_SMD*@qkdlab_Josh_passives|\
+		GND:add GND@supply1\	
+		}'\ 
+		
+     ;

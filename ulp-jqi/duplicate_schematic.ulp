@@ -1,0 +1,208 @@
+/*********************************************************
+   This EAGLE User Language Program duplicate a portion of a 
+   schematic delimited within two markers:
+   MRK_DOWN_LEFT and MRK_UP_RIGHT (two added components),
+   the numbers of modules should assigned to the value of
+   NBR_MOD component.
+ 
+   Author: Maurice SAAB (Lebanon) morisaab@yahoo.fr
+   Version: 4.5
+***********************************************************/
+int nb_sig_cmn=0;
+string cmn_sig[];
+
+/***** edit this parameters according to your need **********************/ 
+int   same_page=1;   /* 1=same_page,  0=multi-pages  */
+int   start_page=2;  /* number of first page if same_page=0, */
+int   autoexec=1;    /* 1 for autoexecuting the script, 0 for just generating it  */
+string scr_path="\\\\elwood.nist.gov\\699\\users\\arestell\\My Documents\\eagle\\scr\\";
+cmn_sig[nb_sig_cmn++]="VSS";   /* common signal for all modules, if any */
+cmn_sig[nb_sig_cmn++]="VDD";   /* common signal for all modules, if any */
+cmn_sig[nb_sig_cmn++]="GND";   /* common signal for all modules, if any */
+cmn_sig[nb_sig_cmn++]="VCC";   /* common signal for all modules, if any */
+cmn_sig[nb_sig_cmn++]="VCC_HV_BIAS";                                  /* add more common signals here */
+cmn_sig[nb_sig_cmn++]="3V3";
+cmn_sig[nb_sig_cmn++]="+5V";
+cmn_sig[nb_sig_cmn++]="-5V";
+/*****************************************************************/
+
+string suffix="999";
+int HORZ=0;
+int VERT=1;
+int direction;
+int i,k,cmn,nbr_modules,no_page;
+
+real GridDist = .00001; // in Mil, can be changed to other values
+real xx1,yy1,xx2,yy2,wid,dia,dril,dx,dy,size,ang;
+int corner_down_left_x=0,corner_down_left_y=0;
+int corner_up_right_x=0,corner_up_right_y=0;
+real deltax=0,deltay=0;
+int first=0,dir=1,sheetOfInterest=0;
+string dumy;
+string font[],mirror[];
+
+no_page=start_page-1;
+font[0]="VECTOR";
+font[1]="PROPORTIONAL";
+font[2]="FIXED";
+mirror[0]="";
+mirror[1]="M";
+
+schematic(S) {
+   dumy= scr_path+"editsch.scr";
+   output(dumy) {
+      printf("edit '%s'",S.name);
+      }
+   dumy= scr_path+"editbrd.scr";
+   output(dumy){
+      dumy=S.name;
+      dumy[strlen(dumy)-4]=0;
+      printf("edit '%s.brd'",dumy);
+      }
+   }
+   
+dumy=scr_path;
+dumy=dumy+"duplicated_schematic.scr";
+
+output(dumy) {
+   printf("Set wire_bend 2\n");
+   printf("Grid inch %f\n",GridDist);
+
+   schematic(S) {
+      S.sheets(sh) {
+         sh.parts(P) {
+            first=0;
+            P.instances(I) {
+                  if(P.device.name=="MRK_DOWN_LEFT") {
+                     corner_down_left_x=I.x;
+                     corner_down_left_y=I.y;
+                     sheetOfInterest=sh.number;
+                     }
+                  if(P.device.name=="MRK_UP_RIGHT") {
+                     corner_up_right_x=I.x;
+                     corner_up_right_y=I.y;
+                     }
+                  if(P.device.name=="NBR_MOD")
+                     nbr_modules=strtol(P.value);
+               } /* P.instances */
+            }  /* sh.parts */
+         }  // S.sheets
+      } /* schematic */
+
+   schematic(S) {
+      S.parts(P) {
+         first=0;
+         P.instances(I) {
+            if(I.sheet) {
+    	       	if(I.sheet!=sheetOfInterest) continue;
+               if(I.value=="MRK_DELTA") {
+                  deltax=(I.x-corner_down_left_x)/254000.;
+                  deltay=(I.y-corner_down_left_y)/254000.;
+                  }
+               } /* I.sheet */
+            } /* P.instances */
+         }  /* S.parts */
+      } /* schematic */
+
+   direction=HORZ;
+   if((abs(deltax)) < (abs(deltay)) ) direction=VERT;
+
+   for(i=1;i<=nbr_modules;i++) {
+      if(direction==VERT) {
+         dx=0;
+         dy=i*deltay;
+         }
+      else {
+         dx=i*deltax;
+         dy=0;
+         }
+      no_page++;
+      if(!same_page) printf("edit .s%d\n",no_page);
+      schematic(S) {
+         S.parts(P) {
+            first=0;
+            P.instances(I) {
+               if(I.sheet) {
+       	       	if(I.sheet!=sheetOfInterest) continue;
+                  if(I.x<=corner_down_left_x) continue;
+                  if(I.x>=corner_up_right_x) continue;
+                  if(I.y<=corner_down_left_y) continue;
+                  if(I.y>=corner_up_right_y) continue;
+                  xx1= I.x/254000.+dx;
+                  yy1= I.y/254000.+dy;
+                  ang = I.angle;
+                  if(!first) printf("add %s@%s '%s%s%d' '%s' %sR%f (%f %f) \n",
+                     P.device.name,P.device.library,P.name,suffix,
+                     i,I.gate.name,mirror[I.mirror],ang,xx1,yy1);
+                  else printf("invoke '%s%s%d' '%s' %sR%f (%f %f) \n", 
+                    P.name,suffix,i,I.gate.name,mirror[I.mirror],ang,xx1,yy1);
+                  first=1;
+                  }
+               }  /* I */
+            first=0;
+            P.instances(I) {
+               if(I.sheet) {
+       	       	if(I.sheet!=sheetOfInterest) continue;
+                  if(I.x<=corner_down_left_x) continue;
+                  if(I.x>=corner_up_right_x) continue;
+                  if(I.y<=corner_down_left_y) continue;
+                  if(I.y>=corner_up_right_y) continue;
+                  xx1= I.x/254000.+dx;
+                  yy1= I.y/254000.+dy;
+                  ang = I.angle;
+                  if(!first)
+                     if((P.device.value =="On") && (I.value !=""))
+                        printf("value '%s' (%f %f) \n",I.value,xx1,yy1);
+                  first=1;
+                  }
+               }  /* I */
+            } /* P */
+         S.sheets(SH) {
+            if (SH.number!=sheetOfInterest) continue;
+	         SH.nets(N){
+               cmn=0;
+               for(k=1;k<=nb_sig_cmn;k++) if(N.name==cmn_sig[k-1]) cmn=1;
+               N.segments(SEG) {
+                  SEG.wires(w) {
+                     if(w.x1<=corner_down_left_x) continue;
+                     if(w.x1>=corner_up_right_x) continue;
+                     if(w.y1<=corner_down_left_y) continue;
+                     if(w.y1>=corner_up_right_y) continue;
+
+                     if(w.x2<=corner_down_left_x) continue;
+                     if(w.x2>=corner_up_right_x) continue;
+                     if(w.y2<=corner_down_left_y) continue;
+                     if(w.y2>=corner_up_right_y) continue;
+
+                     xx1= w.x1/254000.+dx;
+                     yy1= w.y1/254000.+dy;
+                     xx2= w.x2/254000.+dx;
+                     yy2= w.y2/254000.+dy;
+                     if(cmn==0) printf("net %s%s%d (%f %f) (%f %f)\n",N.name,suffix,i,xx1,yy1,xx2,yy2);
+                     else printf("net %s (%f %f) (%f %f)\n",N.name,xx1,yy1,xx2,yy2);
+                     } /* W */
+                  } /* SEG  */
+               } /*  N  */
+            SH.texts(t) {
+               if(t.x<=corner_down_left_x) continue;
+               if(t.x>=corner_up_right_x) continue;
+               if(t.y<=corner_down_left_y) continue;
+               if(t.y>=corner_up_right_y) continue;
+
+               xx1= t.x/254000.+dx;
+               yy1= t.y/254000.+dy;
+               size= t.size/254000.;              
+               printf("change layer %d\n",t.layer);
+               printf("change ratio %d\n",t.ratio);
+               printf("change size %f\n",size);
+               printf("change font %s\n",font[t.font]);
+               printf("text '%s' %sR%f (%f %f)\n",t.value,
+                     mirror[t.mirror],t.angle,xx1,yy1);
+               }
+            } /* SH */
+         }  /* S */
+      } /* for i */
+   printf("window fit;\n");
+   printf("grid last;\n");
+   }
+if(autoexec)exit("script duplicated_schematic");

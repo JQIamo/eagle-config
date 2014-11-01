@@ -1,0 +1,40 @@
+# Command Menu Setup
+#
+# This is an example that shows how to set up a complex command menu,
+# including submenus and command aliases. To display the command menu in
+# the editor windows you have to activate the option 'Command texts'
+# in the 'Options/User Interface' menu.
+
+MENU 'Grid {\
+             Metric   {\
+                        Fine   : Grid mm 0.1; |\
+                        Coarse : Grid mm 1;\
+                      } | \
+             Imperial {\
+				UltraFine : Grid inch 0.001; |\
+                        Fine   : Grid inch 0.005; |\
+                        Coarse : Grid inch 0.025;\
+                      } | \
+             On  : Grid On; | \
+             Off : Grid Off;\
+           }'\
+     'Display {\
+		    Placing   : script mounting_view; |\
+		    Standard  : script standard_view; |\
+                Top       : Display None Top    Pads Vias Dimension; |\
+                Bottom    : Display None Bottom Pads Vias Dimension; |\
+                Placeplan {\
+                            Top    : Display None tPlace Dimension; |\
+                            Bottom : Display None bPlace Dimension;\
+                          }\
+              }'\
+     '---'\
+     'Fit : Window Fit;'\
+     'Add' 'Delete' 'Move' ';' 'Edit' 'Quit' 'Ratsnest: ratsnest; ripup @;' 'Unrouted_on: Display Unrouted'\
+     'Unrouted_off: Display -Unrouted'\
+     'Show in Shematic: run showgroup_v1.0.ulp'\
+     'CopyPlacing: run copyplacing-2; script copyplacing'\
+     'Statistics: run statistic-brd'\
+     'Next_unrouted: run zoom-unrouted'\
+     'Drill_menu: SET Drill_menu .008 .016 .020 .025 .029 .033 .036 .040 .043 .046 .053 .061 .067 .080 .087 .093'				
+     ;

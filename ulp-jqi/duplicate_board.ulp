@@ -1,0 +1,313 @@
+/**********************************************************************
+   This EAGLE User Language Program duplicate a portion of a 
+   board delimited within two markers:
+   MRK_DOWN_LEFT and MRK_UP_RIGHT (two added components),
+   the numbers of modules should assigned to the value of
+   NBR_MOD component.
+   It generate "duplicated_board.scr"
+   Author: Maurice SAAB (Lebanon) morisaab@yahoo.fr
+   Version: 4.2
+*********************************************************/
+ 
+int nb_sig_cmn=0;
+int direction;
+string cmn_sig[];
+int HORZ=0;
+int VERT=1;
+
+/***** edit this values according to your needs **********************/ 
+int   autoexec=1;    /* 1 for autoexecuting the script, 0 for just generating it  */
+string scr_path="\\\\elwood.nist.gov\\699\\users\\arestell\\My Documents\\eagle\\scr\\";
+cmn_sig[nb_sig_cmn++]="VDD";   /* common signal for all modules, if any */
+cmn_sig[nb_sig_cmn++]="VSS";   /* common signal for all modules, if any */
+cmn_sig[nb_sig_cmn++]="V+";   /* common signal for all modules, if any */
+cmn_sig[nb_sig_cmn++]="V-";   /* common signal for all modules, if any */
+cmn_sig[nb_sig_cmn++]="GND";   /* common signal for all modules, if any */
+cmn_sig[nb_sig_cmn++]="VCC_HV_BIAS";  /* add more common signals here */
+cmn_sig[nb_sig_cmn++]="3V3";
+cmn_sig[nb_sig_cmn++]="+5V";
+cmn_sig[nb_sig_cmn++]="-5V";
+/*****************************************************************/
+
+string suffix="999";
+int i,k,cmn,out,nbr_modules;
+
+real GridDist = .00001; // in Mil, can be changed to other values
+real xx1,yy1,xx2,yy2,xc,yc,xx3,yy3,wid,dia,dril,dx,dy,size,isol;
+string dumy;
+string font[],mirror[],style[],shap[],spin[];
+int corner_down_left_x=0,corner_down_left_y=0;
+int corner_up_right_x=0,corner_up_right_y=0;
+real deltax=0,deltay=0;
+
+font[0]="VECTOR";
+font[1]="PROPORTIONAL";
+font[2]="FIXED";
+
+mirror[0]="";
+mirror[1]="M";
+
+spin[0]="";
+spin[1]="S";
+
+style[0]="CONTINUOUS";
+style[1]="LONGDASH";
+style[2]="SHORTDASH";
+style[3]="DASHDOT";
+
+shap[0]="square";
+shap[1]="round";
+shap[2]="octagon";
+
+dumy=scr_path;
+dumy=dumy+"duplicated_board.scr";
+output(dumy) {
+   printf("Set wire_bend 2\n");
+   printf("Grid inch %f\n",GridDist);
+
+   board(B) {
+   B.elements(E) {
+      if(E.package.name=="MRK_DOWN_LEFT") {
+         corner_down_left_x=E.x;
+         corner_down_left_y=E.y;
+         }
+      if(E.package.name=="MRK_UP_RIGHT") {
+         corner_up_right_x=E.x;
+         corner_up_right_y=E.y;
+         }
+      if(E.package.name=="NBR_MOD")
+         nbr_modules=strtol(E.value);
+      }
+   }
+         
+   board(B) {
+   B.elements(E) {
+      if(E.value=="MRK_DELTA") {
+         deltax=(E.x-corner_down_left_x)/254000.;
+         deltay=(E.y-corner_down_left_y)/254000.;
+         }
+      }
+   }
+         
+   direction=HORZ;
+   if((abs(deltax)) < (abs(deltay)) ) direction=VERT;
+   
+   for(i=1;i<=nbr_modules;i++) {
+      if(direction==VERT) {
+         dx=0;
+         dy=i*deltay;
+         }
+      else {
+         dx=i*deltax;
+         dy=0;
+         }
+
+      board(B) {
+         B.elements(E) {
+            if(E.x<=corner_down_left_x) continue;
+            if(E.x>=corner_up_right_x) continue;
+            if(E.y<=corner_down_left_y) continue;
+            if(E.y>=corner_up_right_y) continue;
+            xx1= E.x/254000.+dx;
+            yy1= E.y/254000.+dy;
+            printf("move '%s%s%d' (%f %f) \n",E.name,suffix,i,xx1,yy1);
+            printf("rotate  %s%sR%f '%s%s%d'\n",
+            spin[E.spin],mirror[E.mirror],E.angle,E.name,suffix,i);
+            }
+         B.signals(s) {
+            cmn=0;
+            for(k=1;k<=nb_sig_cmn;k++) if(s.name==cmn_sig[k-1]) cmn=1;
+            s.vias(v) {
+               if(v.x<corner_down_left_x) continue;
+               if(v.x>corner_up_right_x) continue;
+               if(v.y<corner_down_left_y) continue;
+               if(v.y>corner_up_right_y) continue;
+               dia = v.diameter[1]/254000.;
+               xx1= v.x/254000.+dx;
+               yy1= v.y/254000.+dy;
+               dril=v.drill/254000.;
+               printf("change drill %f\n",dril);
+               if(cmn==0) printf("via '%s%s%d' %f %s (%f %f)\n",s.name,suffix,i,dia,shap[v.shape[1]],xx1,yy1);
+               else printf("via '%s' %f %s (%f %f)\n",s.name,dia,shap[v.shape[1]],xx1,yy1);
+               }
+            s.wires(w) {
+               if(!w.arc) {
+                  if(w.x1<corner_down_left_x) continue;
+                  if(w.x1>corner_up_right_x) continue;
+                  if(w.y1<corner_down_left_y) continue;
+                  if(w.y1>corner_up_right_y) continue;
+
+                  if(w.x2<corner_down_left_x) continue;
+                  if(w.x2>corner_up_right_x) continue;
+                  if(w.y2<corner_down_left_y) continue;
+                  if(w.y2>corner_up_right_y) continue;
+                  
+                  wid= w.width/254000.;
+                  xx1= w.x1/254000.+dx;
+                  yy1= w.y1/254000.+dy;
+                  xx2= w.x2/254000.+dx;
+                  yy2= w.y2/254000.+dy;
+                  printf("change layer %d\n",w.layer);
+                  printf("change style %s;\n",style[w.style]);
+                  if(cmn==0) printf("wire '%s%s%d' %f (%f %f) (%f %f)\n",s.name,suffix,i,wid,xx1,yy1,xx2,yy2);
+                  else printf("wire '%s' %f (%f %f) (%f %f)\n",s.name,wid,xx1,yy1,xx2,yy2);
+                  }
+               if(w.arc) {
+                  if(w.arc.xc<corner_down_left_x) continue;
+                  if(w.arc.xc>corner_up_right_x) continue;
+                  if(w.arc.yc<corner_down_left_y) continue;
+                  if(w.arc.yc>corner_up_right_y) continue;
+
+                  wid= w.arc.width/254000.;
+                  xx1= w.arc.x1/254000.+dx;
+                  yy1= w.arc.y1/254000.+dy;
+                  xc= w.arc.xc/254000.+dx;
+                  yc= w.arc.yc/254000.+dy;
+                  xx2= (2*w.arc.xc-w.arc.x1)/254000.+dx;
+                  yy2= (2*w.arc.yc-w.arc.y1)/254000.+dy;
+                  xx3= w.arc.x2/254000.+dx;
+                  yy3= w.arc.y2/254000.+dy;
+                  printf("change layer %d\n",w.arc.layer);
+                  printf("change width %f\n",wid);
+                  printf("change style %s;\n",style[w.style]);
+                  if(cmn==0) printf("arc '%s%s%d' CCW (%f %f) (%f %f) (%f %f)\n",s.name,suffix,i,xx1,yy1,xx2,yy2,xx3,yy3);
+                  else printf("arc '%s' CCW (%f %f) (%f %f) (%f %f)\n",s.name,xx1,yy1,xx2,yy2,xx3,yy3);
+                  }
+               }
+            s.polygons(p) {
+               wid=p.width/254000.;
+               isol=p.isolate/254000.;
+               printf("change layer %d;\n",p.layer);
+               printf("change isolate %f;\n",isol);
+               printf("change rank %d;\n",p.rank);
+               if(cmn==0) printf("polygon %s%s%d %f",s.name,suffix,i,wid);
+               else printf("polygon %s %f",s.name,wid);
+               p.wires(w){
+                  if(w.x1<corner_down_left_x) continue;
+                  if(w.x1>corner_up_right_x) continue;
+                  if(w.y1<corner_down_left_y) continue;
+                  if(w.y1>corner_up_right_y) continue;
+
+                  if(w.x2<corner_down_left_x) continue;
+                  if(w.x2>corner_up_right_x) continue;
+                  if(w.y2<corner_down_left_y) continue;
+                  if(w.y2>corner_up_right_y) continue;
+                  
+                  xx1= w.x1/254000.+dx;
+                  yy1= w.y1/254000.+dy;
+                  xx2= w.x2/254000.+dx;
+                  yy2= w.y2/254000.+dy;
+                  printf(" (%f %f)",xx1,yy1);
+                  }
+               printf(" (%f %f);\n",xx2,yy2);
+               }
+            }
+         B.rectangles(r) {
+            if(r.x1<corner_down_left_x) continue;
+            if(r.x1>corner_up_right_x) continue;
+            if(r.y1<corner_down_left_y) continue;
+            if(r.y1>corner_up_right_y) continue;
+
+            if(r.x2<corner_down_left_x) continue;
+            if(r.x2>corner_up_right_x) continue;
+            if(r.y2<corner_down_left_y) continue;
+            if(r.y2>corner_up_right_y) continue;
+            
+            xx1= r.x1/254000.+dx;
+            yy1= r.y1/254000.+dy;
+            xx2= r.x2/254000.+dx;
+            yy2= r.y2/254000.+dy;
+            printf("change layer %d\n",r.layer);
+            printf("rect (%f %f) (%f %f)\n",xx1,yy1,xx2,yy2);
+            }
+         B.wires(w) {
+            if(!w.arc){
+               if(w.x1<corner_down_left_x) continue;
+               if(w.x1>corner_up_right_x) continue;
+               if(w.y1<corner_down_left_y) continue;
+               if(w.y1>corner_up_right_y) continue;
+
+               if(w.x2<corner_down_left_x) continue;
+               if(w.x2>corner_up_right_x) continue;
+               if(w.y2<corner_down_left_y) continue;
+               if(w.y2>corner_up_right_y) continue;
+                  
+              wid= w.width/254000.;
+              xx1= w.x1/254000.+dx;
+              yy1= w.y1/254000.+dy;
+              xx2= w.x2/254000.+dx;
+              yy2= w.y2/254000.+dy;
+              printf("change layer %d\n",w.layer);
+              printf("change style %s;\n",style[w.style]);
+              printf("wire %f (%f %f) (%f %f)\n",wid,xx1,yy1,xx2,yy2);
+              }
+            if(w.arc) {
+               if(w.arc.xc<corner_down_left_x) continue;
+               if(w.arc.xc>corner_up_right_x) continue;
+               if(w.arc.yc<corner_down_left_y) continue;
+               if(w.arc.yc>corner_up_right_y) continue;
+
+               wid= w.arc.width/254000.;
+               xx1= w.arc.x1/254000.+dx;
+               yy1= w.arc.y1/254000.+dy;
+               xc= w.arc.xc/254000.+dx;
+               yc= w.arc.yc/254000.+dy;
+               xx2= (2*w.arc.xc-w.arc.x1)/254000.+dx;
+               yy2= (2*w.arc.yc-w.arc.y1)/254000.+dy;
+               xx3= w.arc.x2/254000.+dx;
+               yy3= w.arc.y2/254000.+dy;
+               printf("change layer %d\n",w.arc.layer);
+               printf("change style %s;\n",style[w.style]);
+               printf("change width %f\n",wid);
+               printf("arc CCW (%f %f) (%f %f) (%f %f)\n",xx1,yy1,xx2,yy2,xx3,yy3);
+               }
+           }
+         B.circles(c) {
+            if(c.x<corner_down_left_x) continue;
+            if(c.x>corner_up_right_x) continue;
+            if(c.y<corner_down_left_y) continue;
+            if(c.y>corner_up_right_y) continue;
+
+            wid= c.width/254000.;
+            xc= c.x/254000.+dx;
+            yc= c.y/254000.+dy;
+            xx1= (c.x+c.radius)/254000.+dx;
+            yy1= c.y/254000.+dy;
+            printf("change layer %d\n",c.layer);
+            printf("circle %f (%f %f) (%f %f)\n",wid,xc,yc,xx1,yy1);
+            }
+         B.texts(t) {
+            if(t.x<corner_down_left_x) continue;
+            if(t.x>corner_up_right_x) continue;
+            if(t.y<corner_down_left_y) continue;
+            if(t.y>corner_up_right_y) continue;
+
+            xx1= t.x/254000.+dx;
+            yy1= t.  y/254000.+dy;
+            size= t.size/254000.;              
+            printf("change layer %d\n",t.layer);
+            printf("change ratio %d\n",t.ratio);
+            printf("change size %f\n",size);
+            printf("change font %s\n",font[t.font]);
+            printf("text '%s' %s%sR%f (%f %f)\n",t.value,
+                  spin[t.spin],mirror[t.mirror],t.angle,xx1,yy1);
+            }
+         B.holes(h) {
+            if(h.x<corner_down_left_x) continue;
+            if(h.x>corner_up_right_x) continue;
+            if(h.y<corner_down_left_y) continue;
+            if(h.y>corner_up_right_y) continue;
+
+            xx1= h.x/254000.+dx;
+            yy1= h.y/254000.+dy;
+            dril=h.drill/254000.;
+            printf("change drill %f\n",dril);
+            printf("hole (%f %f)\n",xx1,yy1);
+            }
+         }  /* B.elements  */
+      } /* for i */
+   printf("window fit;\n");
+   printf("ratsnest;\n");
+   printf("grid last;\n");
+   }
+if(autoexec)exit("script duplicated_board");

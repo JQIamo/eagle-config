@@ -1,0 +1,3 @@
+run 'duplicate_schematic.ulp'
+script editbrd
+run 'duplicate_board.ulp'
