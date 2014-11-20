@@ -19,6 +19,9 @@
 //
 // v1.05 - 04/14/2010   Added addtional display options.
 //
+// v1.06 - 09/20/2011   Added FREQ attribute
+//
+// v1.07 - 01/30/2012   Work around with ingroup() for Eagle v6.0 fix.
 //////////////////////////////////////////////////////////////////////////////
 //
 // THIS PROGRAM IS PROVIDED AS IS AND WITHOUT WARRANTY OF ANY KIND,
@@ -26,7 +29,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-string Version = "1.05";
+string Version = "1.07";
 
 string fileName;
 
@@ -38,7 +41,7 @@ string strAttrName;
 string strAttrValue;
 
 string strAttribs[] = {
-    "DIGIKEY",      // 0  part number (mfg specific)
+    "PARTNO",      // 0  part number (mfg specific)
     "BOM",         // 1  BOM options for bom-ex.ulp
     "DNP",         // 2  do not place (T=TRUE/F=FALSE)
     "PLACE",       // 3  optional place message text
@@ -51,7 +54,8 @@ string strAttribs[] = {
     "TYPE",        // 10 type field
     "SIZE",        // 11 package or other size code (0805, etc)
     "LOAD",        // 12 load field
-    "OPT"          // 13 generic option text
+    "FREQ",        // 13 xtal frequencies and such
+    "OPT"          // 14 generic option text
 };
 
 // some common values for attributes above
@@ -76,10 +80,11 @@ string strVal6  = "2.5V:3V:4V:6V:6.3V:8V:10V:12.5V:16V:20V:25V:30V:35V:50V:60V:6
 string strVal7  = "1/4W:1/2W:1W:2W:3W:4W:5W:10W";
 string strVal8  = "RED:GRN:ORG:YEL:BLU:AMB";
 string strVal9  = "RESET:POWER:ON/OFF:LEVEL:GAIN";
-string strVal10 = "TANT:LYTIC:POLY:MICA";
+string strVal10 = "TANT:LYTIC:POLY:MICA:SUPERCAP";
 string strVal11 = "(0402):(0603):(0805):(1005):(1206):(1210):(1508):(2010):(2012):(2512)";
 string strVal12 = "1A:2A:3A:4A:5A:10A:20A:25A";
-string strVal13 = "?";
+string strVal13 = "8MHz:16MHz";
+string strVal14 = "?";
 
 string strValues[];
 
@@ -142,6 +147,9 @@ void OnComboChangeAttr()
     case 13:
         strsplit(strValues, strVal13, ':');
         break;
+    case 14:
+        strsplit(strValues, strVal14, ':');
+        break;
     }
 
     strAttrValue = strValues[0];
@@ -157,7 +165,7 @@ void OnComboChangeAttr()
         break;
 
     case 2:             // DNP
-        fDisplay = 2;   // Display=Name
+        fDisplay = 0;   // Display=None
         break;
 
     default:
@@ -247,31 +255,34 @@ if (schematic)
 
         strCmd = "";
 
-        SCH.parts(P)
+        SCH.sheets(S)
         {
-            if (ingroup(P))
+            S.parts(P)
             {
-                // make sure it has a package and name
-                if (P.device.package && P.name)
+                if (ingroup(P))
                 {
-                    string disp;
-
-                    if (fDisplay == 0)
-                        disp = "OFF";
-                    else if (fDisplay == 1)
-                        disp = "VALUE";
-                    else
-                        disp = "NAME";
-
-                    string tmp;
-                    sprintf(tmp, "CHANGE DISPLAY %s;\n", disp);
-                    strCmd += tmp;
-                    sprintf(tmp, "ATTRIBUTE %s %s '%s';\n", P.name, strAttrName, strAttrValue);
-                    strCmd += tmp;
-
-                    //dlgMessageBox(strCmd);
-
-                    ++cnt;
+                    // make sure it has a package and name
+                    if (P.device.package && P.name)
+                    {
+                        string disp;
+    
+                        if (fDisplay == 0)
+                            disp = "OFF";
+                        else if (fDisplay == 1)
+                            disp = "VALUE";
+                        else
+                            disp = "NAME";
+    
+                        string tmp;
+                        sprintf(tmp, "CHANGE DISPLAY %s;\n", disp);
+                        strCmd += tmp;
+                        sprintf(tmp, "ATTRIBUTE %s %s '%s';\n", P.name, strAttrName, strAttrValue);
+                        strCmd += tmp;
+    
+                        //dlgMessageBox(strCmd);
+    
+                        ++cnt;
+                    }
                 }
             }
         }
