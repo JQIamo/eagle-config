@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -124,6 +124,8 @@
 </symbols>
 <devicesets>
 <deviceset name="BCR-802JLB" prefix="L">
+<description>&lt;h3&gt;Coilcraft conical inductor. &lt;/h3&gt;
+&lt;p&gt;8.0uH, 3.39 ohms DC. Irms max = 230mA&lt;/p&gt;</description>
 <gates>
 <gate name="G$1" symbol="CONICAL_INDUCTOR" x="0" y="0"/>
 </gates>
@@ -140,6 +142,8 @@
 </devices>
 </deviceset>
 <deviceset name="BCR-652JLB" prefix="L">
+<description>&lt;h3&gt;Coilcraft conical inductor. &lt;/h3&gt;
+&lt;p&gt;6.5uH, 0.7 ohms DC. Irms max = 650mA&lt;/p&gt;</description>
 <gates>
 <gate name="G$1" symbol="CONICAL_INDUCTOR" x="0" y="0"/>
 </gates>
@@ -155,7 +159,8 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="1812LS-XXX" prefix="L">
+<deviceset name="1812LS-XXX" prefix="L" uservalue="yes">
+<description>Wire-wound chip inductor.</description>
 <gates>
 <gate name="G$1" symbol="INDUCTOR" x="0" y="0"/>
 </gates>
@@ -166,7 +171,9 @@
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="COILCRAFT" value="1812LS" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
