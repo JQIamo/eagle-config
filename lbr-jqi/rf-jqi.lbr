@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.2">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -656,21 +656,23 @@ Source: http://www.minicircuits.com .. HSWA2-30DR+.pdf</description>
 <pin name="GND@14" x="17.78" y="-5.08" length="short" direction="pwr" rot="R90"/>
 </symbol>
 <symbol name="MONOLITHIC-AMPLIFIER">
-<wire x1="-4.445" y1="5.08" x2="-4.445" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="-4.445" y1="-5.08" x2="1.905" y2="-1.905" width="0.254" layer="94"/>
-<wire x1="1.905" y1="-1.905" x2="5.715" y2="0" width="0.254" layer="94"/>
-<wire x1="5.715" y1="0" x2="-4.445" y2="5.08" width="0.254" layer="94"/>
-<text x="2.54" y="1.905" size="1.778" layer="95">&gt;NAME</text>
-<text x="2.54" y="-3.175" size="1.27" layer="96">&gt;VALUE</text>
-<text x="-0.635" y="-1.905" size="0.635" layer="94"> GND</text>
-<text x="-4.445" y="0" size="0.635" layer="94"> RF-IN</text>
-<text x="1.905" y="0" size="0.4445" layer="94">RF-OUT</text>
-<text x="1.905" y="-0.635" size="0.4445" layer="94">&amp; DC-IN</text>
-<pin name="1-RF-IN" x="-6.985" y="0" visible="off" length="short" direction="in" swaplevel="1"/>
-<pin name="4-GND" x="1.905" y="-5.715" visible="off" length="short" direction="sup" swaplevel="4" rot="R90"/>
-<pin name="2-GND" x="-0.635" y="-5.715" visible="off" length="short" direction="sup" swaplevel="2" rot="R90"/>
-<pin name="3-RF-OUT&amp;DC-IN" x="8.255" y="0" visible="off" length="short" direction="out" swaplevel="3" rot="R180"/>
-<wire x1="1.905" y1="-3.175" x2="1.905" y2="-1.905" width="0.1524" layer="94"/>
+<wire x1="-3.81" y1="5.08" x2="-3.81" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="-5.08" x2="0" y2="-3.175" width="0.254" layer="94"/>
+<wire x1="0" y1="-3.175" x2="2.54" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-1.905" x2="6.35" y2="0" width="0.254" layer="94"/>
+<wire x1="6.35" y1="0" x2="-3.81" y2="5.08" width="0.254" layer="94"/>
+<text x="3.175" y="1.905" size="1.778" layer="95">&gt;NAME</text>
+<text x="3.175" y="-3.175" size="1.27" layer="96">&gt;VALUE</text>
+<text x="0" y="-1.905" size="0.635" layer="94"> GND</text>
+<text x="-3.81" y="0" size="0.635" layer="94"> RF-IN</text>
+<text x="2.54" y="0" size="0.4445" layer="94">RF-OUT</text>
+<text x="2.54" y="-0.635" size="0.4445" layer="94">&amp; DC-IN</text>
+<pin name="1-RF-IN" x="-6.35" y="0" visible="off" length="short" direction="in" swaplevel="1"/>
+<pin name="4-GND" x="2.54" y="-6.35" visible="off" length="short" direction="sup" swaplevel="4" rot="R90"/>
+<pin name="2-GND" x="0" y="-6.35" visible="off" length="short" direction="sup" swaplevel="2" rot="R90"/>
+<pin name="3-RF-OUT&amp;DC-IN" x="8.89" y="0" visible="off" length="short" direction="out" swaplevel="3" rot="R180"/>
+<wire x1="2.54" y1="-3.81" x2="2.54" y2="-1.905" width="0.1524" layer="94"/>
+<wire x1="0" y1="-3.81" x2="0" y2="-3.175" width="0.1524" layer="94"/>
 </symbol>
 <symbol name="VCO">
 <wire x1="-5.08" y1="8.89" x2="-5.08" y2="-8.89" width="0.254" layer="94"/>
