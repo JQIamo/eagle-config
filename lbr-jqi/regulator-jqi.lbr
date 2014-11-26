@@ -225,7 +225,7 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="MIC5205">
+<deviceset name="MIC5205" prefix="IC">
 <description>150mA Low noise LDO regulator</description>
 <gates>
 <gate name="G$1" symbol="5PIN-VREG" x="0" y="0"/>
