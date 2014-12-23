@@ -541,6 +541,118 @@ Source: http://www.minicircuits.com .. HSWA2-30DR+.pdf</description>
 <wire x1="-2" y1="-2" x2="-2" y2="2" width="0.1" layer="51"/>
 <circle x="-2.4" y="2.4" radius="0.282840625" width="0.1" layer="21"/>
 </package>
+<package name="PL-176">
+<description>PL-176 package layout, from Minicircuits: http://www.minicircuits.com/pcb/98-pl176.pdf</description>
+<polygon width="0.0508" layer="1">
+<vertex x="-4.953" y="-4.953"/>
+<vertex x="-4.953" y="4.953"/>
+<vertex x="-1.397" y="4.953"/>
+<vertex x="-1.397" y="2.413"/>
+<vertex x="1.397" y="2.413"/>
+<vertex x="1.397" y="4.953"/>
+<vertex x="4.953" y="4.953"/>
+<vertex x="4.953" y="-4.953"/>
+<vertex x="1.397" y="-4.953"/>
+<vertex x="1.397" y="-2.413"/>
+<vertex x="-1.397" y="-2.413"/>
+<vertex x="-1.397" y="-4.953"/>
+</polygon>
+<smd name="2" x="0" y="-4.064" dx="1.016" dy="1.778" layer="1"/>
+<smd name="1.GND" x="-1.905" y="-4.064" dx="1.016" dy="1.778" layer="1"/>
+<smd name="3.GND" x="1.905" y="-4.064" dx="1.016" dy="1.778" layer="1"/>
+<smd name="6" x="0" y="4.064" dx="1.016" dy="1.778" layer="1"/>
+<smd name="5.GND" x="1.905" y="4.064" dx="1.016" dy="1.778" layer="1"/>
+<smd name="7.GND" x="-1.905" y="4.064" dx="1.016" dy="1.778" layer="1"/>
+<smd name="8.GND" x="-4.064" y="0" dx="1.016" dy="1.778" layer="1" rot="R90"/>
+<smd name="4.GND" x="4.064" y="0" dx="1.016" dy="1.778" layer="1" rot="R90"/>
+<circle x="-2.794" y="-6.096" radius="0.567959375" width="0.127" layer="21"/>
+<text x="-6.858" y="-8.382" size="0.762" layer="51">Add ground vias under package</text>
+<wire x1="-4.445" y1="4.445" x2="4.445" y2="4.445" width="0.127" layer="21"/>
+<wire x1="4.445" y1="4.445" x2="4.445" y2="-4.445" width="0.127" layer="21"/>
+<wire x1="4.445" y1="-4.445" x2="-4.445" y2="-4.445" width="0.127" layer="21"/>
+<wire x1="-4.445" y1="-4.445" x2="-4.445" y2="4.445" width="0.127" layer="21"/>
+<text x="6.35" y="3.81" size="1.27" layer="25">&gt;NAME</text>
+<text x="6.35" y="1.27" size="1.27" layer="27">&gt;VALUE</text>
+</package>
+<package name="CP-8-1-LFCSP">
+</package>
+<package name="LFCSP8">
+<description>&lt;b&gt;8-Lead Lead Frame Chip Scale Package&lt;/b&gt; LFCSP_VD 3 mm × 3 mm Body, Very Thin, Dual Lead&lt;/b&gt;&lt;p&gt;
+Source: http://www.analog.com/static/imported-files/data_sheets/AD8597_8599.pdf</description>
+<wire x1="-1.5234" y1="1.1" x2="-1.1" y2="1.5234" width="0.2032" layer="51"/>
+<wire x1="-1.1" y1="-1.5234" x2="1.1" y2="-1.5234" width="0.2032" layer="51"/>
+<wire x1="1.5234" y1="-1.1" x2="1.5234" y2="1.1" width="0.2032" layer="21"/>
+<wire x1="1.1" y1="1.5234" x2="-1.1" y2="1.5234" width="0.2032" layer="51"/>
+<wire x1="-1.5234" y1="1.1" x2="-1.5234" y2="-1.1" width="0.2032" layer="21"/>
+<wire x1="1.1" y1="1.5234" x2="1.5234" y2="1.1" width="0.2032" layer="51"/>
+<wire x1="1.5234" y1="-1.1" x2="1.1" y2="-1.5234" width="0.2032" layer="51"/>
+<wire x1="-1.1" y1="-1.5234" x2="-1.5234" y2="-1.1" width="0.2032" layer="51"/>
+<circle x="-0.8" y="1" radius="0.15" width="0" layer="21"/>
+<smd name="1" x="-1.375" y="0.75" dx="0.7" dy="0.35" layer="1" roundness="50" stop="no"/>
+<smd name="2" x="-1.375" y="0.25" dx="0.7" dy="0.35" layer="1" roundness="50" stop="no"/>
+<smd name="3" x="-1.375" y="-0.25" dx="0.7" dy="0.35" layer="1" roundness="50" stop="no"/>
+<smd name="4" x="-1.375" y="-0.75" dx="0.7" dy="0.35" layer="1" roundness="50" stop="no"/>
+<smd name="5" x="1.375" y="-0.75" dx="0.7" dy="0.35" layer="1" roundness="50" stop="no"/>
+<smd name="6" x="1.375" y="-0.25" dx="0.7" dy="0.35" layer="1" roundness="50" stop="no"/>
+<smd name="7" x="1.375" y="0.25" dx="0.7" dy="0.35" layer="1" roundness="50" stop="no"/>
+<smd name="8" x="1.375" y="0.75" dx="0.7" dy="0.35" layer="1" roundness="50" stop="no"/>
+<smd name="EXP" x="0" y="0" dx="1.6" dy="1.6" layer="1" roundness="20" stop="no" cream="no"/>
+<text x="-1.9" y="1.8" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2" y="-3.1" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-1.75" y1="0.55" x2="-1" y2="0.95" layer="29"/>
+<rectangle x1="-1.75" y1="0.05" x2="-1" y2="0.45" layer="29"/>
+<rectangle x1="-1.75" y1="-0.45" x2="-1" y2="-0.05" layer="29"/>
+<rectangle x1="-1.75" y1="-0.95" x2="-1" y2="-0.55" layer="29"/>
+<rectangle x1="1" y1="-0.95" x2="1.75" y2="-0.55" layer="29" rot="R180"/>
+<rectangle x1="1" y1="-0.45" x2="1.75" y2="-0.05" layer="29" rot="R180"/>
+<rectangle x1="1" y1="0.05" x2="1.75" y2="0.45" layer="29" rot="R180"/>
+<rectangle x1="1" y1="0.55" x2="1.75" y2="0.95" layer="29" rot="R180"/>
+<rectangle x1="-0.725" y1="-0.725" x2="0.725" y2="0.725" layer="31"/>
+<polygon width="0.1" layer="29">
+<vertex x="-0.525" y="0.8" curve="180"/>
+<vertex x="-0.325" y="0.8"/>
+<vertex x="0.65" y="0.8" curve="-90"/>
+<vertex x="0.8" y="0.65"/>
+<vertex x="0.8" y="-0.65" curve="-90"/>
+<vertex x="0.65" y="-0.8"/>
+<vertex x="-0.65" y="-0.8" curve="-90"/>
+<vertex x="-0.8" y="-0.65"/>
+<vertex x="-0.8" y="0.65" curve="-90"/>
+<vertex x="-0.65" y="0.8"/>
+</polygon>
+</package>
+<package name="LFCSP-CP-8-1">
+<description>CP-8-1 package option for analog devices LFCSP_VD chip-scale package.</description>
+<wire x1="-0.9234" y1="1.15" x2="-0.6" y2="1.4234" width="0.2032" layer="51"/>
+<wire x1="-0.6" y1="-1.4234" x2="0.6" y2="-1.4234" width="0.2032" layer="51"/>
+<wire x1="0.9234" y1="-1.05" x2="0.9234" y2="1.1" width="0.2032" layer="21"/>
+<wire x1="0.6" y1="1.4234" x2="-0.6" y2="1.4234" width="0.2032" layer="51"/>
+<wire x1="-0.9234" y1="1.1" x2="-0.9234" y2="-1.1" width="0.2032" layer="21"/>
+<wire x1="0.6" y1="1.4234" x2="0.9234" y2="1.15" width="0.2032" layer="51"/>
+<wire x1="0.9234" y1="-1.1" x2="0.6" y2="-1.4234" width="0.2032" layer="51"/>
+<wire x1="-0.6" y1="-1.4234" x2="-0.9234" y2="-1.1" width="0.2032" layer="51"/>
+<circle x="-0.95" y="1.65" radius="0.15" width="0" layer="21"/>
+<smd name="1" x="-0.875" y="0.75" dx="0.7" dy="0.35" layer="1" roundness="50" stop="no"/>
+<smd name="2" x="-0.875" y="0.25" dx="0.7" dy="0.35" layer="1" roundness="50" stop="no"/>
+<smd name="3" x="-0.875" y="-0.25" dx="0.7" dy="0.35" layer="1" roundness="50" stop="no"/>
+<smd name="4" x="-0.875" y="-0.75" dx="0.7" dy="0.35" layer="1" roundness="50" stop="no"/>
+<smd name="5" x="0.875" y="-0.75" dx="0.7" dy="0.35" layer="1" roundness="50" stop="no"/>
+<smd name="6" x="0.875" y="-0.25" dx="0.7" dy="0.35" layer="1" roundness="50" stop="no"/>
+<smd name="7" x="0.875" y="0.25" dx="0.7" dy="0.35" layer="1" roundness="50" stop="no"/>
+<smd name="8" x="0.875" y="0.75" dx="0.7" dy="0.35" layer="1" roundness="50" stop="no"/>
+<smd name="EXP" x="0" y="0" dx="0.45" dy="1.74" layer="1" roundness="20" stop="no" cream="no"/>
+<text x="-1.9" y="1.8" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2" y="-3.1" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-1.25" y1="0.55" x2="-0.5" y2="0.95" layer="29"/>
+<rectangle x1="-1.25" y1="0.05" x2="-0.5" y2="0.45" layer="29"/>
+<rectangle x1="-1.25" y1="-0.45" x2="-0.5" y2="-0.05" layer="29"/>
+<rectangle x1="-1.25" y1="-0.95" x2="-0.5" y2="-0.55" layer="29"/>
+<rectangle x1="0.5" y1="-0.95" x2="1.25" y2="-0.55" layer="29" rot="R180"/>
+<rectangle x1="0.5" y1="-0.45" x2="1.25" y2="-0.05" layer="29" rot="R180"/>
+<rectangle x1="0.5" y1="0.05" x2="1.25" y2="0.45" layer="29" rot="R180"/>
+<rectangle x1="0.5" y1="0.55" x2="1.25" y2="0.95" layer="29" rot="R180"/>
+<rectangle x1="-0.3" y1="-0.9" x2="0.3" y2="0.9" layer="29"/>
+</package>
 </packages>
 <symbols>
 <symbol name="BANDPASS">
@@ -1153,6 +1265,21 @@ Source: http://www.minicircuits.com .. HSWA2-30DR+.pdf</description>
 <pin name="IREF" x="2.54" y="7.62" visible="pin" length="point" rot="R90"/>
 <wire x1="2.54" y1="7.62" x2="2.54" y2="2.54" width="0.1524" layer="94"/>
 </symbol>
+<symbol name="AD8319">
+<description>http://www.analog.com/static/imported-files/data_sheets/AD8319.pdf Log power Detector/Controller</description>
+<wire x1="-7.62" y1="11.43" x2="12.7" y2="11.43" width="0.254" layer="94"/>
+<wire x1="12.7" y1="11.43" x2="12.7" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="12.7" y1="-15.24" x2="-7.62" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-15.24" x2="-7.62" y2="11.43" width="0.254" layer="94"/>
+<pin name="VPOS" x="-12.7" y="8.89" visible="pin" length="middle"/>
+<pin name="INHI" x="-12.7" y="0" visible="pin" length="middle"/>
+<pin name="INLO" x="-12.7" y="-7.62" visible="pin" length="middle"/>
+<pin name="COMM" x="-12.7" y="-13.97" visible="pin" length="middle"/>
+<pin name="TADJ" x="2.54" y="-20.32" visible="pin" length="middle" rot="R90"/>
+<pin name="CLPF" x="17.78" y="-12.7" visible="pin" length="middle" rot="R180"/>
+<pin name="VOUT" x="17.78" y="0" visible="pin" length="middle" rot="R180"/>
+<pin name="VSET" x="17.78" y="8.89" visible="pin" length="middle" rot="R180"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="PBP-10.7" prefix="Z">
@@ -1643,6 +1770,50 @@ Source: http://www.minicircuits.com .. HSWA2-30DR+.pdf</description>
 </connects>
 <technologies>
 <technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="RLP-LOWPASS" prefix="RLP" uservalue="yes">
+<description>Minicircuits RLP-series low-pass filters.</description>
+<gates>
+<gate name="G$1" symbol="LOW-PASS" x="0" y="-2.54"/>
+</gates>
+<devices>
+<device name="" package="PL-176">
+<connects>
+<connect gate="G$1" pin="GND@1" pad="1.GND 3.GND 4.GND"/>
+<connect gate="G$1" pin="GND@2" pad="5.GND 7.GND 8.GND"/>
+<connect gate="G$1" pin="IN" pad="2"/>
+<connect gate="G$1" pin="OUT" pad="6"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="AD8319" prefix="RF">
+<description>Analog devices AD8319 Log power detector/controller.</description>
+<gates>
+<gate name="G$1" symbol="AD8319" x="-2.54" y="0"/>
+</gates>
+<devices>
+<device name="" package="LFCSP-CP-8-1">
+<connects>
+<connect gate="G$1" pin="CLPF" pad="3"/>
+<connect gate="G$1" pin="COMM" pad="2 EXP"/>
+<connect gate="G$1" pin="INHI" pad="1"/>
+<connect gate="G$1" pin="INLO" pad="8"/>
+<connect gate="G$1" pin="TADJ" pad="6"/>
+<connect gate="G$1" pin="VOUT" pad="5"/>
+<connect gate="G$1" pin="VPOS" pad="7"/>
+<connect gate="G$1" pin="VSET" pad="4"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PARTNUM" value="AD8319ACPZ-R7CT-ND" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
