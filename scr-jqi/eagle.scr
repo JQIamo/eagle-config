@@ -1,0 +1,34 @@
+# Configuration Script
+#
+# This file can be used to configure the editor windows.
+#
+# Uncomment this if you want a set of useful default shortcuts!
+#SCRIPT default-assign.scr;
+#
+
+BRD:
+MENU '[designlink22.png] Search and order : Run designlink-order.ulp -general;'\
+     '[pcb-service.png] PCB Service : Run pcb-service.ulp;';
+
+SCH:
+Grid Default;
+Grid .05;
+Change Width 0.006;
+MENU 'BOM: run bom-ex'
+;
+
+LBR:
+MENU '[designlink22.png] Search and order : Run designlink-order.ulp -general;'\
+;
+
+DEV:
+Grid Default;
+
+SYM:
+Grid Default On;
+Change Width 0.010;
+
+PAC:
+Grid Default On;
+Change Width 0.005;
+Change Size 0.050;
