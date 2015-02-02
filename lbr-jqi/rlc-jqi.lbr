@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.2">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -311,6 +311,21 @@
 <wire x1="2.54" y1="-12.7" x2="-5.08" y2="-12.7" width="0.127" layer="21"/>
 <wire x1="-5.08" y1="-12.7" x2="-5.08" y2="8.382" width="0.127" layer="21"/>
 </package>
+<package name="2917P">
+<description>Polarized 2917 (7343 metric)</description>
+<wire x1="-3.592" y1="-2.195" x2="-3.592" y2="2.195" width="0.2032" layer="51"/>
+<wire x1="-3.734" y1="1.143" x2="-3.734" y2="-1.143" width="0.1524" layer="51"/>
+<wire x1="3.582" y1="2.195" x2="-3.592" y2="2.195" width="0.2032" layer="51"/>
+<wire x1="3.582" y1="-2.195" x2="-3.592" y2="-2.195" width="0.2032" layer="51"/>
+<wire x1="3.734" y1="1.143" x2="3.734" y2="-1.143" width="0.1524" layer="51"/>
+<wire x1="3.582" y1="-2.195" x2="3.582" y2="2.195" width="0.2032" layer="51"/>
+<wire x1="-4.58" y1="-2.54" x2="-5.63" y2="-2.54" width="0.2032" layer="51"/>
+<wire x1="-5.09" y1="-2.02" x2="-5.09" y2="-3.06" width="0.2032" layer="51"/>
+<smd name="+" x="-3.2" y="0" dx="2.6" dy="2.4" layer="1"/>
+<smd name="-" x="3.2" y="0" dx="2.6" dy="2.4" layer="1"/>
+<text x="-2.54" y="2.54" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2.54" y="-3.81" size="1.27" layer="27">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="CAP">
@@ -565,6 +580,15 @@
 </technologies>
 </device>
 <device name="PANASONIC_F" package="PANASONIC_F">
+<connects>
+<connect gate="G$1" pin="P$1" pad="+"/>
+<connect gate="G$1" pin="P$2" pad="-"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="2917" package="2917P">
 <connects>
 <connect gate="G$1" pin="P$1" pad="+"/>
 <connect gate="G$1" pin="P$2" pad="-"/>
