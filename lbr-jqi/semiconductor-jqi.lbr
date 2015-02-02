@@ -102,6 +102,13 @@
 <rectangle x1="-1.1684" y1="-1.2954" x2="-0.7112" y2="-0.7112" layer="51"/>
 <rectangle x1="-0.5001" y1="-0.3" x2="0.5001" y2="0.3" layer="35"/>
 </package>
+<package name="S5971-CASE">
+<pad name="P$1" x="1.27" y="0" drill="0.6"/>
+<pad name="P$2" x="0" y="1.27" drill="0.6"/>
+<pad name="P$3" x="-1.27" y="0" drill="0.6"/>
+<circle x="0" y="0" radius="3" width="0.127" layer="21"/>
+<text x="3.81" y="2.54" size="1.27" layer="48">3.6mm case height</text>
+</package>
 </packages>
 <symbols>
 <symbol name="DIODE-2PIN">
@@ -195,6 +202,24 @@
 <connect gate="G$1" pin="P$1" pad="1"/>
 <connect gate="G$1" pin="P$2" pad="2"/>
 <connect gate="G$1" pin="P$3" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="S5971" prefix="D">
+<description>Hamamatsu S5971 photodiode</description>
+<gates>
+<gate name="G$1" symbol="DIODE-3PIN" x="0" y="-2.54"/>
+</gates>
+<devices>
+<device name="" package="S5971-CASE">
+<connects>
+<connect gate="G$1" pin="ANODE" pad="P$3"/>
+<connect gate="G$1" pin="CASE" pad="P$2"/>
+<connect gate="G$1" pin="CATHODE" pad="P$1"/>
 </connects>
 <technologies>
 <technology name=""/>
