@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -677,6 +677,8 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8597_8599.pdf<
 <text x="-5.715" y="0.635" size="1.27" layer="25">&gt;NAME</text>
 <text x="1.27" y="-1.905" size="1.27" layer="27">&gt;VALUE</text>
 </package>
+<package name="PL095">
+</package>
 </packages>
 <symbols>
 <symbol name="BANDPASS">
@@ -1317,6 +1319,31 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8597_8599.pdf<
 <text x="-10.16" y="12.7" size="1.27" layer="95">&gt;NAME</text>
 <text x="2.54" y="12.7" size="1.27" layer="95">&gt;VALUE</text>
 </symbol>
+<symbol name="COUPLER">
+<description>Directional coupler</description>
+<wire x1="-7.62" y1="8.636" x2="7.62" y2="8.636" width="0.254" layer="94"/>
+<wire x1="7.62" y1="8.636" x2="7.62" y2="0" width="0.254" layer="94"/>
+<wire x1="7.62" y1="0" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-5.08" x2="0" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="0" y1="-5.08" x2="-7.62" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-5.08" x2="-7.62" y2="0" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="0" x2="-7.62" y2="8.636" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="0" x2="5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="2.54" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-2.54" x2="2.54" y2="2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="2.54" x2="5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="0" x2="0" y2="-5.08" width="0.254" layer="94" curve="-90"/>
+<wire x1="0" y1="-5.08" x2="-1.524" y2="-3.556" width="0.254" layer="94"/>
+<wire x1="-1.524" y1="-3.556" x2="1.016" y2="-3.556" width="0.254" layer="94"/>
+<wire x1="1.016" y1="-3.556" x2="0" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="0" x2="-5.08" y2="0" width="0.254" layer="94"/>
+<pin name="IN" x="-10.16" y="0" visible="off" length="short"/>
+<pin name="COUP" x="0" y="-7.62" visible="off" length="short" rot="R90"/>
+<pin name="OUT" x="10.16" y="0" visible="off" length="short" rot="R180"/>
+<pin name="GND" x="-5.08" y="11.176" visible="pin" length="short" rot="R270"/>
+<pin name="TERM" x="5.588" y="11.176" visible="pin" length="short" rot="R270"/>
+<wire x1="5.08" y1="0" x2="7.62" y2="0" width="0.254" layer="94"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="PBP-10.7" prefix="Z">
@@ -1740,7 +1767,7 @@ Source: http://www.minicircuits.com .. HSWA2-30DR+.pdf</description>
 <gate name="G$1" symbol="MIXER-GENERIC" x="0" y="0"/>
 </gates>
 <devices>
-<device name="JMS-5H" package="BH292">
+<device name="_PL-052" package="BH292">
 <connects>
 <connect gate="G$1" pin="GND" pad="P1 P4 P5"/>
 <connect gate="G$1" pin="IF" pad="P2"/>
@@ -1867,6 +1894,26 @@ Source: http://www.minicircuits.com .. HSWA2-30DR+.pdf</description>
 <connect gate="G$1" pin="GND" pad="P$2 P$3 P$5 P$8 P$9 P$10 P$11 P$12 P$13 P$14"/>
 <connect gate="G$1" pin="IN" pad="P$1"/>
 <connect gate="G$1" pin="OUT" pad="P$7"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="ADC-10-4">
+<description>ADC-10-4+ Directional coupler: &lt;a href="http://www.minicircuits.com/pdfs/ADC-10-4.pdf"&gt;http://www.minicircuits.com/pdfs/ADC-10-4.pdf&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="COUPLER" x="0" y="-2.54"/>
+</gates>
+<devices>
+<device name="" package="BH292">
+<connects>
+<connect gate="G$1" pin="COUP" pad="P3"/>
+<connect gate="G$1" pin="GND" pad="P2"/>
+<connect gate="G$1" pin="IN" pad="P1"/>
+<connect gate="G$1" pin="OUT" pad="P6"/>
+<connect gate="G$1" pin="TERM" pad="P4"/>
 </connects>
 <technologies>
 <technology name=""/>
