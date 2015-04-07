@@ -1,0 +1,120 @@
+#usage "<b>Copies placement of parts</b><br>"
+
+
+int tCopyFrom= 6;		// Layer# of rect marking source parts
+int tCopyTo= 7;			// Layer# of rect marking target parts
+
+UL_ELEMENT sourceE;		// Temporary variable to store source element
+
+int slen;				// length of source list
+UL_ELEMENT source[];	// list of all source elements
+UL_WIRE not_connected[];
+int not_connected_number;
+
+
+
+int sourceUsedByRect[];		// Temporary array to store the last destination rectangle index that used the given source element
+
+int idx = 0;			// index counter
+
+int gridunit;			// keep the used grid unit
+
+int sourceOX, sourceOY; // source origin coordinate for move
+int newX, newY;			// new element coordinate
+
+int destRectIdx;		// Index of current destination rectangle
+
+// Convert unity to mic, mm, mil or inch using board grid settings.
+real u2u(int val) {
+  switch (gridunit) {
+    case GRID_UNIT_MIC  : return u2mic(val);
+    case GRID_UNIT_MM   : return u2mm(val);
+    case GRID_UNIT_MIL  : return u2mil(val);
+    case GRID_UNIT_INCH : return u2inch(val);
+  }
+}
+
+string Path = "", BName;
+
+// Function that check if two packages may be considered the same
+int equalsPackages(UL_PACKAGE a, UL_PACKAGE b)
+{
+	return a.name == b.name && a.library == b.library;
+}
+
+
+
+
+  
+board(B)
+{
+	gridunit = (B.grid.unit); // store the used grid unit
+
+	// loop through all rects and collect all the sources
+	B.rectangles(R)
+	{
+		// looking for rect in source layer
+		if (R.layer == tCopyFrom)
+   		{
+   			// loop through board elements
+			B.elements(E)
+			{
+				if ( (E.x >= R.x1) && (E.x <= R.x2) &&		// look for elements
+					  (E.y >= R.y1) && (E.y <= R.y2) )		// inside the source rect
+				{
+					// reset sourceUsedByRect
+					sourceUsedByRect[slen] = -1;
+
+					if (slen == 0 || R.x1 < sourceOX)
+						sourceOX = R.x1; // Store leftmost X
+
+					if (slen == 0 || R.y1 < sourceOY)
+						sourceOY = R.y1; // Store topmost Y
+
+					// store the source element
+					source[slen++] = E;
+				}
+         	} // elements
+		}
+	} // rectangles
+
+	// get project path
+	BName = B.name;
+	Path = filedir( BName );
+		
+	not_connected_number=0;
+	B.signals(S){
+		S.wires(W){ //loops on all the unrouted signals and stores the cohordinates into an array
+		if (W.layer==19){
+				not_connected[not_connected_number++]=W;
+		};
+	} //signals
+	
+
+	
+	
+
+	
+	
+	
+	
+		// Create output file
+	output( Path + "copyplacing.scr", "wt"){
+
+printf("NAME %d \n",not_connected[0].x1);
+
+
+//		 B.signals(S){
+//			int i;
+//			S.wires(W){ //loops on all the unrouted signals and stores the cohordinates into an array
+//			if (W.layer!=19){
+//				for(i=0;i<not_connected_number;i++){
+//					if (((W.x1==not_connected[i].x1) && (W.x1==not_connected[i].y1))||((W.x1==not_connected[i].x2) && (W.x1==not_connected[i].x2))) {
+//						printf("NAME $s $s/n",S.name, not_connected[i].name);
+//			};
+//		} //signals
+
+	} // output
+} // board
+
+}
