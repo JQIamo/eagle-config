@@ -279,6 +279,18 @@ female, 64 pins, type C, rows AC, grid 5.08 mm</description>
 <hole x="-0.3048" y="45.0088" drill="2.794"/>
 <hole x="-0.3048" y="-45.0088" drill="2.794"/>
 </package>
+<package name="BACKPLN-PROTO">
+<wire x1="292.1" y1="0" x2="426.72" y2="0" width="0.127" layer="20"/>
+<wire x1="426.72" y1="0" x2="426.72" y2="129.794" width="0.127" layer="20"/>
+<wire x1="426.72" y1="129.794" x2="292.1" y2="129.794" width="0.127" layer="20"/>
+<wire x1="292.1" y1="129.794" x2="292.1" y2="0" width="0.127" layer="20"/>
+<circle x="419.1" y="126.111" radius="1.5494" width="0.127" layer="20"/>
+<circle x="419.1" y="3.683" radius="1.5494" width="0.127" layer="20"/>
+<circle x="332.74" y="126.111" radius="1.5494" width="0.127" layer="20"/>
+<circle x="332.74" y="3.683" radius="1.5494" width="0.127" layer="20"/>
+<rectangle x1="292.1" y1="0" x2="426.72" y2="8.763" layer="39"/>
+<rectangle x1="292.1" y1="121.031" x2="426.72" y2="129.794" layer="39"/>
+</package>
 </packages>
 <symbols>
 <symbol name="F32AC">
@@ -504,6 +516,11 @@ female, 64 pins, block, type C, rows AC, grid 5.08 mm</description>
 </gates>
 <devices>
 <device name="" package="BACKPLANE">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="BACKPLN-PROTO" package="BACKPLN-PROTO">
 <technologies>
 <technology name=""/>
 </technologies>
