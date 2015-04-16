@@ -1,0 +1,122 @@
+#usage "<b>Extract X,Y coords, and Rotation of components on the board</b>\n"
+       "<author>Author: TKooistra</author>"
+
+real    GridDist = 50.0;
+enum    {unitINCH, unitMIL, unitMM, unitMIC};
+string  h, cmd = "";
+int     unit = unitMIL;   // predefined unit, can be changed to unitMM, unitINCH, unitMIC
+int     show_script = 1;  // predefined value for button "Show script"
+int     Result;
+string  Status = "";
+
+// get project path, if in board or schematic, otherwise library path
+string get_project_path() {
+string s = "", p = "";;
+  if (library)  { library(L)  s = L.name;}
+  if (board)    { board(B)     s = B.name;}
+  if (schematic){ schematic(S) s = S.name;}
+  char c = '/';
+  int pos = strrchr(s, c);
+  if (pos >= 0) {
+     p = strsub(s, 0, pos + 1);
+     }
+  return p;
+}
+
+real u2unit(int u) {
+  if (unit == unitMIL)
+     return u2mil(u);
+  if (unit == unitMM)
+     return u2mm(u);
+  if (unit == unitINCH)
+     return u2inch(u);
+  if (unit == unitMIC)
+     return u2mic(u);
+}
+
+real snap(int n) {  // returns next grid point
+  return round(u2unit(n) / GridDist)   * GridDist;
+}
+
+int n = 0, x[], y[], l[], UsedLayers[];
+
+int isNew(int X, int Y, int L) {
+  for (int i = 0; i < n; i++) {
+      if (x[i] == X && y[i] == Y && (l[i] == L || l[i] == LAYER_VIAS ))
+         return 0;
+      }
+  return 1;
+}
+
+void Move(int Layer) {
+  if (UsedLayers[Layer]) {
+     h = ""; sprintf(h, "DISPLAY NONE %d;\n", Layer); cmd += h;
+     // Snap the signal wires and vias:
+     for (int i = 0; i < n; i++) {
+         if (l[i] == Layer && (u2unit(x[i]) != snap(x[i]) || u2unit(y[i]) != snap(y[i]))) {
+            h = ""; sprintf(h, "MOVE (%f %f) (%f %f);\n", u2unit(x[i]), u2unit(y[i]), snap(x[i]), snap(y[i])); cmd += h;
+            }
+         }
+     }
+}
+
+void Export_to_File (void) {
+  board(B) {
+    
+    // Remember the active layers:
+    int ActiveLayers[];
+    B.layers(L) {
+      ActiveLayers[L.number] = L.visible;
+      }
+
+    B.elements(E) {
+      Status = "Element: "+E.name; dlgRedisplay();
+               h = ""; sprintf(h, " %s %f %f %f %s\n", E.name, u2unit(E.x), u2unit(E.y), E.angle, E.package.name); cmd += h;
+         
+      }
+
+    }
+  }
+
+//---- main ----------------------------------------------------------------------
+
+if (!board) {
+   dlgMessageBox(usage + "<hr><b>ERROR: No board!</b><p>\nThis program can only work in the board editor.");
+   exit(1);
+   }
+
+dlgDialog("Export Component Data") {
+  dlgHBoxLayout {
+     dlgSpacing(10);
+    dlgVBoxLayout {
+      dlgSpacing(10);
+      dlgLabel(Status, 1);
+      dlgHBoxLayout {
+        dlgPushButton("+&ExportData")   {Status = "Busy...";
+                                   dlgRedisplay();
+                                   Export_to_File();
+                                   string dest = dlgFileSave("Save Script File", get_project_path()+"export.scr", "*.scr");
+                                   if (dest != "") output(dest, "wt") {printf(cmd);}
+                                   dlgAccept();
+                                   }
+        dlgPushButton("-&Cancel") exit(0);
+        }
+      dlgSpacing(7);
+      }
+    }
+  };
+
+Result = 1;
+if (show_script) {
+   Result = dlgDialog("Shows Exported Data") {
+   dlgVBoxLayout {
+     dlgLabel("Shows Exported Data");
+     dlgTextEdit(cmd);
+        }
+   dlgHBoxLayout {
+        dlgPushButton("OK") dlgReject();
+                }
+     };
+   }
+if (!Result) exit(0);
+exit(cmd);

@@ -1,0 +1,137 @@
+#usage "<b>Define the Array of SMDs for Square Quad Flat Packs</b>\n"
+       "<p>"
+       "This ULP may allows you to make library a little easily, when you define packages which have many SMDs."
+       "<p>"
+       "Usage:<p>"
+       "<blockquote>1. Open the Lbr, and begin to edit a new package.<p>"
+       "2. Run this ULP. A dialog will appear.<p>"
+       "3. Select units in mm, mil or inch.<p>"
+       "4. Enter the pad dimensions, as dx and dy (in your selected units).<p>"
+       "5. Enter the total pin number. This is 4 times the number of pins per side<p>"
+       "6. Enter A = pitch between a SMD and neighbor SMD.<p>"
+       "7. Enter B = distance between outside of SMDs and the opposite side).<p>"
+       "8. Array of SMDs will be defined in your current edit window, as soon as you click 'OK'.<p></blockquote>"
+       "Note:<p>"
+       "<blockquote>-This ULP outputs the '.scr' temporary file in the same directory as this ULP. It does NOT automatically delete it.<p>"
+       "-This ULP is tested on EAGLE standard ver 4.11 for Windows.<p></blockquote>"
+       "<p>"
+       "<author>Author: <B>George Blat - georgeb@brd.com</B>, based entirely on the ULP by Hideaki Shishido - gnr889@ybb.ne.jp</author>"
+
+// THIS PROGRAM IS PROVIDED AS IS AND WITHOUT WARRANTY OF ANY KIND, EXPRESSED OR IMPLIED
+
+#include "useful-routines.ulp"
+
+string ScriptName = get_ulp_path()+get_ulp_name()+".scr";
+string unitstr = "mm";
+real dx, dy;
+real pitchx, pitchy, bop;
+int pins;
+
+int Result = dlgDialog(get_ulp_name()){
+  int unit;
+
+  dlgHBoxLayout{
+    dlgTextView("<img src=""qfp.png"">");
+    dlgVBoxLayout{
+      dlgGroup("Units"){
+	dlgSpacing(11);
+        dlgRadioButton("mm", unit) unitstr = "mm";
+        dlgRadioButton("mil", unit) unitstr = "mil";
+        dlgRadioButton("inch", unit) unitstr = "inch";
+	dlgSpacing(11);
+      }
+    }
+    dlgVBoxLayout{
+      dlgGroup("Pad Dimension"){
+        dlgSpacing(11);
+        dlgHBoxLayout{
+          dlgLabel("dx"); dlgSpacing(10);
+          dlgRealEdit(dx, 0, 100);
+        }
+        dlgHBoxLayout{
+          dlgLabel("dy"); dlgSpacing(10);
+          dlgRealEdit(dy, 0, 100);
+        }
+        dlgSpacing(10);
+      }
+    }
+    dlgStretch(1);
+  }
+  dlgStretch(1);
+  dlgHBoxLayout{
+    dlgSpacing(120);
+    dlgVBoxLayout{
+      dlgHBoxLayout{
+        dlgLabel("pins");
+        dlgIntEdit(pins, 1, 1000);
+      }
+      dlgHBoxLayout{
+        dlgSpacing(16);
+        dlgLabel("A");
+        dlgRealEdit(pitchy, 0, 100);
+      }
+      dlgHBoxLayout{
+        dlgSpacing(18);
+        dlgLabel("B");
+        dlgRealEdit(bop, 0, 100);
+      }
+      dlgStretch(1);
+    }
+    dlgSpacing(20);
+    dlgStretch(1);
+    dlgVBoxLayout{
+      dlgStretch(1);
+      dlgPushButton("+OK") dlgAccept();
+      dlgPushButton("-Cancel") dlgReject();
+    }
+  }
+};
+
+if(Result == 0) exit(0);
+
+pitchx = bop - dx;
+
+int i, pinno = 1;
+real x, y, fromcenter = (bop - dx) / 2;
+real TSide = (pins / 8) * pitchy;
+
+TSide -= ((pins / 4) & 1) ? 0 : pitchy / 2;
+
+
+
+output(ScriptName){
+  printf("grid finest %s;\n",unitstr);
+  printf("layer 1;\n");
+
+  // enter the lower quadrant, starting with pin 1
+  for(i=0; i<pins/4; i++, pinno++){
+    y = -fromcenter;
+    printf("smd %g %g -0 '%d' (%g %g);\n",
+           dy, dx, pinno, -TSide + pitchy * i, y);
+  }
+
+  // enter the right quadrant, starting with pin pins/4+1
+  for(i=0; i<pins/4; i++, pinno++){
+    x = fromcenter;
+    printf("smd %g %g -0 '%d' (%g %g);\n",
+           dx, dy, pinno, x, -TSide + pitchy * i);
+  }
+
+  // enter the top quadrant, starting with pin pins/2+1
+  for(i=0; i<pins/4; i++, pinno++){
+    y = fromcenter;
+    printf("smd %g %g -0 '%d' (%g %g);\n",
+           dy, dx, pinno, TSide - pitchy * i, y);
+  }
+
+  // enter the left quadrant, starting with pin pins*3/4+1
+  for(i=0; i<pins/4; i++, pinno++){
+    x = -fromcenter;
+    printf("smd %g %g -0 '%d' (%g %g);\n",
+           dx, dy, pinno, x, TSide - pitchy * i);
+  }
+
+
+  printf("grid last;\n");
+}
+exit("SCRIPT '"+ScriptName+"';\n");

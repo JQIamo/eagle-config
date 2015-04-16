@@ -1,0 +1,159 @@
+#usage "<b>Exports a board layout.</b>\n"
+       "<p>"
+       "This ULP exports all elements of a board layout so that it may be regenerated with a script file."
+       "<p>"
+       "<author>Author: klcallan@yahoo.com"
+
+if (board)
+
+  board(B) {
+
+    string partlist[];  // holds an array of which reference designators have been ADDed
+    int partlistindex;
+    int x;
+    string key;
+    string options;
+
+    partlistindex = 0;
+    key = "";
+    string wirestyle;
+
+    string p = "";
+    string s = "";
+    string e = "";
+
+    s = B.name;
+    char c = '/';
+    int pos = strrchr(s, c);
+    if (pos >= 0) {
+      p = strsub(s, 0, pos + 1);
+    }
+
+    string fileName = p + "temp.scr";
+
+    output(fileName) {
+      printf("GRID INCH 0.005\n");
+
+      B.layers(LAY) {
+        printf("LAYER %d %s;\n", LAY.number, LAY.name);
+      }
+
+      B.circles(CIR) {
+        printf("LAYER %d;\n", CIR.layer);
+        printf("CIRCLE %5.3f (%5.3f %5.3f) (%5.3f %5.3f);\n", u2inch(CIR.width), u2inch(CIR.x), u2inch(CIR.y), u2inch(CIR.x + CIR.radius), u2inch(CIR.y));
+      }
+
+      B.holes(HOL) {
+        printf("HOLE %5.3f (%5.3f %5.3f);\n", u2inch(HOL.drill), u2inch(HOL.x), u2inch(HOL.y));
+      }
+
+      B.rectangles(REC) {
+        printf("LAYER %d;\n", REC.layer);
+        printf("RECT (%5.3f %5.3f) (%5.3f %5.3f);\n", u2inch(REC.x1), u2inch(REC.y1), u2inch(REC.x2), u2inch(REC.y2));
+      }
+
+      B.texts(TEX) {
+        options = "";
+        if(TEX.spin) {
+          options = "S";
+        }
+        if(TEX.mirror) {
+          options += "MR";
+        }
+        else {
+          options += "R";
+        }
+        printf("LAYER %d\n", TEX.layer);
+        printf("TEXT '%s' %s%f (%5.3f %5.3f);\n", TEX.value, options, TEX.angle, u2inch(TEX.x), u2inch(TEX.y));
+        printf("CHANGE SIZE %5.3f (%5.3f %5.3f);\n", u2inch(TEX.size), u2inch(TEX.x), u2inch(TEX.y));
+      }
+
+      B.wires(WIR) {
+        printf("LAYER %d\n", WIR.layer);
+        printf("WIRE %5.3f (%5.3f %5.3f) (%5.3f %5.3f);\n", u2inch(WIR.width), u2inch(WIR.x1), u2inch(WIR.y1), u2inch(WIR.x2), u2inch(WIR.y2));
+      }
+
+      B.polygons(POL) {
+        printf("SET WIRE_BEND 2;\n");
+        printf("LAYER %d\n", POL.layer);
+        printf("POLY %5.3f ", u2inch(POL.width));
+        int first = 1;
+        POL.contours(CON) {
+          if (first) {
+            printf("(%5.3f %5.3f) (%5.3f %5.3f)", u2inch(CON.x1), u2inch(CON.y1), u2inch(CON.x2), u2inch(CON.y2));
+            first = 0;
+          }
+          else {
+            printf(" (%5.3f %5.3f)", u2inch(CON.x2), u2inch(CON.y2));
+          }
+        }
+        printf(";\n");
+      }
+
+      B.elements(ELE) {
+        options = "";
+        if(ELE.spin) {
+          options = "S";
+        }
+        if(ELE.mirror) {
+          options += "MR";
+        }
+        else {
+          options += "R";
+        }
+        printf("ADD '%s' %s@%s %s%5.3f (%5.3f %5.3f);\n", ELE.name, ELE.package.name, ELE.package.library, options, ELE.angle, u2inch(ELE.x), u2inch(ELE.y));
+      }
+
+      B.signals(SIG) {
+
+        printf("SIGNAL '%s'", SIG.name);
+        SIG.contactrefs(CON) {
+          printf(" %s %s", CON.element.name, CON.contact.name);
+        }
+        printf(";\n");
+
+        SIG.wires(WIR) {
+          printf("LAYER %d\n", WIR.layer);
+          printf("WIRE '%s' %5.3f (%5.3f %5.3f) (%5.3f %5.3f);\n", SIG.name, u2inch(WIR.width), u2inch(WIR.x1), u2inch(WIR.y1), u2inch(WIR.x2), u2inch(WIR.y2));
+        }
+
+        SIG.vias(VIA) {
+          printf("VIA '%s' ROUND %d-%d (%5.3f %5.3f);\n", SIG.name, /*VIA.shape[],*/ VIA.start, VIA.end, u2inch(VIA.x), u2inch(VIA.y));
+        }
+
+        SIG.polygons(POL) {
+          printf("SET WIRE_BEND 2;\n");
+          printf("LAYER %d\n", POL.layer);
+          printf("POLY '%s' %5.3f ", SIG.name, u2inch(POL.width));
+          int first = 1;
+          int x0, y0;
+          POL.contours(CON) {
+            if (first) {
+              printf("(%5.3f %5.3f) (%5.3f %5.3f)", u2inch(CON.x1), u2inch(CON.y1), u2inch(CON.x2), u2inch(CON.y2));
+              first = 0;
+              x0 = CON.x1;
+              y0 = CON.y1;
+            }
+            else {
+              printf(" (%5.3f %5.3f)", u2inch(CON.x2), u2inch(CON.y2));
+            }
+          }
+          printf(";\n");
+
+          if (POL.thermals) {
+            printf("CHANGE THERMALS ON (%5.3f %5.3f);\n", u2inch(x0), u2inch(y0));
+          }
+          else {
+            printf("CHANGE THERMALS OFF (%5.3f %5.3f);\n", u2inch(x0), u2inch(y0));
+          }
+          printf("CHANGE ISOLATE %5.3f (%5.3f %5.3f);\n", u2inch(POL.isolate), u2inch(x0), u2inch(y0));
+        }
+      }
+      printf("GRID LAST\n");
+    }
+  }
+
+else {
+   dlgMessageBox("\n    Start this ULP in a board\n");
+   exit(0);
+}

@@ -1,0 +1,54 @@
+#usage "<b>Copy layout from one project to another</b>\n"
+       "<p>"
+       "Copy and paste schematic. "
+       "Making sure all Signal names and refdes are different "
+       "Then run the script file created by this program "
+       "<p>"
+       "<author>Author: Tom Morrison</author>"
+
+// THIS PROGRAM IS PROVIDED AS IS AND WITHOUT WARRANTY OF ANY KIND, EXPRESSED OR IMPLIED
+
+if (board) board(B) {
+
+  // Get filename
+  string fileName = dlgFileSave("Save File", filesetext(B.name, ".scr"), "*.scr");
+  if (fileName == "") exit(0);
+
+  output(fileName) {
+  B.elements(E) {
+  	printf("move %s (%5.0f %5.0f)\n",E.name,u2mil(E.x),u2mil(E.y));
+               
+          if(E.angle==90)
+  	     	 printf("rotate (%5.0f %5.0f)\n",u2mil(E.x),u2mil(E.y));
+  	     	 	else 
+  	     	 	  if(E.angle==180){
+  	     	 	  	printf("rotate (%5.0f %5.0f)\n",u2mil(E.x),u2mil(E.y));
+  	     	 	     	printf("rotate (%5.0f %5.0f)\n",u2mil(E.x),u2mil(E.y));}
+  	     	 	else 
+  	     	 	  if(E.angle==270){
+  	     	 	     	printf("rotate (%5.0f %5.0f)\n",u2mil(E.x),u2mil(E.y));
+  	     	 	     	printf("rotate (%5.0f %5.0f)\n",u2mil(E.x),u2mil(E.y));
+                                printf("rotate (%5.0f %5.0f)\n",u2mil(E.x),u2mil(E.y));}
+   }
+  
+  
+  printf("SET SNAP_LENGTH 5\n");
+  printf("SET WIRE_BEND 2\n");
+  B.signals(S){
+   		S.wires(W) {
+   		printf("layer %d\n",W.layer);
+		printf("wire '%s' %d %3.0f (%5.3f %5.3f) (%5.3f %5.3f)\n",
+             	S.name, W.layer, u2mil(W.width),u2mil(W.x1),u2mil(W.y1),u2mil(W.x2),u2mil(W.y2));}
+        	
+        	S.vias(V){
+             	printf("via '%s' round  %5.3f ( %5.3f %5.3f)\n",S.name,u2mil(V.diameter[1]),u2mil(V.x),u2mil(V.y));}
+       
+   }
+   printf("RATSNEST\n");
+  }
+}
+
+else {
+   dlgMessageBox("\n    Start this ULP in a Board    \n");
+   exit (0);
+}

@@ -342,6 +342,18 @@ female, 64 pins, type C, rows AC, grid 5.08 mm</description>
 <hole x="-0.3048" y="45.0088" drill="2.794"/>
 <hole x="-0.3048" y="-45.0088" drill="2.794"/>
 </package>
+<package name="BACKPLN-PROTO">
+<wire x1="292.1" y1="0" x2="426.72" y2="0" width="0.127" layer="20"/>
+<wire x1="426.72" y1="0" x2="426.72" y2="129.794" width="0.127" layer="20"/>
+<wire x1="426.72" y1="129.794" x2="292.1" y2="129.794" width="0.127" layer="20"/>
+<wire x1="292.1" y1="129.794" x2="292.1" y2="0" width="0.127" layer="20"/>
+<circle x="419.1" y="126.111" radius="1.5494" width="0.127" layer="20"/>
+<circle x="419.1" y="3.683" radius="1.5494" width="0.127" layer="20"/>
+<circle x="332.74" y="126.111" radius="1.5494" width="0.127" layer="20"/>
+<circle x="332.74" y="3.683" radius="1.5494" width="0.127" layer="20"/>
+<rectangle x1="292.1" y1="0" x2="426.72" y2="8.763" layer="39"/>
+<rectangle x1="292.1" y1="121.031" x2="426.72" y2="129.794" layer="39"/>
+</package>
 <package name="VG64">
 <description>&lt;b&gt;EUROCARD&lt;/b&gt;, 2 holes, C/AC, 2.54</description>
 <wire x1="0.254" y1="-50.0126" x2="160.274" y2="-50.0126" width="0" layer="20"/>

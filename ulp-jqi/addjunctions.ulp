@@ -1,0 +1,113 @@
+#usage	"This EAGLE User Language Program generates a script file\n"
+ 		"to add junctions to a schematic.  This eliminates ERC\n"
+ 		"warnings for missing junctions.\n\n"
+ 		"The script is written into a file named after the schematic,\n"
+ 		"with the \"AddJunctions.scr\".  E.g., for file.SCH, FileAddJunctions.scr\n"
+ 		"will be written.\n\n"
+ 		"By: Bill Auerbach  Softools, Inc."
+/*
+ *  This EAGLE User Language Program generates a script file
+ *  to add junctions to a schematic.  This eliminates ERC
+ *  warnings for missing junctions.
+ *
+ *  The ERC will continue to generate a warning for a net which
+ *  ends at the point in the middle of another net of the same
+ *  name because this ULP checks only the end points.
+ *
+ *  The script is written into a file named after the schematic,
+ *  with the "AddJunctions.scr".  E.g., File.SCH, FileAddJunctions.scr
+ *  will be written.
+ *
+ *  This had been adapted from the ULP chknets.net shipped with
+ *  Eagle 3.55.  It has been tested only using Eagle 4.03.
+ */
+
+
+schematic(SCH) {
+  int MissingJunctions = 0, Sheet = -1;
+// output(filesetext(SCH.name, "AddJunctions.scr")) {
+	output(path_scr[1]+"/dontexecute.scr") {
+
+    // Check for multiple (>2) wires of the same net segment that end at the
+    // same point, but are not visibly connected through a junction:
+
+    SCH.sheets(SH) {
+      SH.nets(N) {
+        N.segments(S) {
+
+          int jx[], jy[], NumJunctions = 0;
+
+          S.junctions(J) {
+            jx[NumJunctions] = J.x;
+            jy[NumJunctions] = J.y;
+            NumJunctions++;
+            }
+          int wx[], wy[], wn[], NumPoints = 0;
+
+          S.wires(W) {
+            int NewPoint1 = 1, NewPoint2 = 1;
+            for (int i = 0; i < NumPoints; i++) {
+                if (W.x1 == wx[i] && W.y1 == wy[i]) {
+                   NewPoint1 = 0;
+                   wn[i]++;
+                   }
+                if (W.x2 == wx[i] && W.y2 == wy[i]) {
+                   NewPoint2 = 0;
+                   wn[i]++;
+                   }
+                }
+            if (NewPoint1) {
+               wx[NumPoints] = W.x1;
+               wy[NumPoints] = W.y1;
+               wn[NumPoints] = 1;
+               NumPoints++;
+               }
+            if (NewPoint2) {
+               wx[NumPoints] = W.x2;
+               wy[NumPoints] = W.y2;
+               wn[NumPoints] = 1;
+               NumPoints++;
+               }
+            }
+
+          S.pinrefs(P) {
+            int NewPoint = 1;
+            for (int i = 0; i < NumPoints; i++) {
+                if (P.pin.x == wx[i] && P.pin.y == wy[i]) {
+                   NewPoint = 0;
+                   wn[i]++;
+                   }
+                }
+            if (NewPoint) {
+               wx[NumPoints] = P.pin.x;
+               wy[NumPoints] = P.pin.y;
+               wn[NumPoints] = 1;
+               NumPoints++;
+               }
+            }
+
+          for (int i = 0; i < NumPoints; i++) {
+              if (wn[i] > 2) {
+
+                 int FoundJunction = 0;
+                 for (int j = 0; j < NumJunctions; j++) {
+                     if (jx[j] == wx[i] && jy[j] == wy[i]) {
+                        FoundJunction = 1;
+                        break;
+                        }
+                     }
+                 if (!FoundJunction)  {
+		    MissingJunctions++;
+		    if( Sheet != SH.number )  {
+		      Sheet = SH.number;
+		      printf("edit .s%d\n", Sheet);
+		    }
+                    printf("junction (%f %f)\n",u2inch(wx[i]), u2inch(wy[i]));
+                 }
+              }
+          }
+        }
+      }
+    }
+  }
+}
