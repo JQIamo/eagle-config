@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -210,6 +210,57 @@
 <rectangle x1="-3.81" y1="-2.54" x2="-1.27" y2="0" layer="31"/>
 <rectangle x1="1.27" y1="-2.54" x2="3.81" y2="0" layer="31"/>
 <rectangle x1="-3.81" y1="1.27" x2="3.81" y2="2.54" layer="31"/>
+</package>
+<package name="SOT223">
+<description>&lt;b&gt;SMALL OUTLINE TRANSISTOR&lt;/b&gt;</description>
+<wire x1="3.277" y1="1.778" x2="3.277" y2="-1.778" width="0.2032" layer="21"/>
+<wire x1="3.277" y1="-1.778" x2="-3.277" y2="-1.778" width="0.2032" layer="21"/>
+<wire x1="-3.277" y1="-1.778" x2="-3.277" y2="1.778" width="0.2032" layer="21"/>
+<wire x1="-3.277" y1="1.778" x2="3.277" y2="1.778" width="0.2032" layer="21"/>
+<wire x1="-3.473" y1="4.483" x2="3.473" y2="4.483" width="0.0508" layer="39"/>
+<wire x1="3.473" y1="-4.483" x2="-3.473" y2="-4.483" width="0.0508" layer="39"/>
+<wire x1="-3.473" y1="-4.483" x2="-3.473" y2="4.483" width="0.0508" layer="39"/>
+<wire x1="3.473" y1="4.483" x2="3.473" y2="-4.483" width="0.0508" layer="39"/>
+<smd name="1" x="-2.311" y="-3.099" dx="1.219" dy="2.235" layer="1"/>
+<smd name="2" x="0" y="-3.099" dx="1.219" dy="2.235" layer="1"/>
+<smd name="3" x="2.311" y="-3.099" dx="1.219" dy="2.235" layer="1"/>
+<smd name="4" x="0" y="3.099" dx="3.6" dy="2.2" layer="1"/>
+<text x="-2.54" y="0.0508" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2.54" y="-1.3208" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-1.6002" y1="1.8034" x2="1.6002" y2="3.6576" layer="51"/>
+<rectangle x1="-0.4318" y1="-3.6576" x2="0.4318" y2="-1.8034" layer="51"/>
+<rectangle x1="-2.7432" y1="-3.6576" x2="-1.8796" y2="-1.8034" layer="51"/>
+<rectangle x1="1.8796" y1="-3.6576" x2="2.7432" y2="-1.8034" layer="51"/>
+<rectangle x1="-1.6002" y1="1.8034" x2="1.6002" y2="3.6576" layer="51"/>
+<rectangle x1="-0.4318" y1="-3.6576" x2="0.4318" y2="-1.8034" layer="51"/>
+<rectangle x1="-2.7432" y1="-3.6576" x2="-1.8796" y2="-1.8034" layer="51"/>
+<rectangle x1="1.8796" y1="-3.6576" x2="2.7432" y2="-1.8034" layer="51"/>
+<rectangle x1="-1" y1="-1" x2="1" y2="1" layer="35"/>
+</package>
+<package name="SOT223-S">
+<wire x1="3.277" y1="3.778" x2="3.277" y2="0.222" width="0.2032" layer="21"/>
+<wire x1="3.277" y1="0.222" x2="-3.277" y2="0.222" width="0.2032" layer="21"/>
+<wire x1="-3.277" y1="0.222" x2="-3.277" y2="3.778" width="0.2032" layer="21"/>
+<wire x1="-3.277" y1="3.778" x2="3.277" y2="3.778" width="0.2032" layer="21"/>
+<wire x1="-3.473" y1="6.483" x2="3.473" y2="6.483" width="0.0508" layer="39"/>
+<wire x1="3.473" y1="-2.483" x2="-3.473" y2="-2.483" width="0.0508" layer="39"/>
+<wire x1="-3.473" y1="-2.483" x2="-3.473" y2="6.483" width="0.0508" layer="39"/>
+<wire x1="3.473" y1="6.483" x2="3.473" y2="-2.483" width="0.0508" layer="39"/>
+<smd name="1" x="-2.3" y="-1.5" dx="1" dy="1.5" layer="1"/>
+<smd name="2" x="0" y="-1.5" dx="1" dy="1.5" layer="1"/>
+<smd name="3" x="2.3" y="-1.5" dx="1" dy="1.5" layer="1"/>
+<smd name="4" x="0" y="5" dx="4" dy="1.5" layer="1"/>
+<text x="-2.54" y="2.0508" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2.54" y="0.6792" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-1.6002" y1="3.8034" x2="1.6002" y2="5.6576" layer="51"/>
+<rectangle x1="-0.4318" y1="-1.6576" x2="0.4318" y2="0.1966" layer="51"/>
+<rectangle x1="-2.7432" y1="-1.6576" x2="-1.8796" y2="0.1966" layer="51"/>
+<rectangle x1="1.8796" y1="-1.6576" x2="2.7432" y2="0.1966" layer="51"/>
+<rectangle x1="-1.6002" y1="3.8034" x2="1.6002" y2="5.6576" layer="51"/>
+<rectangle x1="-0.4318" y1="-1.6576" x2="0.4318" y2="0.1966" layer="51"/>
+<rectangle x1="-2.7432" y1="-1.6576" x2="-1.8796" y2="0.1966" layer="51"/>
+<rectangle x1="1.8796" y1="-1.6576" x2="2.7432" y2="0.1966" layer="51"/>
+<rectangle x1="-1" y1="1" x2="1" y2="3" layer="35"/>
 </package>
 </packages>
 <symbols>
@@ -426,6 +477,24 @@
 <connect gate="G$1" pin="GND" pad="3 6"/>
 <connect gate="G$1" pin="IN" pad="2"/>
 <connect gate="G$1" pin="OUT" pad="4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MIC5209-FIXED" prefix="U" uservalue="yes">
+<description>MIC5209 positive fixed Vreg, 500mA</description>
+<gates>
+<gate name="G$1" symbol="3PIN-VREG" x="-5.08" y="7.62"/>
+</gates>
+<devices>
+<device name="" package="SOT223-S">
+<connects>
+<connect gate="G$1" pin="GND" pad="2 4"/>
+<connect gate="G$1" pin="IN" pad="1"/>
+<connect gate="G$1" pin="OUT" pad="3"/>
 </connects>
 <technologies>
 <technology name=""/>
