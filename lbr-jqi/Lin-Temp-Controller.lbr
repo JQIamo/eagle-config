@@ -483,7 +483,7 @@ Source: 8x ADG1408_1409.pdf</description>
 <wire x1="-22.86" y1="-22.86" x2="22.86" y2="-22.86" width="0.254" layer="94"/>
 <wire x1="22.86" y1="-22.86" x2="22.86" y2="22.86" width="0.254" layer="94"/>
 <pin name="-IN" x="-28.194" y="11.43" length="middle"/>
-<pin name="+IN" x="-28.194" y="-10.668" visible="pin" length="middle"/>
+<pin name="+IN" x="-28.194" y="-10.668" length="middle"/>
 <pin name="V-" x="0" y="-27.432" length="middle" direction="pwr" rot="R90"/>
 <pin name="V+" x="0" y="28.194" length="middle" direction="pwr" rot="R270"/>
 <pin name="SENSE" x="27.432" y="11.43" length="middle" rot="R180"/>
@@ -496,6 +496,20 @@ Source: 8x ADG1408_1409.pdf</description>
 <wire x1="6.858" y1="-16.002" x2="13.716" y2="-16.002" width="0.254" layer="94"/>
 <wire x1="-16.002" y1="-10.668" x2="-16.764" y2="-10.668" width="0.254" layer="94"/>
 <wire x1="-16.002" y1="11.43" x2="-16.764" y2="11.43" width="0.254" layer="94"/>
+</symbol>
+<symbol name="INA159(SIMPLE)">
+<pin name="REF1" x="-15.24" y="7.62" length="middle"/>
+<pin name="-IN" x="-15.24" y="2.54" length="middle"/>
+<pin name="+IN" x="-15.24" y="-2.54" length="middle"/>
+<pin name="V-" x="-15.24" y="-7.62" length="middle" direction="pwr"/>
+<pin name="SENSE" x="15.24" y="-7.62" length="middle" rot="R180"/>
+<pin name="OUT" x="15.24" y="-2.54" length="middle" rot="R180"/>
+<pin name="V+" x="15.24" y="2.54" length="middle" direction="pwr" rot="R180"/>
+<pin name="REF2" x="15.24" y="7.62" length="middle" rot="R180"/>
+<wire x1="-10.16" y1="10.16" x2="-10.16" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-10.16" x2="10.16" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-10.16" x2="10.16" y2="10.16" width="0.254" layer="94"/>
+<wire x1="10.16" y1="10.16" x2="-10.16" y2="10.16" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -647,7 +661,7 @@ Source: 8x ADG1408_1409.pdf</description>
 <deviceset name="INA159" prefix="IC" uservalue="yes">
 <description>INA159 Difference Amplifier, Texas Instruments</description>
 <gates>
-<gate name="G$1" symbol="INA159" x="0" y="0"/>
+<gate name="G$1" symbol="INA159(SIMPLE)" x="0" y="0"/>
 </gates>
 <devices>
 <device name="" package="VSSOP8">
