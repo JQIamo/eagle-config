@@ -448,6 +448,16 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <vertex x="-2.25" y="3.15"/>
 </polygon>
 </package>
+<package name="L_FERRITE_1810">
+<smd name="P$1" x="-1.75" y="0" dx="1.75" dy="2.9" layer="1" rot="R180"/>
+<smd name="P$2" x="1.75" y="0" dx="1.75" dy="2.9" layer="1" rot="R180"/>
+<wire x1="-2.25" y1="0.8" x2="-2.25" y2="-0.8" width="0.127" layer="21"/>
+<wire x1="-2.25" y1="-0.8" x2="2.25" y2="-0.8" width="0.127" layer="21"/>
+<wire x1="2.25" y1="-0.8" x2="2.25" y2="0.8" width="0.127" layer="21"/>
+<wire x1="2.25" y1="0.8" x2="-2.25" y2="0.8" width="0.127" layer="21"/>
+<text x="-2.6" y="1.9" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2.5" y="-3.2" size="1.27" layer="27">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="EMERSON_128-0711-201_UMC_JACK">
@@ -884,6 +894,15 @@ Additional passive components (RLC and trimpots) can be added.</description>
 </technologies>
 </device>
 <device name="LFERRITE_0805" package="R_0805">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
+<connect gate="G$1" pin="2" pad="P$2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="" package="L_FERRITE_1810">
 <connects>
 <connect gate="G$1" pin="1" pad="P$1"/>
 <connect gate="G$1" pin="2" pad="P$2"/>
