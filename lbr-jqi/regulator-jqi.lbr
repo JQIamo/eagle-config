@@ -580,6 +580,7 @@
 </devices>
 </deviceset>
 <deviceset name="TPS7A49XX" prefix="U" uservalue="yes">
+<description>Ultra-low noise Positive adjustable regulators, 150mA</description>
 <gates>
 <gate name="G$1" symbol="TPS7A" x="0" y="0"/>
 </gates>
@@ -683,6 +684,27 @@
 <connect gate="G$1" pin="GND" pad="1"/>
 <connect gate="G$1" pin="VI" pad="2"/>
 <connect gate="G$1" pin="VO" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TPS7A30XX" prefix="U">
+<description>Ultra-low noise adjustable negative regulator, 200mA</description>
+<gates>
+<gate name="G$1" symbol="TPS7A" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="DGN">
+<connects>
+<connect gate="G$1" pin="EN" pad="EN"/>
+<connect gate="G$1" pin="FB" pad="FB"/>
+<connect gate="G$1" pin="GND" pad="GND GND1"/>
+<connect gate="G$1" pin="IN" pad="IN"/>
+<connect gate="G$1" pin="NR" pad="NR/SS"/>
+<connect gate="G$1" pin="OUT" pad="OUT"/>
 </connects>
 <technologies>
 <technology name=""/>
