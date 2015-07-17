@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -389,6 +389,60 @@
 <vertex x="-0.7874" y="1.2954"/>
 </polygon>
 </package>
+<package name="S-PVQFN-N20">
+<wire x1="-2.425" y1="1.95" x2="-2.1" y2="2.275" width="0.254" layer="21"/>
+<wire x1="-2.1" y1="2.275" x2="2" y2="2.275" width="0.254" layer="51"/>
+<wire x1="2" y1="-2.475" x2="-2.1" y2="-2.475" width="0.254" layer="51"/>
+<wire x1="-2.1" y1="-2.475" x2="-2.425" y2="-2.15" width="0.254" layer="21"/>
+<wire x1="-2.425" y1="-2.15" x2="-2.425" y2="1.95" width="0.254" layer="51"/>
+<wire x1="2.325" y1="1.95" x2="2.325" y2="-2.15" width="0.254" layer="51"/>
+<wire x1="2" y1="2.275" x2="2.325" y2="1.95" width="0.254" layer="21"/>
+<wire x1="2.325" y1="-2.15" x2="2" y2="-2.475" width="0.254" layer="21"/>
+<circle x="-1.95" y="1.8" radius="0.2263" width="0" layer="21"/>
+<smd name="1" x="-2.4" y="1.2" dx="0.9" dy="0.3" layer="1" roundness="50"/>
+<smd name="2" x="-2.4" y="0.55" dx="0.9" dy="0.3" layer="1" roundness="50"/>
+<smd name="3" x="-2.4" y="-0.1" dx="0.9" dy="0.3" layer="1" roundness="50"/>
+<smd name="4" x="-2.4" y="-0.75" dx="0.9" dy="0.3" layer="1" roundness="50"/>
+<smd name="5" x="-2.4" y="-1.4" dx="0.9" dy="0.3" layer="1" roundness="50"/>
+<smd name="6" x="-1.35" y="-2.45" dx="0.3" dy="0.9" layer="1" roundness="50"/>
+<smd name="7" x="-0.7" y="-2.45" dx="0.3" dy="0.9" layer="1" roundness="50"/>
+<smd name="8" x="-0.05" y="-2.45" dx="0.3" dy="0.9" layer="1" roundness="50"/>
+<smd name="9" x="0.6" y="-2.45" dx="0.3" dy="0.9" layer="1" roundness="50"/>
+<smd name="10" x="1.25" y="-2.45" dx="0.3" dy="0.9" layer="1" roundness="50"/>
+<smd name="11" x="2.3" y="-1.4" dx="0.9" dy="0.3" layer="1" roundness="50"/>
+<smd name="12" x="2.3" y="-0.75" dx="0.9" dy="0.3" layer="1" roundness="50"/>
+<smd name="13" x="2.3" y="-0.1" dx="0.9" dy="0.3" layer="1" roundness="50"/>
+<smd name="14" x="2.3" y="0.55" dx="0.9" dy="0.3" layer="1" roundness="50"/>
+<smd name="15" x="2.3" y="1.2" dx="0.9" dy="0.3" layer="1" roundness="50"/>
+<smd name="16" x="1.25" y="2.25" dx="0.3" dy="0.9" layer="1" roundness="50"/>
+<smd name="17" x="0.6" y="2.25" dx="0.3" dy="0.9" layer="1" roundness="50"/>
+<smd name="18" x="-0.05" y="2.25" dx="0.3" dy="0.9" layer="1" roundness="50"/>
+<smd name="19" x="-0.7" y="2.25" dx="0.3" dy="0.9" layer="1" roundness="50"/>
+<smd name="20" x="-1.35" y="2.25" dx="0.3" dy="0.9" layer="1" roundness="50"/>
+<smd name="EXP" x="-0.05" y="-0.1" dx="3.1" dy="3.1" layer="1"/>
+<text x="-2.59" y="3.075" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2.59" y="-4.545" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-2.5" y1="1.05" x2="-2.05" y2="1.35" layer="51"/>
+<rectangle x1="-2.5" y1="0.4" x2="-2.05" y2="0.7" layer="51"/>
+<rectangle x1="-2.5" y1="-0.25" x2="-2.05" y2="0.05" layer="51"/>
+<rectangle x1="-2.5" y1="-0.9" x2="-2.05" y2="-0.6" layer="51"/>
+<rectangle x1="-2.5" y1="-1.55" x2="-2.05" y2="-1.25" layer="51"/>
+<rectangle x1="-1.5" y1="-2.55" x2="-1.2" y2="-2.1" layer="51"/>
+<rectangle x1="-0.85" y1="-2.55" x2="-0.55" y2="-2.1" layer="51"/>
+<rectangle x1="-0.2" y1="-2.55" x2="0.1" y2="-2.1" layer="51"/>
+<rectangle x1="0.45" y1="-2.55" x2="0.75" y2="-2.1" layer="51"/>
+<rectangle x1="1.1" y1="-2.55" x2="1.4" y2="-2.1" layer="51"/>
+<rectangle x1="1.95" y1="-1.55" x2="2.4" y2="-1.25" layer="51"/>
+<rectangle x1="1.95" y1="-0.9" x2="2.4" y2="-0.6" layer="51"/>
+<rectangle x1="1.95" y1="-0.25" x2="2.4" y2="0.05" layer="51"/>
+<rectangle x1="1.95" y1="0.4" x2="2.4" y2="0.7" layer="51"/>
+<rectangle x1="1.95" y1="1.05" x2="2.4" y2="1.35" layer="51"/>
+<rectangle x1="1.1" y1="1.9" x2="1.4" y2="2.35" layer="51"/>
+<rectangle x1="0.45" y1="1.9" x2="0.75" y2="2.35" layer="51"/>
+<rectangle x1="-0.2" y1="1.9" x2="0.1" y2="2.35" layer="51"/>
+<rectangle x1="-0.85" y1="1.9" x2="-0.55" y2="2.35" layer="51"/>
+<rectangle x1="-1.5" y1="1.9" x2="-1.2" y2="2.35" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="5PIN-VREG">
@@ -513,6 +567,29 @@
 <pin name="VI" x="-10.16" y="0" length="short" direction="in"/>
 <pin name="GND" x="0" y="7.62" visible="pad" length="short" direction="pas" rot="R270"/>
 <pin name="VO" x="10.16" y="0" length="short" direction="pas" rot="R180"/>
+</symbol>
+<symbol name="TPS7A4700">
+<wire x1="-10.16" y1="7.62" x2="12.7" y2="7.62" width="0.254" layer="94"/>
+<wire x1="12.7" y1="7.62" x2="12.7" y2="-20.32" width="0.254" layer="94"/>
+<wire x1="12.7" y1="-20.32" x2="-12.7" y2="-20.32" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="-20.32" x2="-12.7" y2="5.08" width="0.254" layer="94"/>
+<pin name="OUT" x="-15.24" y="5.08" visible="pin" length="short"/>
+<pin name="SENSE" x="-15.24" y="0" visible="pin" length="short"/>
+<pin name="6.4A" x="-15.24" y="-10.16" visible="pin" length="short"/>
+<pin name="6.4B" x="-10.16" y="-22.86" visible="pin" length="short" rot="R90"/>
+<pin name="3.2" x="-5.08" y="-22.86" visible="pin" length="short" rot="R90"/>
+<pin name="GND" x="-15.24" y="-5.08" visible="pin" length="short"/>
+<pin name="1.6" x="0" y="-22.86" visible="pin" length="short" rot="R90"/>
+<pin name="0.8" x="5.08" y="-22.86" visible="pin" length="short" rot="R90"/>
+<pin name="0.4" x="10.16" y="-22.86" visible="pin" length="short" rot="R90"/>
+<pin name="0.2" x="15.24" y="-10.16" visible="pin" length="short" rot="R180"/>
+<pin name="0.1" x="15.24" y="-5.08" visible="pin" length="short" rot="R180"/>
+<pin name="EN" x="15.24" y="0" visible="pin" length="short" rot="R180"/>
+<pin name="NR" x="15.24" y="5.08" visible="pin" length="short" rot="R180"/>
+<pin name="IN" x="0" y="10.16" visible="pin" length="short" rot="R270"/>
+<text x="10.16" y="15.24" size="1.27" layer="95">&gt;NAME</text>
+<text x="10.16" y="12.7" size="1.27" layer="96">&gt;VALUE</text>
+<wire x1="-12.7" y1="5.08" x2="-10.16" y2="7.62" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -705,6 +782,35 @@
 <connect gate="G$1" pin="IN" pad="IN"/>
 <connect gate="G$1" pin="NR" pad="NR/SS"/>
 <connect gate="G$1" pin="OUT" pad="OUT"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TPS7A470" prefix="U">
+<description>Ultra-low noise LDO regulator, variable programmable output, 36V</description>
+<gates>
+<gate name="G$1" symbol="TPS7A4700" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="S-PVQFN-N20">
+<connects>
+<connect gate="G$1" pin="0.1" pad="12"/>
+<connect gate="G$1" pin="0.2" pad="11"/>
+<connect gate="G$1" pin="0.4" pad="10"/>
+<connect gate="G$1" pin="0.8" pad="9"/>
+<connect gate="G$1" pin="1.6" pad="8"/>
+<connect gate="G$1" pin="3.2" pad="6"/>
+<connect gate="G$1" pin="6.4A" pad="4"/>
+<connect gate="G$1" pin="6.4B" pad="5"/>
+<connect gate="G$1" pin="EN" pad="13"/>
+<connect gate="G$1" pin="GND" pad="7 EXP"/>
+<connect gate="G$1" pin="IN" pad="15 16"/>
+<connect gate="G$1" pin="NR" pad="14"/>
+<connect gate="G$1" pin="OUT" pad="1 20"/>
+<connect gate="G$1" pin="SENSE" pad="3"/>
 </connects>
 <technologies>
 <technology name=""/>
