@@ -458,6 +458,18 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <text x="-2.6" y="1.9" size="1.27" layer="25">&gt;NAME</text>
 <text x="-2.5" y="-3.2" size="1.27" layer="27">&gt;VALUE</text>
 </package>
+<package name="COILCRAFT_MSS1583">
+<description>&lt;p&gt;CoilCraft Shielded power inductor; MSS1583.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.coilcraft.com/pdfs/mss1583.pdf"&gt;http://www.coilcraft.com/pdfs/mss1583.pdf&lt;/a&gt;</description>
+<smd name="P$1" x="0" y="5.75" dx="6" dy="3.8" layer="1"/>
+<smd name="P$2" x="0" y="-5.75" dx="6" dy="3.8" layer="1"/>
+<wire x1="-7.5" y1="7.5" x2="7.5" y2="7.5" width="0.127" layer="21"/>
+<wire x1="7.5" y1="7.5" x2="7.5" y2="-7.5" width="0.127" layer="21"/>
+<wire x1="7.5" y1="-7.5" x2="-7.5" y2="-7.5" width="0.127" layer="21"/>
+<wire x1="-7.5" y1="-7.5" x2="-7.5" y2="7.5" width="0.127" layer="21"/>
+<circle x="0" y="0" radius="3.60555" width="0.127" layer="21"/>
+<text x="9" y="6.5" size="1.27" layer="25">&gt;NAME</text>
+<text x="9" y="4.5" size="1.27" layer="27">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="EMERSON_128-0711-201_UMC_JACK">
@@ -903,6 +915,15 @@ Additional passive components (RLC and trimpots) can be added.</description>
 </technologies>
 </device>
 <device name="" package="L_FERRITE_1810">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
+<connect gate="G$1" pin="2" pad="P$2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="-CC1583" package="COILCRAFT_MSS1583">
 <connects>
 <connect gate="G$1" pin="1" pad="P$1"/>
 <connect gate="G$1" pin="2" pad="P$2"/>
