@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -392,25 +392,25 @@
 </packages>
 <symbols>
 <symbol name="5PIN-VREG">
-<wire x1="-5.08" y1="7.62" x2="5.08" y2="7.62" width="0.254" layer="94"/>
-<wire x1="5.08" y1="7.62" x2="5.08" y2="5.08" width="0.254" layer="94"/>
-<wire x1="5.08" y1="5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="5.08" y1="-5.08" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="5.08" y1="-7.62" x2="0" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="0" y1="-7.62" x2="-5.08" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="-7.62" x2="-5.08" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="-5.08" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="5.08" x2="-5.08" y2="7.62" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="5.08" x2="-8.89" y2="5.08" width="0.1524" layer="94"/>
-<wire x1="5.08" y1="5.08" x2="8.89" y2="5.08" width="0.1524" layer="94"/>
-<wire x1="0" y1="-7.62" x2="0" y2="-11.43" width="0.1524" layer="94"/>
-<pin name="IN" x="-8.89" y="5.08" visible="pin" length="point" rot="R90"/>
-<pin name="OUT" x="8.89" y="5.08" visible="pin" length="point" rot="R90"/>
-<pin name="GND" x="0" y="-11.43" visible="pin" length="point"/>
-<wire x1="-5.08" y1="-5.08" x2="-8.89" y2="-5.08" width="0.1524" layer="94"/>
-<wire x1="5.08" y1="-5.08" x2="8.89" y2="-5.08" width="0.1524" layer="94"/>
-<pin name="EN" x="-8.89" y="-5.08" visible="pin" length="point" rot="R90"/>
-<pin name="BYP" x="8.89" y="-5.08" visible="pin" length="point" rot="R90"/>
+<wire x1="-3.81" y1="7.62" x2="3.81" y2="7.62" width="0.254" layer="94"/>
+<wire x1="3.81" y1="7.62" x2="3.81" y2="5.08" width="0.254" layer="94"/>
+<wire x1="3.81" y1="5.08" x2="3.81" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="3.81" y1="-5.08" x2="3.81" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="3.81" y1="-7.62" x2="0" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="0" y1="-7.62" x2="-3.81" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="-7.62" x2="-3.81" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="-5.08" x2="-3.81" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="5.08" x2="-3.81" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="5.08" x2="-7.62" y2="5.08" width="0.1524" layer="94"/>
+<wire x1="3.81" y1="5.08" x2="7.62" y2="5.08" width="0.1524" layer="94"/>
+<wire x1="0" y1="-7.62" x2="0" y2="-10.16" width="0.1524" layer="94"/>
+<pin name="IN" x="-7.62" y="5.08" visible="pin" length="point" rot="R90"/>
+<pin name="OUT" x="7.62" y="5.08" visible="pin" length="point" rot="R90"/>
+<pin name="GND" x="0" y="-10.16" visible="pin" length="point"/>
+<wire x1="-3.81" y1="-5.08" x2="-7.62" y2="-5.08" width="0.1524" layer="94"/>
+<wire x1="3.81" y1="-5.08" x2="7.62" y2="-5.08" width="0.1524" layer="94"/>
+<pin name="EN" x="-7.62" y="-5.08" visible="pin" length="point" rot="R90"/>
+<pin name="BYP" x="7.62" y="-5.08" visible="pin" length="point" rot="R90"/>
 <text x="-5.08" y="10.16" size="2.032" layer="95">&gt;NAME</text>
 <text x="-5.08" y="12.7" size="2.032" layer="96">&gt;VALUE</text>
 </symbol>
@@ -513,6 +513,42 @@
 <pin name="VI" x="-10.16" y="0" length="short" direction="in"/>
 <pin name="GND" x="0" y="7.62" visible="pad" length="short" direction="pas" rot="R270"/>
 <pin name="VO" x="10.16" y="0" length="short" direction="pas" rot="R180"/>
+</symbol>
+<symbol name="LT3080">
+<description>LT3080 adjustable positive low-noise 1.1A regulator</description>
+<wire x1="-5.08" y1="7.62" x2="-5.08" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-10.16" x2="15.24" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-10.16" x2="15.24" y2="7.62" width="0.254" layer="94"/>
+<wire x1="15.24" y1="7.62" x2="-5.08" y2="7.62" width="0.254" layer="94"/>
+<pin name="VIN" x="-7.62" y="5.08" visible="pin" length="short"/>
+<pin name="VCTL" x="-7.62" y="2.54" visible="pin" length="short"/>
+<pin name="SET" x="-2.54" y="-12.7" visible="pin" length="short" rot="R90"/>
+<pin name="VOUT" x="17.78" y="5.08" visible="pin" length="short" rot="R180"/>
+<text x="-5.08" y="15.24" size="1.778" layer="95">&gt;NAME</text>
+<text x="-5.08" y="12.7" size="1.778" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="5PIN-VREG-SENSE">
+<wire x1="-3.81" y1="7.62" x2="3.81" y2="7.62" width="0.254" layer="94"/>
+<wire x1="3.81" y1="7.62" x2="3.81" y2="5.08" width="0.254" layer="94"/>
+<wire x1="3.81" y1="5.08" x2="3.81" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="3.81" y1="-5.08" x2="3.81" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="3.81" y1="-7.62" x2="0" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="0" y1="-7.62" x2="-3.81" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="-7.62" x2="-3.81" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="-5.08" x2="-3.81" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="5.08" x2="-3.81" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="5.08" x2="-7.62" y2="5.08" width="0.1524" layer="94"/>
+<wire x1="3.81" y1="5.08" x2="7.62" y2="5.08" width="0.1524" layer="94"/>
+<wire x1="0" y1="-7.62" x2="0" y2="-10.16" width="0.1524" layer="94"/>
+<pin name="IN" x="-7.62" y="5.08" visible="pin" length="point" rot="R90"/>
+<pin name="OUT" x="7.62" y="5.08" visible="pin" length="point" rot="R90"/>
+<pin name="GND" x="0" y="-10.16" visible="pin" length="point"/>
+<wire x1="-3.81" y1="-5.08" x2="-7.62" y2="-5.08" width="0.1524" layer="94"/>
+<wire x1="3.81" y1="-5.08" x2="7.62" y2="-5.08" width="0.1524" layer="94"/>
+<pin name="EN" x="-7.62" y="-5.08" visible="pin" length="point" rot="R90"/>
+<pin name="SEN" x="7.62" y="-5.08" visible="pin" length="point" rot="R90"/>
+<text x="-5.08" y="10.16" size="2.032" layer="95">&gt;NAME</text>
+<text x="-5.08" y="12.7" size="2.032" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -683,6 +719,45 @@
 <connect gate="G$1" pin="GND" pad="1"/>
 <connect gate="G$1" pin="VI" pad="2"/>
 <connect gate="G$1" pin="VO" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="LT3080" prefix="IC">
+<description>LT3080 adjustable positive low-noise 1.1A regulator</description>
+<gates>
+<gate name="G$1" symbol="LT3080" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TO263-5">
+<connects>
+<connect gate="G$1" pin="SET" pad="2"/>
+<connect gate="G$1" pin="VCTL" pad="4"/>
+<connect gate="G$1" pin="VIN" pad="5"/>
+<connect gate="G$1" pin="VOUT" pad="3 6"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="LT3015" prefix="IC">
+<description>LT3015 negative Vreg; 60uV RMS, -1.8 to -30V</description>
+<gates>
+<gate name="G$1" symbol="5PIN-VREG-SENSE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TO263-5">
+<connects>
+<connect gate="G$1" pin="EN" pad="1"/>
+<connect gate="G$1" pin="GND" pad="2"/>
+<connect gate="G$1" pin="IN" pad="3 6"/>
+<connect gate="G$1" pin="OUT" pad="5"/>
+<connect gate="G$1" pin="SEN" pad="4"/>
 </connects>
 <technologies>
 <technology name=""/>
