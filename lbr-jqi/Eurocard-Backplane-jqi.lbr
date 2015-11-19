@@ -51,10 +51,10 @@
 <layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
-<layer number="44" name="Drills" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="yes"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
@@ -138,20 +138,24 @@
 <wire x1="426.72" y1="0" x2="426.72" y2="129.794" width="0.127" layer="20"/>
 <wire x1="426.72" y1="129.794" x2="0" y2="129.794" width="0.127" layer="20"/>
 <wire x1="0" y1="129.794" x2="0" y2="0" width="0.127" layer="20"/>
-<circle x="7.62" y="126.111" radius="1.5494" width="0.127" layer="20"/>
-<circle x="7.62" y="3.683" radius="1.5494" width="0.127" layer="20"/>
-<circle x="419.1" y="126.111" radius="1.5494" width="0.127" layer="20"/>
-<circle x="419.1" y="3.683" radius="1.5494" width="0.127" layer="20"/>
-<circle x="88.9" y="126.111" radius="1.5494" width="0.127" layer="20"/>
-<circle x="170.18" y="126.111" radius="1.5494" width="0.127" layer="20"/>
-<circle x="251.46" y="126.111" radius="1.5494" width="0.127" layer="20"/>
-<circle x="332.74" y="126.111" radius="1.5494" width="0.127" layer="20"/>
-<circle x="88.9" y="3.683" radius="1.5494" width="0.127" layer="20"/>
-<circle x="170.18" y="3.683" radius="1.5494" width="0.127" layer="20"/>
-<circle x="251.46" y="3.683" radius="1.5494" width="0.127" layer="20"/>
-<circle x="332.74" y="3.683" radius="1.5494" width="0.127" layer="20"/>
 <rectangle x1="0" y1="0" x2="426.72" y2="8.763" layer="39"/>
 <rectangle x1="0" y1="121.031" x2="426.72" y2="129.794" layer="39"/>
+<hole x="7.62" y="126.111" drill="3.0988"/>
+<hole x="22.86" y="126.111" drill="3.0988"/>
+<hole x="88.9" y="126.111" drill="3.0988"/>
+<hole x="170.18" y="126.111" drill="3.0988"/>
+<hole x="251.46" y="126.111" drill="3.0988"/>
+<hole x="332.74" y="126.111" drill="3.0988"/>
+<hole x="419.1" y="126.111" drill="3.0988"/>
+<hole x="403.86" y="126.111" drill="3.0988"/>
+<hole x="7.62" y="3.683" drill="3.0988"/>
+<hole x="22.86" y="3.683" drill="3.0988"/>
+<hole x="88.9" y="3.683" drill="3.0988"/>
+<hole x="170.18" y="3.683" drill="3.0988"/>
+<hole x="251.46" y="3.683" drill="3.0988"/>
+<hole x="332.74" y="3.683" drill="3.0988"/>
+<hole x="419.1" y="3.683" drill="3.0988"/>
+<hole x="403.86" y="3.683" drill="3.0988"/>
 </package>
 <package name="FAC64S">
 <description>&lt;b&gt;CONNECTOR&lt;/b&gt;&lt;p&gt;
@@ -349,10 +353,12 @@ female, 64 pins, type C, rows AC, grid 5.08 mm</description>
 <wire x1="0" y1="129.794" x2="0" y2="0" width="0.127" layer="20"/>
 <rectangle x1="0" y1="0" x2="134.62" y2="8.763" layer="39"/>
 <rectangle x1="0" y1="121.031" x2="134.62" y2="129.794" layer="39"/>
-<hole x="40.64" y="3.683" drill="3.0988"/>
-<hole x="127" y="3.683" drill="3.0988"/>
-<hole x="127" y="126.111" drill="3.0988"/>
 <hole x="40.64" y="126.111" drill="3.0988"/>
+<hole x="127" y="126.111" drill="3.0988"/>
+<hole x="127" y="3.683" drill="3.0988"/>
+<hole x="40.64" y="3.683" drill="3.0988"/>
+<hole x="111.76" y="3.683" drill="3.0988"/>
+<hole x="111.76" y="126.111" drill="3.0988"/>
 </package>
 <package name="VG64">
 <description>&lt;b&gt;EUROCARD&lt;/b&gt;, 2 holes, C/AC, 2.54</description>

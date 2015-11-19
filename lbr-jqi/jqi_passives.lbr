@@ -217,10 +217,10 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <text x="-3" y="1.7" size="1.016" layer="25" font="vector">&gt;NAME</text>
 </package>
 <package name="C_MLCC_0603">
-<wire x1="-1.275" y1="0.7" x2="-1.275" y2="-0.7" width="0.127" layer="21"/>
-<wire x1="-1.275" y1="-0.7" x2="1.275" y2="-0.7" width="0.127" layer="21"/>
-<wire x1="1.275" y1="-0.7" x2="1.275" y2="0.7" width="0.127" layer="21"/>
-<wire x1="1.275" y1="0.7" x2="-1.275" y2="0.7" width="0.127" layer="21"/>
+<wire x1="-1.275" y1="0.7" x2="-1.275" y2="-0.7" width="0.05" layer="21"/>
+<wire x1="-1.275" y1="-0.7" x2="1.275" y2="-0.7" width="0.05" layer="21"/>
+<wire x1="1.275" y1="-0.7" x2="1.275" y2="0.7" width="0.05" layer="21"/>
+<wire x1="1.275" y1="0.7" x2="-1.275" y2="0.7" width="0.05" layer="21"/>
 <smd name="P$1" x="-0.75" y="0" dx="0.8" dy="0.8" layer="1"/>
 <smd name="P$2" x="0.75" y="0" dx="0.8" dy="0.8" layer="1"/>
 <text x="-1.3" y="0.8" size="1.016" layer="25" font="vector">&gt;NAME</text>
@@ -244,19 +244,19 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <text x="-1.6" y="2.1" size="1.016" layer="25" font="vector">&gt;NAME</text>
 </package>
 <package name="C_MLCC_0805">
-<wire x1="-1.54" y1="0.925" x2="1.54" y2="0.925" width="0.127" layer="21"/>
-<wire x1="1.54" y1="0.925" x2="1.54" y2="-0.925" width="0.127" layer="21"/>
-<wire x1="1.54" y1="-0.925" x2="-1.54" y2="-0.925" width="0.127" layer="21"/>
-<wire x1="-1.54" y1="-0.925" x2="-1.54" y2="0.925" width="0.127" layer="21"/>
+<wire x1="-1.54" y1="0.925" x2="1.54" y2="0.925" width="0.05" layer="21"/>
+<wire x1="1.54" y1="0.925" x2="1.54" y2="-0.925" width="0.05" layer="21"/>
+<wire x1="1.54" y1="-0.925" x2="-1.54" y2="-0.925" width="0.05" layer="21"/>
+<wire x1="-1.54" y1="-0.925" x2="-1.54" y2="0.925" width="0.05" layer="21"/>
 <smd name="P$1" x="-0.95" y="0" dx="0.9" dy="1.3" layer="1"/>
 <smd name="P$2" x="0.95" y="0" dx="0.9" dy="1.3" layer="1"/>
 <text x="-1.6" y="1" size="1.016" layer="25" font="vector">&gt;NAME</text>
 </package>
 <package name="C_MLCC_1206">
-<wire x1="-2.125" y1="1.125" x2="2.125" y2="1.125" width="0.127" layer="21"/>
-<wire x1="2.125" y1="1.125" x2="2.125" y2="-1.125" width="0.127" layer="21"/>
-<wire x1="2.125" y1="-1.125" x2="-2.125" y2="-1.125" width="0.127" layer="21"/>
-<wire x1="-2.125" y1="-1.125" x2="-2.125" y2="1.125" width="0.127" layer="21"/>
+<wire x1="-2.125" y1="1.125" x2="2.125" y2="1.125" width="0.05" layer="21"/>
+<wire x1="2.125" y1="1.125" x2="2.125" y2="-1.125" width="0.05" layer="21"/>
+<wire x1="2.125" y1="-1.125" x2="-2.125" y2="-1.125" width="0.05" layer="21"/>
+<wire x1="-2.125" y1="-1.125" x2="-2.125" y2="1.125" width="0.05" layer="21"/>
 <smd name="P$1" x="-1.55" y="0" dx="0.9" dy="1.6" layer="1"/>
 <smd name="P$2" x="1.55" y="0" dx="0.9" dy="1.6" layer="1"/>
 <text x="-2.2" y="1.3" size="1.016" layer="25" font="vector">&gt;NAME</text>
@@ -471,6 +471,44 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <pad name="P$1" x="2.54" y="2.54" drill="1.016" shape="long" rot="R90"/>
 <pad name="P$2" x="-2.54" y="5.08" drill="1.016" shape="long"/>
 <pad name="P$3" x="-2.54" y="-5.08" drill="1.016" shape="long" rot="R270"/>
+</package>
+<package name="COILCRAFT_MSS1583">
+<description>&lt;p&gt;CoilCraft Shielded power inductor; MSS1583.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.coilcraft.com/pdfs/mss1583.pdf"&gt;http://www.coilcraft.com/pdfs/mss1583.pdf&lt;/a&gt;</description>
+<smd name="P$1" x="0" y="5.75" dx="6" dy="3.8" layer="1"/>
+<smd name="P$2" x="0" y="-5.75" dx="6" dy="3.8" layer="1"/>
+<wire x1="-7.5" y1="7.5" x2="7.5" y2="7.5" width="0.127" layer="21"/>
+<wire x1="7.5" y1="7.5" x2="7.5" y2="-7.5" width="0.127" layer="21"/>
+<wire x1="7.5" y1="-7.5" x2="-7.5" y2="-7.5" width="0.127" layer="21"/>
+<wire x1="-7.5" y1="-7.5" x2="-7.5" y2="7.5" width="0.127" layer="21"/>
+<circle x="0" y="0" radius="3.60555" width="0.127" layer="21"/>
+<text x="9" y="6.5" size="1.27" layer="25">&gt;NAME</text>
+<text x="9" y="4.5" size="1.27" layer="27">&gt;VALUE</text>
+<wire x1="0" y1="-3.556" x2="0" y2="-3.048" width="0.127" layer="21"/>
+<wire x1="0" y1="-3.048" x2="0" y2="-2.032" width="0.127" layer="21" curve="-180"/>
+<wire x1="0" y1="-2.032" x2="0" y2="-1.016" width="0.127" layer="21" curve="-180"/>
+<wire x1="0" y1="-1.016" x2="0" y2="0" width="0.127" layer="21" curve="-180"/>
+<wire x1="0" y1="0" x2="0" y2="1.016" width="0.127" layer="21" curve="-180"/>
+<wire x1="0" y1="1.016" x2="0" y2="2.032" width="0.127" layer="21" curve="-180"/>
+<wire x1="0" y1="2.032" x2="0" y2="3.048" width="0.127" layer="21" curve="-180"/>
+<wire x1="0" y1="3.048" x2="0" y2="3.556" width="0.127" layer="21"/>
+</package>
+<package name="742_ARRAY">
+<description>742 series resistor array from CTC: &lt;br/&gt;
+&lt;a href="http://www.ctscorp.com/components/Datasheets/008-0335-0.pdf"&gt;http://www.ctscorp.com/components/Datasheets/008-0335-0.pdf&lt;/a&gt;</description>
+<smd name="P$1" x="0" y="0.85" dx="0.45" dy="0.9" layer="1"/>
+<smd name="P$2" x="0" y="-0.85" dx="0.45" dy="0.9" layer="1"/>
+<smd name="P$3" x="0.8" y="0.85" dx="0.45" dy="0.9" layer="1"/>
+<smd name="P$4" x="0.8" y="-0.85" dx="0.45" dy="0.9" layer="1"/>
+<smd name="P$5" x="1.6" y="0.85" dx="0.45" dy="0.9" layer="1"/>
+<smd name="P$6" x="1.6" y="-0.85" dx="0.45" dy="0.9" layer="1"/>
+<smd name="P$7" x="2.4" y="0.85" dx="0.45" dy="0.9" layer="1"/>
+<smd name="P$8" x="2.4" y="-0.85" dx="0.45" dy="0.9" layer="1"/>
+<wire x1="-0.4" y1="0.8" x2="2.8" y2="0.8" width="0.05" layer="21"/>
+<wire x1="2.8" y1="0.8" x2="2.8" y2="-0.8" width="0.05" layer="21"/>
+<wire x1="2.8" y1="-0.8" x2="-0.4" y2="-0.8" width="0.05" layer="21"/>
+<wire x1="-0.4" y1="-0.8" x2="-0.4" y2="0.8" width="0.05" layer="21"/>
+<text x="0.254" y="2.286" size="0.508" layer="25">&gt;NAME</text>
+<text x="0" y="-2.54" size="0.508" layer="27">&gt;VALUE</text>
 </package>
 </packages>
 <symbols>
@@ -941,6 +979,15 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <technology name=""/>
 </technologies>
 </device>
+<device name="-CC1583" package="COILCRAFT_MSS1583">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
+<connect gate="G$1" pin="2" pad="P$2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 </devices>
 </deviceset>
 <deviceset name="3V3_U1">
@@ -1056,17 +1103,24 @@ Additional passive components (RLC and trimpots) can be added.</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="BOURNS-83-POT" prefix="R">
-<description>Through-hole POT</description>
+<deviceset name="R_ARRAY" prefix="R" uservalue="yes">
 <gates>
-<gate name="G$1" symbol="POT" x="0" y="0"/>
+<gate name="A" symbol="R_SMD" x="0" y="10.16"/>
+<gate name="B" symbol="R_SMD" x="0" y="5.08"/>
+<gate name="C" symbol="R_SMD" x="0" y="0"/>
+<gate name="D" symbol="R_SMD" x="0" y="-5.08"/>
 </gates>
 <devices>
-<device name="" package="BOURNS83">
+<device name="" package="742_ARRAY">
 <connects>
-<connect gate="G$1" pin="P$1" pad="P$1"/>
-<connect gate="G$1" pin="P$2" pad="P$2"/>
-<connect gate="G$1" pin="P$3" pad="P$3"/>
+<connect gate="A" pin="1" pad="P$1"/>
+<connect gate="A" pin="2" pad="P$2"/>
+<connect gate="B" pin="1" pad="P$3"/>
+<connect gate="B" pin="2" pad="P$4"/>
+<connect gate="C" pin="1" pad="P$5"/>
+<connect gate="C" pin="2" pad="P$6"/>
+<connect gate="D" pin="1" pad="P$7"/>
+<connect gate="D" pin="2" pad="P$8"/>
 </connects>
 <technologies>
 <technology name=""/>
