@@ -2859,6 +2859,19 @@
 <wire x1="0.254" y1="9.652" x2="12.954" y2="9.652" width="0" layer="20"/>
 <wire x1="12.954" y1="9.652" x2="12.954" y2="46.2026" width="0" layer="20"/>
 </package>
+<package name="SMA-V">
+<description>vertical SMA (through hole)</description>
+<pad name="RF" x="0" y="0" drill="1.4986"/>
+<pad name="GND1" x="-2.54" y="2.54" drill="1.7018"/>
+<pad name="GND2" x="2.54" y="2.54" drill="1.7018"/>
+<pad name="GND3" x="2.54" y="-2.54" drill="1.7018"/>
+<pad name="GND4" x="-2.54" y="-2.54" drill="1.7018"/>
+<wire x1="-3.81" y1="3.81" x2="3.81" y2="3.81" width="0.127" layer="21"/>
+<wire x1="3.81" y1="3.81" x2="3.81" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="3.81" y1="-3.81" x2="-3.81" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="-3.81" x2="-3.81" y2="3.81" width="0.127" layer="21"/>
+<text x="-3.81" y="-6.35" size="1.27" layer="25">&gt;NAME</text>
+</package>
 <package name="MA08-2">
 <description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
 <wire x1="-9.525" y1="2.54" x2="-8.255" y2="2.54" width="0.1524" layer="21"/>
@@ -3457,6 +3470,15 @@
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="G@1 G@2 G@3 G@4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="-V" package="SMA-V">
+<connects>
+<connect gate="G$1" pin="1" pad="RF"/>
+<connect gate="G$1" pin="2" pad="GND1 GND2 GND3 GND4"/>
 </connects>
 <technologies>
 <technology name=""/>
