@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -3305,12 +3305,12 @@
 <text x="12.7" y="10.16" size="1.778" layer="97">SPI_CS</text>
 <text x="12.7" y="7.62" size="1.778" layer="97">SPI_SDO</text>
 <text x="12.7" y="5.08" size="1.778" layer="97">I2C_SCL</text>
-<text x="-27.94" y="-22.86" size="1.778" layer="97">HV Interlock</text>
-<text x="12.7" y="-22.86" size="1.778" layer="97">HV Interlock</text>
-<text x="-27.94" y="-25.4" size="1.778" layer="97">Vref GND</text>
-<text x="12.7" y="-25.4" size="1.778" layer="97">Vref GND</text>
-<text x="-20.32" y="-27.94" size="1.778" layer="97">HV</text>
-<text x="12.7" y="-27.94" size="1.778" layer="97">HV</text>
+<text x="-27.94" y="-20.32" size="1.778" layer="97">HV Interlock</text>
+<text x="12.7" y="-20.32" size="1.778" layer="97">HV Interlock</text>
+<text x="-27.94" y="-22.86" size="1.778" layer="97">Vref GND</text>
+<text x="12.7" y="-22.86" size="1.778" layer="97">Vref GND</text>
+<text x="-20.32" y="-25.4" size="1.778" layer="97">HV</text>
+<text x="12.7" y="-25.4" size="1.778" layer="97">HV</text>
 <text x="-20.32" y="-35.56" size="1.778" layer="97">-15V</text>
 <text x="12.7" y="-35.56" size="1.778" layer="97">-15V</text>
 <text x="-20.32" y="-38.1" size="1.778" layer="97">+15V</text>
