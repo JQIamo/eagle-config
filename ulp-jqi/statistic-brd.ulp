@@ -22,7 +22,7 @@
 
 string Version = "Version 1.0.7";   // 2007.12.04
 
-int    uval = 1;
+int    uval = 3;
 string unit[] = { "Micron", "mm", "Mil", "Inch" };
 int    unitPrec[] = { 0, 1, 1, 3 }, RoundFactor = pow(10, unitPrec[uval]);
 
@@ -1116,7 +1116,7 @@ if (board) {
       cntElement++;
       Ename[cntElement] = E.name;
       eUsedLayer[cntElement] = E.mirror;
-      eUsedArea[cntElement] = used_area(E); // berechne für jedes Element(Package) den benötigten Platz
+      eUsedArea[cntElement] = used_area(E); // berechne fÃ¼r jedes Element(Package) den benÃ¶tigten Platz
       summary_area += eUsedArea[cntElement];
     }
       
@@ -1173,7 +1173,7 @@ zombie */
         if (!P.width) PolyWidthError = 1;
         P.wires(W) {
           if (W.width < 10) {
-            sprintf(PolygonLayer[cPolygonL], "Package\t%s.PAC \t%d\t%d\t%.4f", E.package.name, W.layer, P.rank, u2mm(P.width));
+            sprintf(PolygonLayer[cPolygonL], "Package\t%s.PAC \t%d\t%d\t%.4f\t%.4f", E.package.name, W.layer, P.rank, P.width,P.isolate);
             cPolygonL++;
           }
           break;
@@ -1270,7 +1270,7 @@ zombie */
         // Polygon Wire width *********
         if (!P.width) PolyWidthError = 1;
         P.wires(W) {
-          sprintf(PolygonLayer[cPolygonL], "Signal\t%s\t%d\t%d\t%.3f", S.name, P.layer, P.rank, u2mm(W.width) );
+          sprintf(PolygonLayer[cPolygonL], "Signal\t%s\t%d\t%d\t%.3f\t%.3f", S.name, P.layer, P.rank, u2mm(W.width),u2mm(P.isolate) );
                                            // Polygon Rank 19.07.2005 alf
           cPolygonL++;
           break;
@@ -2254,7 +2254,7 @@ zombie */
 
     // summary ******************
     string Tsummary_area;
-    sprintf(Tsummary_area, "~ %.2f mm² (%.3f dm²)", summary_area, summary_area/10000.0);
+    sprintf(Tsummary_area, "~ %.2f mmÂ² (%.3f dmÂ²)", summary_area, summary_area/10000.0);
     
     sprintf(sum, "%-6d\t Wire(s) incl. Arc(s)\n%-6d\t Polygon(s)\n_________________________\n" +
                  "%-6d\t SMD(s) top\n%-6d\t SMD(s) bottom\n===================\n%-6d\t SMD(s) total\n\n" +
@@ -2424,7 +2424,7 @@ zombie */
             dlgListView("", statisticPoliso, Selected);
             dlgSpacing(8);
             dlgVBoxLayout {
-              dlgListView("Type\tName\tLayer\tRank\tWidth", PolygonLayer, Selected);
+              dlgListView("Type\tName\tLayer\tRank\tWidth\tIsolate", PolygonLayer, Selected);
               if (PolyWidthError) dlgLabel("<b><font color=\"red\">" + PolygonError + "</font></b>");
               dlgLabel(wireWidthInternal);
             }
