@@ -12371,6 +12371,41 @@ Source: http://www.commcon.com/main</description>
 <rectangle x1="6.096" y1="3.556" x2="6.604" y2="4.064" layer="51"/>
 <rectangle x1="8.636" y1="3.556" x2="9.144" y2="4.064" layer="51"/>
 </package>
+<package name="3X04">
+<pad name="P$1" x="-5.08" y="-2.54" drill="1.016" shape="octagon"/>
+<pad name="P$2" x="-5.08" y="0" drill="1.016" shape="octagon"/>
+<pad name="P$3" x="-5.08" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="P$4" x="-2.54" y="-2.54" drill="1.016" shape="octagon"/>
+<pad name="P$5" x="-2.54" y="0" drill="1.016" shape="octagon"/>
+<pad name="P$6" x="-2.54" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="P$7" x="0" y="-2.54" drill="1.016" shape="octagon"/>
+<pad name="P$8" x="0" y="0" drill="1.016" shape="octagon"/>
+<pad name="P$9" x="0" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="P$10" x="2.54" y="-2.54" drill="1.016" shape="octagon"/>
+<pad name="P$11" x="2.54" y="0" drill="1.016" shape="octagon"/>
+<pad name="P$12" x="2.54" y="2.54" drill="1.016" shape="octagon"/>
+<wire x1="-6.35" y1="1.27" x2="-6.35" y2="3.81" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="3.81" x2="-3.81" y2="3.81" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="3.81" x2="-1.27" y2="3.81" width="0.127" layer="21"/>
+<wire x1="1.27" y1="3.81" x2="3.81" y2="3.81" width="0.127" layer="21"/>
+<wire x1="3.81" y1="3.81" x2="3.81" y2="1.27" width="0.127" layer="21"/>
+<wire x1="3.81" y1="1.27" x2="3.81" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="1.27" y1="-3.81" x2="-1.27" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="3.81" x2="-3.81" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="-3.81" x2="-1.27" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="-3.81" x2="-1.27" y2="3.81" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="3.81" x2="1.27" y2="3.81" width="0.127" layer="21"/>
+<wire x1="1.27" y1="3.81" x2="1.27" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="1.27" y1="-3.81" x2="3.81" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="3.81" y1="-3.81" x2="3.81" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="3.81" y1="-1.27" x2="-6.35" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="-1.27" x2="-6.35" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="1.27" x2="3.81" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="-1.27" x2="-6.35" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="-3.81" x2="-5.08" y2="-3.81" width="0.127" layer="21"/>
+<circle x="-5.08" y="-2.54" radius="1.27" width="0.127" layer="21"/>
+<text x="-5.08" y="5.08" size="1.27" layer="25">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="PINHD12">
@@ -13726,6 +13761,32 @@ Source: http://www.commcon.com/main</description>
 <pin name="38" x="-2.54" y="-45.72" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="39" x="-2.54" y="-48.26" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="40" x="-2.54" y="-50.8" visible="pad" length="short" direction="pas" function="dot"/>
+</symbol>
+<symbol name="PINH3X4">
+<pin name="P$1" x="-12.7" y="7.62" length="middle"/>
+<pin name="P$2" x="17.78" y="7.62" length="middle"/>
+<pin name="P$3" x="40.64" y="7.62" length="middle"/>
+<pin name="P$4" x="-12.7" y="2.54" length="middle"/>
+<pin name="P$5" x="17.78" y="2.54" length="middle"/>
+<pin name="P$6" x="40.64" y="2.54" length="middle"/>
+<pin name="P$7" x="-12.7" y="-2.54" length="middle"/>
+<pin name="P$8" x="17.78" y="-2.54" length="middle"/>
+<pin name="P$9" x="40.64" y="-2.54" length="middle"/>
+<pin name="P$10" x="-12.7" y="-7.62" length="middle"/>
+<pin name="P$11" x="17.78" y="-7.62" length="middle"/>
+<pin name="P$12" x="40.64" y="-7.62" length="middle"/>
+<wire x1="-7.62" y1="10.16" x2="-7.62" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-10.16" x2="-5.08" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-10.16" x2="-5.08" y2="10.16" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="10.16" x2="-7.62" y2="10.16" width="0.254" layer="94"/>
+<wire x1="22.86" y1="10.16" x2="22.86" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="22.86" y1="-10.16" x2="25.4" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="25.4" y1="-10.16" x2="25.4" y2="10.16" width="0.254" layer="94"/>
+<wire x1="25.4" y1="10.16" x2="22.86" y2="10.16" width="0.254" layer="94"/>
+<wire x1="45.72" y1="10.16" x2="45.72" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="45.72" y1="-10.16" x2="48.26" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="48.26" y1="-10.16" x2="48.26" y2="10.16" width="0.254" layer="94"/>
+<wire x1="48.26" y1="10.16" x2="45.72" y2="10.16" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -16774,6 +16835,32 @@ Source: http://www.commcon.com/main</description>
 <connect gate="D" pin="6" pad="D6"/>
 <connect gate="D" pin="7" pad="D7"/>
 <connect gate="D" pin="8" pad="D8"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="PINHD-3X4" prefix="J">
+<gates>
+<gate name="G$1" symbol="PINH3X4" x="-15.24" y="0"/>
+</gates>
+<devices>
+<device name="" package="3X04">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+<connect gate="G$1" pin="P$10" pad="P$10"/>
+<connect gate="G$1" pin="P$11" pad="P$11"/>
+<connect gate="G$1" pin="P$12" pad="P$12"/>
+<connect gate="G$1" pin="P$2" pad="P$2"/>
+<connect gate="G$1" pin="P$3" pad="P$3"/>
+<connect gate="G$1" pin="P$4" pad="P$4"/>
+<connect gate="G$1" pin="P$5" pad="P$5"/>
+<connect gate="G$1" pin="P$6" pad="P$6"/>
+<connect gate="G$1" pin="P$7" pad="P$7"/>
+<connect gate="G$1" pin="P$8" pad="P$8"/>
+<connect gate="G$1" pin="P$9" pad="P$9"/>
 </connects>
 <technologies>
 <technology name=""/>
