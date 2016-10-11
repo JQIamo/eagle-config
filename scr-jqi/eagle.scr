@@ -7,18 +7,15 @@
 #
 
 BRD:
-MENU '[designlink22.png] Search and order : Run designlink-order.ulp -general;'\
-     '[pcb-service.png] PCB Service : Run pcb-service.ulp;';
+SCRIPT menu_board.scr
+;
 
 SCH:
-Grid Default;
-Grid .05;
-Change Width 0.006;
-MENU 'BOM: run bom-ex'
+SCRIPT menu_schematic
 ;
 
 LBR:
-MENU '[designlink22.png] Search and order : Run designlink-order.ulp -general;'\
+SCRIPT menu_library.scr
 ;
 
 DEV:

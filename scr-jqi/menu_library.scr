@@ -5,6 +5,7 @@
 # the editor windows you have to activate the option 'Command texts'
 # in the 'Options/User Interface' menu.
 
-MENU 'Generate QFN : run array-qfpsmd' 
+MENU  '[jqi.png]'\ 
+	'Generate QFN : run array-qfpsmd' 
 		
      ;

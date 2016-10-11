@@ -10,6 +10,16 @@ Clone the repository somewhere on your machine. Then, open Eagle, and from the E
 
 Repeat for the design rules, scripts, ULPs, etc.
 
+## Enabling advanced menus with JQI customizations
+
+Copy the file eagle.scr inside scr-jqi into the default eagle scr library ($EAGLEDIR/scr)
+It is suggested to rename current eagle.scr into eagle_old.scr so that it will be possibile to restore it
+
+Copy all the files in the directory icons into the same directory where eagle binary files are installed: this will add all JQI customized icons to the Eagle GUI.
+
+
+
+
 ## Project versioning
 
 This repository is for "configuration" files, eg, a condensed set of libraries and scripts for the power user.
