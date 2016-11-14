@@ -21,8 +21,8 @@ MENU '[jqi.png]'\
 		BOM ex:run bom-ex;\
 		}'\
 	'Add {\
-		C:add C_MLCC_SMD*@qkdlab_Josh_passives|\
-		R:add R_SMD*@qkdlab_Josh_passives|\
+		C:add C_MLCC_SMD*@jqi_passives|\
+		R:add R_SMD*@jqi_passives|\
 		GND:add GND@supply1\	
 		}'\ 
 	'[snapeda.png] SnapEDA : Run snapeda.ulp;'
