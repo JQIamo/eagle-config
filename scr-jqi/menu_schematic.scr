@@ -8,13 +8,13 @@ Grid Default;
 Grid .05;
 Change Width 0.006;
 MENU '[jqi.png]'\
-	'junctions : run addjunctions; script ./dontexecute.scr'\
+	'junctions : run addjunctions; script dontexecute'\
 	'Add attribute:run attrib-add;'\
-	'Show Group:run showgroup_v1.0;'\
+	'Select Group:run select-sch-group-to-brd-group.ulp;'\
 	'Dangerous {\
 		Renumber:run renumber-sch;|\
 		Duplicate:script duplicate.scr;\
-		}'\ 	
+		}'\
 	'Find:run find'\
 	'BOM {\
 		BOM with attributes:run bom_w_attr_v2.ulp;|\
@@ -23,6 +23,6 @@ MENU '[jqi.png]'\
 	'Add {\
 		C:add C_MLCC_SMD*@jqi_passives|\
 		R:add R_SMD*@jqi_passives|\
-		GND:add GND@supply1\	
-		}'\ 
+		GND:add GND@supply1\
+		}'\
 	'[snapeda.png] SnapEDA : Run snapeda.ulp;'
