@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="7.7.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -736,6 +736,41 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8597_8599.pdf<
 <wire x1="11.811" y1="11.049" x2="3.429" y2="11.049" width="0.127" layer="21"/>
 <wire x1="3.429" y1="11.049" x2="3.429" y2="2.667" width="0.127" layer="21"/>
 <circle x="11.303" y="10.541" radius="0.254" width="0.127" layer="21"/>
+</package>
+<package name="HCP-32-2">
+<smd name="1" x="-1.75" y="-2.25" dx="0.3" dy="0.5" layer="1"/>
+<smd name="2" x="-1.25" y="-2.25" dx="0.3" dy="0.5" layer="1"/>
+<smd name="3" x="-0.75" y="-2.25" dx="0.3" dy="0.5" layer="1"/>
+<smd name="4" x="-0.25" y="-2.25" dx="0.3" dy="0.5" layer="1"/>
+<smd name="5" x="0.25" y="-2.25" dx="0.3" dy="0.5" layer="1"/>
+<smd name="6" x="0.75" y="-2.25" dx="0.3" dy="0.5" layer="1"/>
+<smd name="7" x="1.25" y="-2.25" dx="0.3" dy="0.5" layer="1"/>
+<smd name="8" x="1.75" y="-2.25" dx="0.3" dy="0.5" layer="1"/>
+<smd name="9" x="2.25" y="-1.75" dx="0.5" dy="0.3" layer="1"/>
+<smd name="10" x="2.25" y="-1.25" dx="0.5" dy="0.3" layer="1"/>
+<smd name="11" x="2.25" y="-0.75" dx="0.5" dy="0.3" layer="1"/>
+<smd name="12" x="2.25" y="-0.25" dx="0.5" dy="0.3" layer="1"/>
+<smd name="13" x="2.25" y="0.25" dx="0.5" dy="0.3" layer="1"/>
+<smd name="14" x="2.25" y="0.75" dx="0.5" dy="0.3" layer="1"/>
+<smd name="15" x="2.25" y="1.25" dx="0.5" dy="0.3" layer="1"/>
+<smd name="16" x="2.25" y="1.75" dx="0.5" dy="0.3" layer="1"/>
+<smd name="17" x="1.75" y="2.25" dx="0.3" dy="0.5" layer="1"/>
+<smd name="18" x="1.25" y="2.25" dx="0.3" dy="0.5" layer="1"/>
+<smd name="19" x="0.75" y="2.25" dx="0.3" dy="0.5" layer="1"/>
+<smd name="20" x="0.25" y="2.25" dx="0.3" dy="0.5" layer="1"/>
+<smd name="21" x="-0.25" y="2.25" dx="0.3" dy="0.5" layer="1"/>
+<smd name="22" x="-0.75" y="2.25" dx="0.3" dy="0.5" layer="1"/>
+<smd name="23" x="-1.25" y="2.25" dx="0.3" dy="0.5" layer="1"/>
+<smd name="24" x="-1.75" y="2.25" dx="0.3" dy="0.5" layer="1"/>
+<smd name="25" x="-2.25" y="1.75" dx="0.5" dy="0.3" layer="1"/>
+<smd name="26" x="-2.25" y="1.25" dx="0.5" dy="0.3" layer="1"/>
+<smd name="27" x="-2.25" y="0.75" dx="0.5" dy="0.3" layer="1"/>
+<smd name="28" x="-2.25" y="0.25" dx="0.5" dy="0.3" layer="1"/>
+<smd name="29" x="-2.25" y="-0.25" dx="0.5" dy="0.3" layer="1"/>
+<smd name="30" x="-2.25" y="-0.75" dx="0.5" dy="0.3" layer="1"/>
+<smd name="31" x="-2.25" y="-1.25" dx="0.5" dy="0.3" layer="1"/>
+<smd name="32" x="-2.25" y="-1.75" dx="0.5" dy="0.3" layer="1"/>
+<smd name="33" x="0" y="0" dx="3.1496" dy="3.1496" layer="1"/>
 </package>
 </packages>
 <symbols>
@@ -1469,6 +1504,21 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8597_8599.pdf<
 <text x="0" y="40.64" size="2.54" layer="94">&gt;NAME</text>
 <text x="25.4" y="40.64" size="2.54" layer="94">&gt;VALUE</text>
 </symbol>
+<symbol name="AMPLIFIER_EXTBIAS">
+<wire x1="-5.08" y1="5.08" x2="-5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="0" x2="-5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-5.08" x2="0" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="-2.54" x2="5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
+<pin name="IN" x="-7.62" y="0" visible="pin" length="point" direction="in" rot="R180"/>
+<pin name="OUT" x="7.62" y="0" visible="pin" length="point" direction="out"/>
+<pin name="GND" x="0" y="-5.08" length="point" direction="pwr" rot="R270"/>
+<wire x1="5.08" y1="0" x2="7.62" y2="0" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="0" x2="-7.62" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="-2.54" x2="0" y2="-5.08" width="0.254" layer="94"/>
+<text x="2.54" y="5.08" size="1.27" layer="94">&gt;NAME</text>
+<text x="2.54" y="-5.08" size="1.27" layer="94">&gt;VALUE</text>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="PBP-10.7" prefix="Z">
@@ -2094,6 +2144,26 @@ Source: http://www.minicircuits.com .. HSWA2-30DR+.pdf</description>
 </connects>
 <technologies>
 <technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="HMC1099" prefix="U" uservalue="yes">
+<description>10W GaN Power Amplifier</description>
+<gates>
+<gate name="G$1" symbol="AMPLIFIER_EXTBIAS" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="HCP-32-2">
+<connects>
+<connect gate="G$1" pin="GND" pad="1 2 3 4 5 6 7 8 9 10 11 14 15 16 17 18 19 20 21 22 23 24 25 26 27 30 31 32 33"/>
+<connect gate="G$1" pin="IN" pad="28 29"/>
+<connect gate="G$1" pin="OUT" pad="12 13"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="ANALOGDEVICES" value="HMC1099"/>
+</technology>
 </technologies>
 </device>
 </devices>
