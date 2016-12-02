@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.005" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.0005" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -93,13 +93,23 @@
 <text x="3.81" y="-2.54" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
 </package>
 <package name="0906">
+<description>0906 package for Coilcraft Micro Spring Inductors.</description>
 <smd name="P$1" x="-0.9144" y="-0.508" dx="2.4638" dy="0.7874" layer="1" rot="R90"/>
-<smd name="P$2" x="0.9398" y="0.508" dx="2.4638" dy="0.7874" layer="1" rot="R90"/>
+<smd name="P$2" x="0.9144" y="0.508" dx="2.4638" dy="0.7874" layer="1" rot="R90"/>
 <text x="-1.397" y="2.032" size="1.27" layer="21">&gt;NAME</text>
+<wire x1="0.7112" y1="0.7112" x2="-1.2192" y2="0.7112" width="0.0254" layer="21"/>
+<wire x1="-1.2192" y1="0.7112" x2="-1.2192" y2="-1.7272" width="0.0254" layer="21"/>
+<wire x1="-1.2192" y1="-1.7272" x2="-0.7112" y2="-1.7272" width="0.0254" layer="21"/>
+<wire x1="-0.7112" y1="-1.7272" x2="-0.7112" y2="-0.7112" width="0.0254" layer="21"/>
+<wire x1="-0.7112" y1="-0.7112" x2="1.2192" y2="-0.7112" width="0.0254" layer="21"/>
+<wire x1="1.2192" y1="-0.7112" x2="1.2192" y2="1.7272" width="0.0254" layer="21"/>
+<wire x1="1.2192" y1="1.7272" x2="0.7112" y2="1.7272" width="0.0254" layer="21"/>
+<wire x1="0.7112" y1="1.7272" x2="0.7112" y2="0.7112" width="0.0254" layer="21"/>
 </package>
 <package name="1008">
 <smd name="P$1" x="-1.143" y="0" dx="2.54" dy="1.016" layer="1" rot="R90"/>
 <smd name="P$2" x="1.143" y="0" dx="2.54" dy="1.016" layer="1" rot="R90"/>
+<text x="-1.8288" y="1.4605" size="1.27" layer="25">&gt;NAME</text>
 </package>
 </packages>
 <symbols>
