@@ -26,9 +26,9 @@
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
-<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="yes" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
 <layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
@@ -103,6 +103,25 @@ INTERNATIONAL RECTIFIER, irg4bc15ud-s.pdf</description>
 <smd name="P$3" x="1.27" y="1.397" dx="1.27" dy="0.508" layer="1" roundness="85" rot="R90"/>
 <smd name="P$4" x="-1.27" y="1.397" dx="1.27" dy="0.508" layer="1" roundness="85" rot="R90"/>
 <text x="-1.0922" y="-0.6858" size="0.6096" layer="21" rot="R90">1</text>
+<text x="-1.27" y="2.54" size="1.27" layer="25">&gt;NAME</text>
+</package>
+<package name="6-LEAD_SMT">
+<smd name="2" x="0" y="-4.45" dx="1.65" dy="0.65" layer="1" roundness="100" rot="R90"/>
+<smd name="1" x="-2.54" y="-4.45" dx="1.65" dy="0.65" layer="1" roundness="100" rot="R90"/>
+<smd name="3" x="2.54" y="-4.45" dx="1.65" dy="0.65" layer="1" roundness="100" rot="R90"/>
+<smd name="5" x="0" y="4.45" dx="1.65" dy="0.65" layer="1" roundness="100" rot="R90"/>
+<smd name="6" x="-2.54" y="4.45" dx="1.65" dy="0.65" layer="1" roundness="100" rot="R90"/>
+<smd name="4" x="2.54" y="4.45" dx="1.65" dy="0.65" layer="1" roundness="100" rot="R90"/>
+<wire x1="-3" y1="2.5" x2="3" y2="2.5" width="0.127" layer="21"/>
+<wire x1="3" y1="2.5" x2="3" y2="-2.5" width="0.127" layer="21"/>
+<wire x1="3" y1="-2.5" x2="-3" y2="-2.5" width="0.127" layer="21"/>
+<wire x1="-3" y1="-2.5" x2="-3" y2="-0.5" width="0.127" layer="21"/>
+<wire x1="-3" y1="-0.5" x2="-3" y2="0.5" width="0.127" layer="21"/>
+<wire x1="-3" y1="0.5" x2="-3" y2="2.5" width="0.127" layer="21"/>
+<wire x1="-3" y1="0.5" x2="-3" y2="-0.5" width="0.127" layer="21" curve="-180"/>
+<text x="-3.2" y="5.7" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3" y="-7" size="1.27" layer="27">&gt;VALUE</text>
+<circle x="-2.6" y="-2.1" radius="0.2" width="0.127" layer="21"/>
 </package>
 </packages>
 <symbols>
@@ -211,6 +230,79 @@ INTERNATIONAL RECTIFIER, irg4bc15ud-s.pdf</description>
 <vertex x="-1.778" y="1.016"/>
 <vertex x="-2.54" y="-1.524"/>
 </polygon>
+<text x="-5.08" y="-12.7" size="1.27" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="OPTOMOS_NO">
+<wire x1="-5.08" y1="7.62" x2="5.08" y2="7.62" width="0.254" layer="94"/>
+<wire x1="5.08" y1="7.62" x2="5.08" y2="5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-5.08" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-7.62" x2="-5.08" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-7.62" x2="-5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-5.08" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="5.08" x2="-5.08" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="5.08" x2="-2.54" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="5.08" x2="-2.54" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-5.08" x2="-5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-3.556" y1="-1.524" x2="-1.524" y2="-1.524" width="0.254" layer="94"/>
+<wire x1="5.08" y1="5.08" x2="3.302" y2="5.08" width="0.254" layer="94"/>
+<wire x1="3.302" y1="5.08" x2="3.302" y2="3.556" width="0.254" layer="94"/>
+<wire x1="3.302" y1="3.556" x2="2.286" y2="3.556" width="0.254" layer="94"/>
+<wire x1="2.286" y1="4.318" x2="2.286" y2="1.778" width="0.254" layer="94"/>
+<wire x1="2.286" y1="1.778" x2="2.286" y2="1.27" width="0.254" layer="94"/>
+<wire x1="2.286" y1="1.778" x2="3.048" y2="1.778" width="0.254" layer="94"/>
+<wire x1="3.048" y1="1.778" x2="3.302" y2="1.778" width="0.254" layer="94"/>
+<wire x1="3.302" y1="1.778" x2="3.302" y2="-1.524" width="0.254" layer="94"/>
+<wire x1="3.302" y1="-1.524" x2="2.54" y2="-1.524" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-1.524" x2="2.286" y2="-1.524" width="0.254" layer="94"/>
+<wire x1="2.286" y1="-1.016" x2="2.286" y2="-3.556" width="0.254" layer="94"/>
+<wire x1="2.286" y1="-3.556" x2="2.286" y2="-4.064" width="0.254" layer="94"/>
+<wire x1="2.286" y1="-3.556" x2="3.302" y2="-3.556" width="0.254" layer="94"/>
+<wire x1="3.302" y1="-3.556" x2="3.302" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="3.302" y1="-5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="1.778" y1="3.81" x2="1.778" y2="3.048" width="0.254" layer="94"/>
+<wire x1="1.778" y1="3.048" x2="1.778" y2="2.032" width="0.254" layer="94"/>
+<wire x1="1.778" y1="-1.524" x2="1.778" y2="-2.286" width="0.254" layer="94"/>
+<wire x1="1.778" y1="-2.286" x2="1.778" y2="-3.302" width="0.254" layer="94"/>
+<wire x1="1.778" y1="3.048" x2="1.016" y2="3.048" width="0.254" layer="94"/>
+<wire x1="1.016" y1="3.048" x2="1.016" y2="-2.286" width="0.254" layer="94"/>
+<wire x1="1.016" y1="-2.286" x2="1.778" y2="-2.286" width="0.254" layer="94"/>
+<wire x1="2.794" y1="2.032" x2="2.794" y2="1.524" width="0.254" layer="94"/>
+<wire x1="2.794" y1="1.524" x2="3.048" y2="1.778" width="0.254" layer="94"/>
+<wire x1="2.794" y1="2.032" x2="3.048" y2="1.778" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-1.524" x2="2.794" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="2.794" y1="-1.27" x2="2.794" y2="-1.778" width="0.254" layer="94"/>
+<wire x1="2.794" y1="-1.778" x2="2.54" y2="-1.524" width="0.254" layer="94"/>
+<wire x1="-1.778" y1="1.524" x2="-1.27" y2="2.032" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="2.032" x2="-0.762" y2="2.032" width="0.254" layer="94" curve="-90"/>
+<wire x1="-0.762" y1="2.032" x2="-0.254" y2="2.032" width="0.254" layer="94" curve="90"/>
+<wire x1="-0.254" y1="2.032" x2="-0.508" y2="1.778" width="0.254" layer="94"/>
+<wire x1="-0.508" y1="1.778" x2="-0.508" y2="2.286" width="0.254" layer="94"/>
+<wire x1="-0.508" y1="2.286" x2="-0.254" y2="2.032" width="0.254" layer="94"/>
+<wire x1="-1.524" y1="0.508" x2="-1.016" y2="1.016" width="0.254" layer="94"/>
+<wire x1="-1.016" y1="1.016" x2="-0.508" y2="1.016" width="0.254" layer="94" curve="-90"/>
+<wire x1="-0.508" y1="1.016" x2="0" y2="1.016" width="0.254" layer="94" curve="90"/>
+<wire x1="0" y1="1.016" x2="-0.254" y2="0.762" width="0.254" layer="94"/>
+<wire x1="-0.254" y1="0.762" x2="-0.254" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-0.254" y1="1.27" x2="0" y2="1.016" width="0.254" layer="94"/>
+<wire x1="-1.524" y1="-0.508" x2="-1.016" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.016" y1="0" x2="-0.508" y2="0" width="0.254" layer="94" curve="-90"/>
+<wire x1="-0.508" y1="0" x2="0" y2="0" width="0.254" layer="94" curve="90"/>
+<wire x1="0" y1="0" x2="-0.254" y2="-0.254" width="0.254" layer="94"/>
+<wire x1="-0.254" y1="-0.254" x2="-0.254" y2="0.254" width="0.254" layer="94"/>
+<wire x1="-0.254" y1="0.254" x2="0" y2="0" width="0.254" layer="94"/>
+<pin name="C+" x="-7.62" y="5.08" visible="off" length="short"/>
+<pin name="C-" x="-7.62" y="-5.08" visible="off" length="short"/>
+<pin name="L-" x="7.62" y="-5.08" visible="off" length="short" rot="R180"/>
+<pin name="L+" x="7.62" y="5.08" visible="off" length="short" rot="R180"/>
+<text x="-3.048" y="5.842" size="1.016" layer="94">Optomos</text>
+<text x="-5.08" y="-10.16" size="1.778" layer="95">&gt;NAME</text>
+<polygon width="0.254" layer="94">
+<vertex x="-3.302" y="1.016"/>
+<vertex x="-1.778" y="1.016"/>
+<vertex x="-2.54" y="-1.524"/>
+</polygon>
+<text x="-5.08" y="-12.7" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -232,7 +324,7 @@ INTERNATIONAL RECTIFIER, irg4bc15ud-s.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="CPC1117NTR" prefix="U">
+<deviceset name="CPC1117NTR" prefix="U" uservalue="yes">
 <description>CPC1117NTR, normally-closed optomos, 60V blocking voltage, 150 mA</description>
 <gates>
 <gate name="G$1" symbol="OPTOMOS_NC" x="0" y="0"/>
@@ -244,6 +336,25 @@ INTERNATIONAL RECTIFIER, irg4bc15ud-s.pdf</description>
 <connect gate="G$1" pin="P$2" pad="P$2"/>
 <connect gate="G$1" pin="P$3" pad="P$3"/>
 <connect gate="G$1" pin="P$4" pad="P$4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="LCA701S" prefix="U" uservalue="yes">
+<description>LCA701S, normally-open optomos, 100V blocking voltage, 1.5 A</description>
+<gates>
+<gate name="G$1" symbol="OPTOMOS_NO" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="6-LEAD_SMT">
+<connects>
+<connect gate="G$1" pin="C+" pad="1"/>
+<connect gate="G$1" pin="C-" pad="2"/>
+<connect gate="G$1" pin="L+" pad="6"/>
+<connect gate="G$1" pin="L-" pad="4"/>
 </connects>
 <technologies>
 <technology name=""/>
