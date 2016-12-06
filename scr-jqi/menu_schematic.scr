@@ -25,4 +25,8 @@ MENU '[jqi.png]'\
 		R:add R_SMD*@jqi_passives|\
 		GND:add GND@supply1\
 		}'\
-	'[snapeda.png] SnapEDA : Run snapeda.ulp;'
+	'[snapeda.png] SnapEDA : Run snapeda.ulp;'\
+	'[designlink.png] Search and order {\
+                                          General : Run designlink-order.ulp -general; |\
+                                          Schematic : Run designlink-order.ulp; \
+                                          }';
