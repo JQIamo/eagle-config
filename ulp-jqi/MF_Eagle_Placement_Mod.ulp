@@ -232,7 +232,7 @@ if (board) board(B) {
 			//Get Attributes MPN and POPULATE if they exist
 			E.attributes(A)
 			{
-				if(A.name == "PARTNO")
+				if(A.name == "PARTNO" || A.name == "MPN")
 				{
 					MPN_Value = A.value;
 				}
