@@ -598,6 +598,7 @@
 </devices>
 </deviceset>
 <deviceset name="LTC1152IS8TRPBF" prefix="U">
+<description>LTC1152, rail-to-rail IO, zero-drift op-amp</description>
 <gates>
 <gate name="A" symbol="LTC1152IS8TRPBF" x="0" y="0"/>
 </gates>
