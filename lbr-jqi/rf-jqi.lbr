@@ -1213,6 +1213,37 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8597_8599.pdf<
 <text x="-1.905" y="1.905" size="1.27" layer="25">&gt;NAME</text>
 <text x="-1.905" y="-3.429" size="1.27" layer="27">&gt;VALUE</text>
 </package>
+<package name="HMC8410">
+<smd name="P$1" x="-0.9" y="0.65" dx="0.3" dy="0.3" layer="1" thermals="no"/>
+<smd name="P$2" x="-0.9" y="0" dx="0.3" dy="0.3" layer="1" thermals="no"/>
+<smd name="P$3" x="-0.9" y="-0.65" dx="0.3" dy="0.3" layer="1" thermals="no"/>
+<smd name="P$4" x="0.9" y="-0.65" dx="0.3" dy="0.3" layer="1" rot="R180" thermals="no"/>
+<smd name="P$5" x="0.9" y="0" dx="0.3" dy="0.3" layer="1" rot="R180" thermals="no"/>
+<smd name="P$6" x="0.9" y="0.65" dx="0.3" dy="0.3" layer="1" rot="R180" thermals="no"/>
+<smd name="P$7" x="0" y="0" dx="0.1" dy="0.1" layer="1" rot="R270" stop="no" thermals="no" cream="no"/>
+<circle x="-0.635" y="1.07" radius="0.095521875" width="0.127" layer="21"/>
+<polygon width="0" layer="1">
+<vertex x="0.5" y="0.8"/>
+<vertex x="-0.4" y="0.8"/>
+<vertex x="-0.5" y="0.7"/>
+<vertex x="-0.5" y="-0.8"/>
+<vertex x="0.5" y="-0.8"/>
+</polygon>
+<polygon width="0" layer="31">
+<vertex x="0.3" y="0.6"/>
+<vertex x="-0.3" y="0.6"/>
+<vertex x="-0.3" y="-0.6"/>
+<vertex x="0.3" y="-0.6"/>
+</polygon>
+<polygon width="0" layer="29">
+<vertex x="0.5" y="0.8"/>
+<vertex x="-0.4" y="0.8"/>
+<vertex x="-0.5" y="0.7"/>
+<vertex x="-0.5" y="-0.8"/>
+<vertex x="0.5" y="-0.8"/>
+</polygon>
+<text x="-0.3" y="-1.46" size="0.45" layer="25">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="BANDPASS">
@@ -1990,6 +2021,18 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8597_8599.pdf<
 <text x="-6.35" y="4.572" size="1.27" layer="97">RFIN</text>
 <text x="1.27" y="4.572" size="1.27" layer="97">RFOUT</text>
 </symbol>
+<symbol name="HMC8410">
+<pin name="GND" x="0" y="-12.7" length="middle" rot="R90"/>
+<pin name="RF_IN" x="-17.78" y="0" length="middle"/>
+<pin name="RF_OUT" x="17.78" y="0" length="middle" rot="R180"/>
+<wire x1="-12.7" y1="5.08" x2="12.7" y2="5.08" width="0.254" layer="94"/>
+<wire x1="12.7" y1="5.08" x2="12.7" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="12.7" y1="-7.62" x2="-12.7" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="-7.62" x2="-12.7" y2="5.08" width="0.254" layer="94"/>
+<text x="-4.826" y="2.54" size="1.778" layer="94">HMC8410</text>
+<text x="-7.62" y="-7.112" size="1.778" layer="94">RF AMPLIFIER</text>
+<text x="4.572" y="5.588" size="1.778" layer="95">&gt;NAME</text>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="PBP-10.7" prefix="Z">
@@ -2672,6 +2715,23 @@ Source: http://www.minicircuits.com .. HSWA2-30DR+.pdf</description>
 <connect gate="G$1" pin="GND" pad="2 4"/>
 <connect gate="G$1" pin="RF1" pad="1"/>
 <connect gate="G$1" pin="RF2" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="HMC8410" prefix="U">
+<gates>
+<gate name="G$1" symbol="HMC8410" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="HMC8410">
+<connects>
+<connect gate="G$1" pin="GND" pad="P$1 P$3 P$4 P$6 P$7"/>
+<connect gate="G$1" pin="RF_IN" pad="P$2"/>
+<connect gate="G$1" pin="RF_OUT" pad="P$5"/>
 </connects>
 <technologies>
 <technology name=""/>
