@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -269,14 +269,14 @@
 </packages>
 <symbols>
 <symbol name="INA154UG4">
-<pin name="REF" x="-17.78" y="2.54" direction="pas"/>
-<pin name="-IN" x="-17.78" y="0" direction="pas"/>
-<pin name="+IN" x="-17.78" y="-2.54" direction="pas"/>
-<pin name="-VCC" x="-17.78" y="-5.08" direction="pas"/>
-<pin name="SENSE" x="17.78" y="-5.08" direction="pas" rot="R180"/>
-<pin name="OUT" x="17.78" y="-2.54" direction="pas" rot="R180"/>
-<pin name="+VCC" x="17.78" y="0" direction="pas" rot="R180"/>
-<pin name="NC" x="17.78" y="2.54" direction="pas" rot="R180"/>
+<pin name="REF" x="-12.7" y="2.54" length="short" direction="pas"/>
+<pin name="-IN" x="-12.7" y="0" length="short" direction="pas"/>
+<pin name="+IN" x="-12.7" y="-2.54" length="short" direction="pas"/>
+<pin name="-VCC" x="-12.7" y="-5.08" length="short" direction="pas"/>
+<pin name="SENSE" x="12.7" y="-5.08" length="short" direction="pas" rot="R180"/>
+<pin name="OUT" x="12.7" y="-2.54" length="short" direction="pas" rot="R180"/>
+<pin name="+VCC" x="12.7" y="0" length="short" direction="pas" rot="R180"/>
+<pin name="NC" x="12.7" y="2.54" length="short" direction="pas" rot="R180"/>
 <wire x1="-10.16" y1="7.62" x2="-10.16" y2="-10.16" width="0.1524" layer="94"/>
 <wire x1="-10.16" y1="-10.16" x2="10.16" y2="-10.16" width="0.1524" layer="94"/>
 <wire x1="10.16" y1="-10.16" x2="10.16" y2="7.62" width="0.1524" layer="94"/>
@@ -285,14 +285,14 @@
 <text x="-5.1054" y="8.1026" size="2.0828" layer="96" ratio="6" rot="SR0">&gt;Value</text>
 </symbol>
 <symbol name="BUF634U">
-<pin name="BW" x="-15.24" y="2.54" direction="pas"/>
-<pin name="NC_2" x="-15.24" y="0" direction="nc"/>
-<pin name="VIN" x="-15.24" y="-2.54" direction="in"/>
-<pin name="V-" x="-15.24" y="-5.08" direction="pwr"/>
-<pin name="NC_3" x="15.24" y="-5.08" direction="nc" rot="R180"/>
-<pin name="VO" x="15.24" y="-2.54" direction="out" rot="R180"/>
-<pin name="V+" x="15.24" y="0" direction="pwr" rot="R180"/>
-<pin name="NC" x="15.24" y="2.54" direction="nc" rot="R180"/>
+<pin name="BW" x="-10.16" y="2.54" length="short" direction="pas"/>
+<pin name="NC_2" x="-10.16" y="0" length="short" direction="nc"/>
+<pin name="VIN" x="-10.16" y="-2.54" length="short" direction="in"/>
+<pin name="V-" x="-10.16" y="-5.08" length="short" direction="pwr"/>
+<pin name="NC_3" x="10.16" y="-5.08" length="short" direction="nc" rot="R180"/>
+<pin name="VO" x="10.16" y="-2.54" length="short" direction="out" rot="R180"/>
+<pin name="V+" x="10.16" y="0" length="short" direction="pwr" rot="R180"/>
+<pin name="NC" x="10.16" y="2.54" length="short" direction="nc" rot="R180"/>
 <wire x1="-7.62" y1="7.62" x2="-7.62" y2="-10.16" width="0.1524" layer="94"/>
 <wire x1="-7.62" y1="-10.16" x2="7.62" y2="-10.16" width="0.1524" layer="94"/>
 <wire x1="7.62" y1="-10.16" x2="7.62" y2="7.62" width="0.1524" layer="94"/>
