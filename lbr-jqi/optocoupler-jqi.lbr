@@ -36,9 +36,9 @@
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
-<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="yes" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
 <layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
@@ -123,6 +123,21 @@
 <wire x1="2.1336" y1="2.6416" x2="-2.1336" y2="2.6416" width="0.1524" layer="21"/>
 <text x="-3.302" y="2.3114" size="1.27" layer="21" ratio="6" rot="SR0">*</text>
 <text x="-1.905" y="3.175" size="0.762" layer="25" ratio="6">&gt;NAME</text>
+</package>
+<package name="SO6L">
+<smd name="1" x="-4.75" y="1.27" dx="1.3" dy="0.8" layer="1"/>
+<smd name="2" x="-4.75" y="0" dx="1.3" dy="0.8" layer="1"/>
+<smd name="3" x="-4.75" y="-1.27" dx="1.3" dy="0.8" layer="1"/>
+<smd name="4" x="4.75" y="-1.27" dx="1.3" dy="0.8" layer="1"/>
+<smd name="5" x="4.75" y="0" dx="1.3" dy="0.8" layer="1"/>
+<smd name="6" x="4.75" y="1.27" dx="1.3" dy="0.8" layer="1"/>
+<wire x1="-3.75" y1="2" x2="3.75" y2="2" width="0.127" layer="21"/>
+<wire x1="3.75" y1="2" x2="3.75" y2="-2" width="0.127" layer="21"/>
+<wire x1="3.75" y1="-2" x2="-3.75" y2="-2" width="0.127" layer="21"/>
+<wire x1="-3.75" y1="-2" x2="-3.75" y2="2" width="0.127" layer="21"/>
+<circle x="-3" y="1.25" radius="0.559015625" width="0.127" layer="21"/>
+<circle x="3" y="-1.25" radius="0.25" width="0.127" layer="21"/>
+<text x="-3.5" y="2.25" size="1.27" layer="25">&gt;NAME</text>
 </package>
 </packages>
 <symbols>
@@ -245,6 +260,26 @@
 <connect gate="G$2" pin="A" pad="4"/>
 <connect gate="G$2" pin="C" pad="3"/>
 <connect gate="G$2" pin="OUT" pad="6"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TLP2767" prefix="IC" uservalue="yes">
+<description>TLP2767 50 Mbd, Inverting Optocoupler.</description>
+<gates>
+<gate name="G$1" symbol="TLP2160A" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SO6L">
+<connects>
+<connect gate="G$1" pin="A" pad="1"/>
+<connect gate="G$1" pin="C" pad="3"/>
+<connect gate="G$1" pin="GND" pad="4"/>
+<connect gate="G$1" pin="OUT" pad="5"/>
+<connect gate="G$1" pin="VCC" pad="6"/>
 </connects>
 <technologies>
 <technology name=""/>
