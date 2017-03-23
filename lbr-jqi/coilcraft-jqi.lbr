@@ -206,6 +206,18 @@
 <circle x="-4.25" y="3.625" radius="0.5" width="0.127" layer="21"/>
 <text x="-5.875" y="6.375" size="1.27" layer="25">&gt;NAME</text>
 </package>
+<package name="MSD7342">
+<smd name="1" x="-2.7" y="0.85" dx="2.1" dy="1.1" layer="1"/>
+<smd name="2" x="-2.7" y="-0.85" dx="2.1" dy="1.1" layer="1"/>
+<smd name="3" x="2.7" y="-0.85" dx="2.1" dy="1.1" layer="1"/>
+<smd name="4" x="2.7" y="0.85" dx="2.1" dy="1.1" layer="1"/>
+<wire x1="-3.75" y1="3.75" x2="3.75" y2="3.75" width="0.127" layer="21"/>
+<wire x1="3.75" y1="3.75" x2="3.75" y2="-3.75" width="0.127" layer="21"/>
+<wire x1="3.75" y1="-3.75" x2="-3.75" y2="-3.75" width="0.127" layer="21"/>
+<wire x1="-3.75" y1="-3.75" x2="-3.75" y2="3.75" width="0.127" layer="21"/>
+<circle x="-2.75" y="2.375" radius="0.5" width="0.127" layer="21"/>
+<text x="-3.625" y="4.125" size="1.27" layer="25">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="CONICAL_INDUCTOR">
@@ -388,6 +400,25 @@
 </gates>
 <devices>
 <device name="" package="MSD1260">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MSD7342" prefix="L" uservalue="yes">
+<description>MSD1260 series 1:1 coupled inductors</description>
+<gates>
+<gate name="G$1" symbol="CM_CHOKE_SMD" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="MSD7342">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
