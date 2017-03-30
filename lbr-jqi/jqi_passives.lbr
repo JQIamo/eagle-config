@@ -583,6 +583,15 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <wire x1="7" y1="-12" x2="7" y2="-5.7" width="0.127" layer="21"/>
 <text x="-8.4" y="6.4" size="1.27" layer="21">1</text>
 </package>
+<package name="SLF10145">
+<smd name="1" x="-4.05" y="0" dx="3.2" dy="2.5" layer="1" rot="R90"/>
+<smd name="2" x="4.05" y="0" dx="3.2" dy="2.5" layer="1" rot="R90"/>
+<wire x1="-5.05" y1="5.05" x2="5.05" y2="5.05" width="0.127" layer="21"/>
+<wire x1="5.05" y1="5.05" x2="5.05" y2="-5.05" width="0.127" layer="21"/>
+<wire x1="5.05" y1="-5.05" x2="-5.05" y2="-5.05" width="0.127" layer="21"/>
+<wire x1="-5.05" y1="-5.05" x2="-5.05" y2="5.05" width="0.127" layer="21"/>
+<text x="-4.5" y="5.5" size="1.27" layer="25">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="EMERSON_128-0711-201_UMC_JACK">
@@ -1287,6 +1296,23 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <connect gate="A" pin="2" pad="2"/>
 <connect gate="A" pin="3" pad="3"/>
 <connect gate="A" pin="4" pad="4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="L_SLF" prefix="L" uservalue="yes">
+<description>SLF10145 series inductors from TDK</description>
+<gates>
+<gate name="G$1" symbol="L_FERRITE_SMD" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SLF10145">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
