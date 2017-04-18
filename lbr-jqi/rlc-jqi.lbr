@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -532,6 +532,17 @@
 <text x="-1.45" y="0.95" size="1.27" layer="25">&gt;NAME</text>
 <text x="-1.65" y="-3.45" size="1.27" layer="27">&gt;VALUE</text>
 </package>
+<package name="CSM3637P">
+<smd name="E1" x="-3.7338" y="1.143" dx="2.9464" dy="1.6764" layer="1" thermals="no"/>
+<smd name="I1" x="-3.7338" y="-4.1148" dx="2.9464" dy="7.62" layer="1" thermals="no"/>
+<smd name="I2" x="3.7338" y="-4.1148" dx="2.9464" dy="7.62" layer="1" thermals="no"/>
+<smd name="E2" x="3.7338" y="1.143" dx="2.9464" dy="1.6764" layer="1" thermals="no"/>
+<wire x1="-2.54" y1="-7.6708" x2="2.54" y2="-7.6708" width="0.127" layer="21"/>
+<wire x1="2.54" y1="-7.6708" x2="2.54" y2="1.7272" width="0.127" layer="21"/>
+<wire x1="2.54" y1="1.7272" x2="-2.54" y2="1.7272" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="1.7272" x2="-2.54" y2="-7.6708" width="0.127" layer="21"/>
+<text x="-5.08" y="2.286" size="1.27" layer="25">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="CAP">
@@ -1030,6 +1041,17 @@
 <connect gate="G$1" pin="I$2" pad="P$4"/>
 <connect gate="G$1" pin="V$1" pad="P$1"/>
 <connect gate="G$1" pin="V$2" pad="P$2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="CSM" package="CSM3637P">
+<connects>
+<connect gate="G$1" pin="I$1" pad="I1"/>
+<connect gate="G$1" pin="I$2" pad="I2"/>
+<connect gate="G$1" pin="V$1" pad="E1"/>
+<connect gate="G$1" pin="V$2" pad="E2"/>
 </connects>
 <technologies>
 <technology name=""/>
