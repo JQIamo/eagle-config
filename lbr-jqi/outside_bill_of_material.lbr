@@ -85,6 +85,7 @@
 <description>Use this block to add components to the design that do not go directly on bill of material. &lt;p&gt;
 By assigning proper value and attribute with the part number to each component it is possibile to have all external parts to buy available in the automatically generated bill of material</description>
 <gates>
+<gate name="G$1" symbol="ADDITIONAL_PART" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
