@@ -3322,6 +3322,35 @@
 <text x="-6.985" y="15.875" size="1.27" layer="25">&gt;NAME</text>
 <text x="-3.175" y="8.89" size="1.27" layer="27">&gt;VALUE</text>
 </package>
+<package name="ASUB-227-09TPXX">
+<pad name="T3" x="0" y="17.82" drill="1"/>
+<pad name="P$1" x="-12.5" y="16.4" drill="3.2"/>
+<pad name="P$3" x="-12.5" y="8.5" drill="3.2"/>
+<pad name="P$2" x="12.5" y="16.4" drill="3.2"/>
+<pad name="P$4" x="12.5" y="8.5" drill="3.2"/>
+<pad name="T4" x="2.77" y="17.82" drill="1"/>
+<pad name="T5" x="5.54" y="17.82" drill="1"/>
+<pad name="T2" x="-2.77" y="17.82" drill="1"/>
+<pad name="T1" x="-5.54" y="17.82" drill="1"/>
+<pad name="T8" x="1.385" y="14.98" drill="1"/>
+<pad name="T7" x="-1.385" y="14.98" drill="1"/>
+<pad name="T9" x="4.155" y="14.98" drill="1"/>
+<pad name="T6" x="-4.155" y="14.98" drill="1"/>
+<pad name="B3" x="0" y="11.02" drill="1"/>
+<pad name="B4" x="2.77" y="11.02" drill="1"/>
+<pad name="B5" x="5.54" y="11.02" drill="1"/>
+<pad name="B2" x="-2.77" y="11.02" drill="1"/>
+<pad name="B1" x="-5.54" y="11.02" drill="1"/>
+<pad name="B8" x="1.385" y="8.18" drill="1"/>
+<pad name="B7" x="-1.385" y="8.18" drill="1"/>
+<pad name="B9" x="4.155" y="8.18" drill="1"/>
+<pad name="B6" x="-4.155" y="8.18" drill="1"/>
+<wire x1="-15.5" y1="0" x2="15.5" y2="0" width="0.127" layer="21"/>
+<wire x1="15.5" y1="0" x2="15.5" y2="19.5" width="0.127" layer="21"/>
+<wire x1="15.5" y1="19.5" x2="-15.5" y2="19.5" width="0.127" layer="21"/>
+<wire x1="-15.5" y1="19.5" x2="-15.5" y2="0" width="0.127" layer="21"/>
+<text x="-15" y="20" size="1.27" layer="21">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="COAX">
@@ -3752,6 +3781,17 @@
 <text x="0" y="0.762" size="1.778" layer="95">&gt;NAME</text>
 <pin name="1" x="5.08" y="-2.54" visible="off" length="short" direction="pas" rot="R180"/>
 <pin name="2" x="5.08" y="-5.08" visible="off" length="short" direction="pas" rot="R180"/>
+</symbol>
+<symbol name="DSUB9">
+<pin name="P$5" x="-5.08" y="0" visible="pad" length="middle"/>
+<pin name="P$6" x="-5.08" y="-2.54" visible="pad" length="middle"/>
+<pin name="P$7" x="-5.08" y="-5.08" visible="pad" length="middle"/>
+<pin name="P$8" x="-5.08" y="-7.62" visible="pad" length="middle"/>
+<pin name="P$4" x="-5.08" y="2.54" visible="pad" length="middle"/>
+<pin name="P$3" x="-5.08" y="5.08" visible="pad" length="middle"/>
+<pin name="P$2" x="-5.08" y="7.62" visible="pad" length="middle"/>
+<pin name="P$1" x="-5.08" y="10.16" visible="pad" length="middle"/>
+<pin name="P$9" x="-5.08" y="-10.16" visible="pad" length="middle"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -4500,6 +4540,40 @@
 <connect gate="BOT" pin="2" pad="2"/>
 <connect gate="TOP" pin="1" pad="3"/>
 <connect gate="TOP" pin="2" pad="4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="DUAL-DSUB9" prefix="B">
+<description>ASUB-227-09TPXX dual dsub9 connector</description>
+<gates>
+<gate name="G$1" symbol="DSUB9" x="0" y="-12.7"/>
+<gate name="G$2" symbol="DSUB9" x="0" y="12.7"/>
+</gates>
+<devices>
+<device name="" package="ASUB-227-09TPXX">
+<connects>
+<connect gate="G$1" pin="P$1" pad="B1"/>
+<connect gate="G$1" pin="P$2" pad="B2"/>
+<connect gate="G$1" pin="P$3" pad="B3"/>
+<connect gate="G$1" pin="P$4" pad="B4"/>
+<connect gate="G$1" pin="P$5" pad="B5"/>
+<connect gate="G$1" pin="P$6" pad="B6"/>
+<connect gate="G$1" pin="P$7" pad="B7"/>
+<connect gate="G$1" pin="P$8" pad="B8"/>
+<connect gate="G$1" pin="P$9" pad="B9"/>
+<connect gate="G$2" pin="P$1" pad="T1"/>
+<connect gate="G$2" pin="P$2" pad="T2"/>
+<connect gate="G$2" pin="P$3" pad="T3"/>
+<connect gate="G$2" pin="P$4" pad="T4"/>
+<connect gate="G$2" pin="P$5" pad="T5"/>
+<connect gate="G$2" pin="P$6" pad="T6"/>
+<connect gate="G$2" pin="P$7" pad="T7"/>
+<connect gate="G$2" pin="P$8" pad="T8"/>
+<connect gate="G$2" pin="P$9" pad="T9"/>
 </connects>
 <technologies>
 <technology name=""/>
