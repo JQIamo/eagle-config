@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.7.0">
+<eagle version="9.0.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
+<setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
@@ -60,7 +61,11 @@
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
 <layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
+<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
+<layer number="59" name="Invisible" color="7" fill="1" visible="no" active="no"/>
+<layer number="61" name="stand" color="7" fill="1" visible="no" active="no"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -73,11 +78,60 @@
 <layer number="99" name="SpiceOrder" color="5" fill="1" visible="no" active="no"/>
 <layer number="100" name="Muster" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="101" name="Provvisory" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="102" name="Vscore" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="103" name="origins2" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="104" name="Name" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="105" name="fp5" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="106" name="Copy_From" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="107" name="Paste_To" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="108" name="fp8" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="109" name="fp9" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="110" name="fp0" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="111" name="Text" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="112" name="2Restrict" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="116" name="Patch_BOT" color="9" fill="4" visible="yes" active="yes"/>
+<layer number="121" name="_tsilk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="122" name="_bsilk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="123" name="tTestmark" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="124" name="bTestmark" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="125" name="_tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="130" name="bLogo" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="131" name="tText" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="132" name="bMask" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="144" name="DrillLegend" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="151" name="HeatSink" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="199" name="Contour" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="200" name="200bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="201" name="201bmp" color="2" fill="1" visible="no" active="no"/>
+<layer number="202" name="202bmp" color="3" fill="1" visible="no" active="no"/>
+<layer number="203" name="203bmp" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="204" name="204bmp" color="5" fill="10" visible="yes" active="yes"/>
+<layer number="205" name="205bmp" color="6" fill="10" visible="yes" active="yes"/>
+<layer number="206" name="206bmp" color="7" fill="10" visible="yes" active="yes"/>
+<layer number="207" name="207bmp" color="8" fill="10" visible="yes" active="yes"/>
+<layer number="208" name="208bmp" color="9" fill="10" visible="yes" active="yes"/>
+<layer number="209" name="209bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="210" name="210bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="211" name="211bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="212" name="212bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="213" name="213bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="214" name="214bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="215" name="215bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="216" name="216bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="217" name="217bmp" color="18" fill="1" visible="no" active="no"/>
+<layer number="218" name="218bmp" color="19" fill="1" visible="no" active="no"/>
+<layer number="219" name="219bmp" color="20" fill="1" visible="no" active="no"/>
+<layer number="220" name="220bmp" color="21" fill="1" visible="no" active="no"/>
+<layer number="221" name="221bmp" color="22" fill="1" visible="no" active="no"/>
+<layer number="222" name="222bmp" color="23" fill="1" visible="no" active="no"/>
+<layer number="223" name="223bmp" color="24" fill="1" visible="no" active="no"/>
+<layer number="224" name="224bmp" color="25" fill="1" visible="no" active="no"/>
+<layer number="231" name="Eagle3D_PG1" color="14" fill="1" visible="yes" active="yes"/>
+<layer number="232" name="Eagle3D_PG2" color="14" fill="2" visible="yes" active="yes"/>
+<layer number="233" name="Eagle3D_PG3" color="14" fill="4" visible="yes" active="yes"/>
 <layer number="250" name="Descript" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="251" name="SMDround" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="254" name="cooling" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <library>
 <description>&lt;h3&gt;Semiconductor-JQI&lt;/h3&gt;
@@ -198,6 +252,39 @@
 <text x="-2.5" y="3" size="1.27" layer="27">&gt;VALUE</text>
 <wire x1="-2.5" y1="1" x2="-2.5" y2="2.5" width="0.127" layer="21"/>
 <wire x1="-2.5" y1="2.5" x2="-1" y2="2.5" width="0.127" layer="21"/>
+</package>
+<package name="D_0603">
+<wire x1="-0.432" y1="-0.356" x2="0.432" y2="-0.356" width="0.1524" layer="51"/>
+<wire x1="0.432" y1="0.356" x2="-0.432" y2="0.356" width="0.1524" layer="51"/>
+<smd name="A" x="-0.75" y="0" dx="0.7" dy="0.9" layer="1"/>
+<smd name="C" x="0.75" y="0" dx="0.7" dy="0.9" layer="1"/>
+<text x="-1.089" y="-1.611" size="1.016" layer="25">&gt;NAME</text>
+<rectangle x1="0.4318" y1="-0.4318" x2="0.8382" y2="0.4318" layer="51"/>
+<rectangle x1="-0.8382" y1="-0.4318" x2="-0.4318" y2="0.4318" layer="51"/>
+<wire x1="-0.762" y1="0.762" x2="0.254" y2="0.762" width="0.127" layer="21"/>
+<wire x1="0.254" y1="0.762" x2="0.762" y2="0.762" width="0.127" layer="21"/>
+<wire x1="-0.254" y1="0.508" x2="-0.254" y2="1.016" width="0.127" layer="21"/>
+<wire x1="-0.254" y1="1.016" x2="0.254" y2="0.762" width="0.127" layer="21"/>
+<wire x1="0.254" y1="0.762" x2="-0.254" y2="0.508" width="0.127" layer="21"/>
+<wire x1="0.254" y1="0.508" x2="0.254" y2="0.762" width="0.127" layer="21"/>
+<wire x1="0.254" y1="0.762" x2="0.254" y2="1.016" width="0.127" layer="21"/>
+</package>
+<package name="D_0402">
+<wire x1="0.75" y1="0.5" x2="0.75" y2="-0.5" width="0.05" layer="21"/>
+<wire x1="0.75" y1="-0.5" x2="-0.75" y2="-0.5" width="0.05" layer="21"/>
+<wire x1="-0.75" y1="-0.5" x2="-0.75" y2="0.5" width="0.05" layer="21"/>
+<wire x1="-0.75" y1="0.5" x2="0.75" y2="0.5" width="0.05" layer="21"/>
+<smd name="A" x="-0.35" y="0" dx="0.4" dy="0.7" layer="1"/>
+<smd name="C" x="0.35" y="0" dx="0.4" dy="0.7" layer="1"/>
+<text x="-0.7" y="-1.2" size="0.6096" layer="25" font="vector" ratio="10">&gt;NAME</text>
+<rectangle x1="-0.7" y1="-0.45" x2="0.7" y2="0.45" layer="39"/>
+<wire x1="-0.762" y1="0.862" x2="0.254" y2="0.862" width="0.127" layer="21"/>
+<wire x1="0.254" y1="0.862" x2="0.762" y2="0.862" width="0.127" layer="21"/>
+<wire x1="-0.254" y1="0.608" x2="-0.254" y2="1.116" width="0.127" layer="21"/>
+<wire x1="-0.254" y1="1.116" x2="0.254" y2="0.862" width="0.127" layer="21"/>
+<wire x1="0.254" y1="0.862" x2="-0.254" y2="0.608" width="0.127" layer="21"/>
+<wire x1="0.254" y1="0.608" x2="0.254" y2="0.862" width="0.127" layer="21"/>
+<wire x1="0.254" y1="0.862" x2="0.254" y2="1.116" width="0.127" layer="21"/>
 </package>
 </packages>
 <symbols>
@@ -337,6 +424,16 @@
 <pin name="C" x="-5.08" y="0" visible="off" length="short" direction="pas"/>
 <pin name="A" x="5.08" y="0" visible="off" length="short" direction="pas" rot="R180"/>
 <pin name="AC" x="0" y="2.54" visible="off" length="short" direction="pas" rot="R270"/>
+</symbol>
+<symbol name="DIODE">
+<wire x1="-1.27" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
+<text x="2.54" y="0.4826" size="1.778" layer="95">&gt;NAME</text>
+<pin name="A" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
+<pin name="C" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -489,6 +586,32 @@ ZXMP10A17E6</description>
 <connect gate="G$1" pin="A" pad="P$1"/>
 <connect gate="G$1" pin="AC" pad="P$3"/>
 <connect gate="G$1" pin="C" pad="P$2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="DIODE" prefix="D">
+<description>Generic Diode, standard packages</description>
+<gates>
+<gate name="G$1" symbol="DIODE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="0603" package="D_0603">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="0402" package="D_0402">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
 </connects>
 <technologies>
 <technology name=""/>
