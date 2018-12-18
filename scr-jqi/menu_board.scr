@@ -5,7 +5,7 @@
 # the editor windows you have to activate the option 'Command texts'
 # in the 'Options/User Interface' menu.
 
-MENU '[jqi.png]'\ 
+MENU '[jqi.png]'\
 	'Grid {\
              Metric   {\
                         Fine   : Grid mm 0.1; |\
@@ -20,8 +20,12 @@ MENU '[jqi.png]'\
              Off : Grid Off;\
            }'\
      'Display {\
-		    Placing   : script mounting_view; |\
-		    Standard  : script standard_view; |\
+		    Placing   : Display None Top Dimension tPlace\
+                        Docu tDocu Unrouted tCream tNames; |\
+		    Standard  : Display None Top Route2 Route3 Route4 Route5 Route6\
+                        Route7 Route8 Route9 Route10 Route11 Route12 Route13\
+                        Route14 Route15 Bottom Pads Vias Dimension tPlace\
+                        Docu tDocu Unrouted tCream tNames; |\
                 Top       : Display None Top    Pads Vias Dimension; |\
                 Bottom    : Display None Bottom Pads Vias Dimension; |\
                 Placeplan {\
@@ -37,5 +41,5 @@ MENU '[jqi.png]'\
      'CopyPlacing: run copyplacing-2; script copyplacing'\
      'Statistics: run statistic-brd'\
      'Next_unrouted: run zoom-unrouted'\
-     'Drill_menu: SET Drill_menu .008 .016 .020 .025 .029 .033 .036 .040 .043 .046 .053 .061 .067 .080 .087 .093'				
+     'Drill_menu: SET Drill_menu .008 .016 .020 .025 .029 .033 .036 .040 .043 .046 .053 .061 .067 .080 .087 .093'
      ;
