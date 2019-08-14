@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -723,7 +723,7 @@
 <text x="-3.3528" y="2.2606" size="1.27" layer="21" ratio="6" rot="SR0">*</text>
 <text x="-3.2766" y="-0.635" size="1.27" layer="25" ratio="6" rot="SR0">&gt;Name</text>
 </package>
-<package name="SC70-6L" urn="urn:adsk.eagle:footprint:8083965/1">
+<package name="SC70-6L" urn="urn:adsk.eagle:footprint:8083965/1" locally_modified="yes">
 <description>&lt;b&gt;SC-70 Package&lt;/b&gt;</description>
 <wire x1="-1.1" y1="0.5" x2="1.1" y2="0.5" width="0.2032" layer="51"/>
 <wire x1="1.1" y1="0.5" x2="1.1" y2="-0.5" width="0.2032" layer="21"/>
@@ -738,12 +738,6 @@
 <smd name="6" x="-0.65" y="0.85" dx="0.35" dy="0.8" layer="1"/>
 <text x="-1.2" y="1.35" size="1.016" layer="25">&gt;NAME</text>
 <text x="-1.2" y="-2.35" size="1.016" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.8" y1="-1.1" x2="-0.5" y2="-0.6" layer="51"/>
-<rectangle x1="-0.15" y1="-1.1" x2="0.15" y2="-0.6" layer="51"/>
-<rectangle x1="0.5" y1="-1.1" x2="0.8" y2="-0.6" layer="51"/>
-<rectangle x1="0.5" y1="0.6" x2="0.8" y2="1.1" layer="51"/>
-<rectangle x1="-0.15" y1="0.6" x2="0.15" y2="1.1" layer="51"/>
-<rectangle x1="-0.8" y1="0.6" x2="-0.5" y2="1.1" layer="51"/>
 </package>
 </packages>
 <symbols>
@@ -843,6 +837,23 @@
 <wire x1="-2.54" y1="-5.08" x2="-5.08" y2="-7.62" width="0.254" layer="94"/>
 <pin name="NC" x="6.35" y="-2.54" visible="off" length="short" direction="pas" rot="R180"/>
 <wire x1="3.81" y1="-2.54" x2="2.54" y2="-1.27" width="0.254" layer="94"/>
+</symbol>
+<symbol name="D-LATCH">
+<wire x1="-5.08" y1="5.08" x2="5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="-5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-5.08" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
+<pin name="LE" x="-7.62" y="2.54" visible="off" length="short" direction="in"/>
+<pin name="D" x="-7.62" y="-2.54" visible="off" length="short" direction="in"/>
+<pin name="Q" x="7.62" y="0" visible="off" length="short" direction="out" rot="R180"/>
+<pin name="VCC" x="-2.54" y="6.35" visible="off" length="short" direction="in" rot="R270"/>
+<pin name="GND" x="-2.54" y="-6.35" visible="off" length="short" direction="in" rot="R90"/>
+<pin name="~OE" x="2.54" y="-3.81" visible="off" length="short" direction="in" rot="R90"/>
+<text x="-7.62" y="3.048" size="1.27" layer="97">LE</text>
+<text x="-7.62" y="-2.032" size="1.27" layer="97">D</text>
+<text x="5.842" y="0.508" size="1.27" layer="97">Q</text>
+<text x="4.318" y="-5.08" size="1.27" layer="97" rot="R90">~OE</text>
+<text x="-0.762" y="4.064" size="1.27" layer="97" rot="R90">VCC</text>
+<text x="-2.032" y="-3.81" size="1.27" layer="97" rot="R270">GND</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -1017,6 +1028,27 @@
 <attribute name="MANUFACTURER_PART_NUMBER" value="OPA2211AIDDA" constant="no"/>
 <attribute name="VENDOR" value="Texas Instruments" constant="no"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SN74LVC1G373" prefix="IC">
+<description>Texas Instruments SN74LVC1G373 tristate transparent d-latch.</description>
+<gates>
+<gate name="G$1" symbol="D-LATCH" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SC70-6L">
+<connects>
+<connect gate="G$1" pin="D" pad="3"/>
+<connect gate="G$1" pin="GND" pad="2"/>
+<connect gate="G$1" pin="LE" pad="1"/>
+<connect gate="G$1" pin="Q" pad="4"/>
+<connect gate="G$1" pin="VCC" pad="5"/>
+<connect gate="G$1" pin="~OE" pad="6"/>
+</connects>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
