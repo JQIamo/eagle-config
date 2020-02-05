@@ -1173,7 +1173,7 @@ zombie */
         if (!P.width) PolyWidthError = 1;
         P.wires(W) {
           if (W.width < 10) {
-            sprintf(PolygonLayer[cPolygonL], "Package\t%s.PAC \t%d\t%d\t%.4f\t%.4f", E.package.name, W.layer, P.rank, P.width,P.isolate);
+            sprintf(PolygonLayer[cPolygonL], "Package\t%s.PAC \t%d\t%d\t%d\t%d", E.package.name, W.layer, P.rank, P.width,P.isolate);
             cPolygonL++;
           }
           break;
