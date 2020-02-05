@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.0.1">
+<eagle version="9.3.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -3520,6 +3520,21 @@
 <text x="-2" y="-3" size="1.27" layer="21" rot="R90">&gt;NAME</text>
 <pad name="3" x="0" y="2" drill="0.8" diameter="1.27" shape="octagon" rot="R90"/>
 </package>
+<package name="TWINAX-V">
+<pad name="P$2" x="1.6002" y="0" drill="0.889"/>
+<pad name="P$1" x="-1.6002" y="0" drill="0.889"/>
+<pad name="P$3" x="0" y="-2.54" drill="0.889"/>
+<pad name="P$4" x="5.08" y="5.08" drill="2.0066"/>
+<pad name="P$5" x="-5.08" y="-5.08" drill="2.0066"/>
+<wire x1="7.62" y1="7.62" x2="7.62" y2="-7.62" width="0.127" layer="21"/>
+<wire x1="7.62" y1="-7.62" x2="-7.62" y2="-7.62" width="0.127" layer="21"/>
+<wire x1="-7.62" y1="-7.62" x2="-7.62" y2="7.62" width="0.127" layer="21"/>
+<wire x1="-7.62" y1="7.62" x2="7.62" y2="7.62" width="0.127" layer="21"/>
+<circle x="0" y="0" radius="4.192921875" width="0.127" layer="21"/>
+<wire x1="0" y1="5.08" x2="0" y2="-5.08" width="0.127" layer="21"/>
+<text x="-3.81" y="3.81" size="1.27" layer="21">F</text>
+<text x="3.81" y="-3.81" size="1.27" layer="21">M</text>
+</package>
 </packages>
 <symbols>
 <symbol name="COAX">
@@ -4063,6 +4078,19 @@
 <wire x1="2.54" y1="7.62" x2="-2.54" y2="7.62" width="0.254" layer="94"/>
 <wire x1="-2.54" y1="7.62" x2="-2.54" y2="2.54" width="0.254" layer="94"/>
 <wire x1="2.54" y1="2.54" x2="2.54" y2="7.62" width="0.254" layer="94"/>
+</symbol>
+<symbol name="TWINAX">
+<pin name="P$1" x="-7.62" y="2.54" visible="pad" length="middle"/>
+<pin name="P$2" x="-7.62" y="-2.54" visible="pad" length="middle"/>
+<pin name="P$3" x="-7.62" y="-5.08" visible="pad" length="middle"/>
+<wire x1="0" y1="-2.54" x2="-2.54" y2="-0.508" width="0.254" layer="94" curve="-78.690068"/>
+<wire x1="-2.54" y1="0.508" x2="0" y2="2.54" width="0.254" layer="94" curve="-84.289407"/>
+<text x="-4.064" y="1.016" size="1.27" layer="94">F</text>
+<text x="-4.318" y="-1.778" size="1.27" layer="94">M</text>
+<wire x1="-2.54" y1="-5.08" x2="-1.016" y2="-3.556" width="0.254" layer="94"/>
+<wire x1="-1.016" y1="-3.556" x2="-0.254" y2="-3.556" width="0.254" layer="94"/>
+<wire x1="-0.254" y1="-3.556" x2="0" y2="-3.302" width="0.254" layer="94"/>
+<wire x1="0" y1="-3.302" x2="0" y2="-2.54" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -4936,6 +4964,23 @@
 <connect gate="G$1" pin="P$1" pad="1"/>
 <connect gate="G$1" pin="P$2" pad="2"/>
 <connect gate="G$1" pin="P$3" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TWINAX">
+<gates>
+<gate name="G$1" symbol="TWINAX" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TWINAX-V">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+<connect gate="G$1" pin="P$2" pad="P$2"/>
+<connect gate="G$1" pin="P$3" pad="P$3"/>
 </connects>
 <technologies>
 <technology name=""/>
